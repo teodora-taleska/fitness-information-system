@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Register = () => {
+
+const AdminLogin = () => {
     return(
         <div className="auth">
-            {/* <form>
+        
+            
+            
+                <form>
                     <h1>Fitness Information System</h1>
                     <p>Administrative access</p>
                     <input type="text" placeholder="id" required/>
@@ -15,9 +19,11 @@ const Register = () => {
                         <button className="login">Login</button>
                     </div>
                     
-                </form> */}
+                </form>
+        
+            
         </div>
     )
 }
 
-export default Register
+export default AdminLogin
