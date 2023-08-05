@@ -1,20 +1,31 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { FaBell, FaCalendar, FaUser} from "react-icons/fa"
-import { FiLogOut } from 'react-icons/fi'
+import { FiLogOut, FiMenu } from 'react-icons/fi'
+
 
 
 
 const UpperNav = () => {
     const [showNotifications, setShowNotifications] = useState(false);
     const [showAccountMenu, setShowAccountMenu] = useState(false);
-  
+    const [menuOpen, setMenuOpen] = useState(false);
+
     const toggleNotifications = () => {
       setShowNotifications(!showNotifications);
     };
   
     const toggleAccountMenu = () => {
       setShowAccountMenu(!showAccountMenu);
+    };
+
+  
+    const toggleMenu = () => {
+      setMenuOpen(!menuOpen);
+    };
+
+    const closeMenu = () => {
+        setMenuOpen(false);
     };
 
     return(
@@ -83,16 +94,41 @@ const UpperNav = () => {
                                 </p>
                             </div>
                             
-                            <div  className="notification">
+                            <Link to="/"><div  className="notification">
                                 <p><FiLogOut /> 
                                 <b>Logout</b> </p>
-                            </div>
+                            </div></Link>
                         </div>
                         )}
                         {showAccountMenu && <div className="overlay" onClick={toggleAccountMenu}></div>}
                     </div>
                     </li>
            </ul>
+
+           {/* Add the menu toggle button */}
+
+           <div className={`menu-toggle ${menuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+                    <FiMenu />
+                </div>
+
+                 {/* Dropdown menu */}
+                    {menuOpen && (
+                        <div className="dropdown">
+                            <ul className="nav-open">
+                                <li><Link to='/home' onClick={closeMenu}>Home</Link></li>
+                                <li><Link onClick={closeMenu}>About</Link></li>
+                                <li><Link onClick={closeMenu}>Activities</Link></li>
+                                <li><Link to="/home/events" onClick={closeMenu}>Events</Link></li>
+                                <li><Link to="/home/shop" onClick={closeMenu}>Shop</Link></li>
+                                <li><Link to="/home/contact" onClick={closeMenu}>Contact</Link></li>
+                                <li><Link onClick={closeMenu}>Profile</Link></li>
+                            </ul>
+                        </div>
+                    )}
+
+                {/* Overlay */}
+            {menuOpen && <div className={`overlay ${menuOpen ? 'active' : ''}`} onClick={toggleMenu}></div>}
+                     
            
         </div>
     )

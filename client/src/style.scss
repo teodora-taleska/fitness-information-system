@@ -283,7 +283,7 @@ html{
         justify-content: space-between;
         padding: 10px 20px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
+    
 
         /* Style the logo */
         .logo a {
@@ -325,7 +325,7 @@ html{
         /* Style the dropdown menus */
         .dropdown {
             position: absolute;
-            top: 50px;
+            top: 55px;
             right: 0;
             background-color: white;
             border: 1px solid #ccc;
@@ -339,7 +339,8 @@ html{
             
 
 
-            div{
+            div {
+
                 padding-left: 10px;
                 cursor: pointer;
                 color: rgb(0, 0, 0);
@@ -377,6 +378,75 @@ html{
         .icon:hover + .dropdown, .dropdown:hover, .overlay {
             display: block;
         }
+
+        // For smaller screens 
+        .menu-toggle {
+            display: none; /* Hide the menu toggle button by default */
+            cursor: pointer;
+            font-size: 1.5rem;
+          }
+          
+          /* Media query for smaller screens */
+          @media (max-width: 1050px) {
+            .menu-toggle {
+              display: block; /* Show the menu toggle button on smaller screens */
+              color: white;
+              position: relative;
+              right: 11px;
+            }
+
+            .nav-links{
+                display: none;
+                
+            }
+
+            .nav-open{
+                background-color: white;
+                border-radius: 5px;
+                z-index: 1;
+                padding: 5px;
+                
+
+            }
+
+            .nav-open a{
+                color: black;
+                text-decoration: none;
+                padding: 5px;
+             }
+
+            .nav-open a:hover{
+                color: rgba(0, 0, 0, 0.593);
+            }
+
+            .nav-open li{
+                padding: 10px 10px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.275);
+            }
+           
+           
+          
+            
+          
+            
+          }
+    }
+
+    // ADMIN NAV (left)
+    .admin-nav{
+        width: 250px;
+        height: 100vh;
+        background-color: #333;
+        color: #fff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: auto;
+    }
+
+    .admin{
+        margin-left: 250px;
+    }
          
 
     // HOME
