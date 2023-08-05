@@ -52,23 +52,23 @@ const Register = () => {
             <h3>Create an account</h3>
             {/* Form fields */}
             <label htmlFor='nameInput'>First name*</label>
-            <input type="text" id="nameInput" name="name" placeholder="Enter your first name" />
+            <input type="text" id="nameInput" name="name" placeholder="Enter your first name" required/>
             
 
             <label htmlFor='surname'>Last name*</label>
-            <input type="text" id="surname" name="surname" placeholder="Enter your last name" />
+            <input type="text" id="surname" name="surname" placeholder="Enter your last name" required/>
 
-            <label htmlFor='emal'>E-mail*</label>
-            <input type="email" id="email" name="email" placeholder="Enter your e-mail" />
+            <label htmlFor='email'>E-mail*</label>
+            <input type="email" id="email" name="email" placeholder="Enter your e-mail" required/>
 
             <label htmlFor='pass'>Password*</label>
-            <input type="password" id="password" name="password" placeholder="Enter password" />
+            <input type="password" id="password" name="password" placeholder="Enter password" required/>
 
             <label htmlFor='pass2'>Confirm password*</label>
-            <input type="password" id="pass2" name="pass2" placeholder="Confirm your password" />
+            <input type="password" id="pass2" name="pass2" placeholder="Confirm your password" required/>
 
             <label htmlFor='phone'>Phone number*</label>
-            <input type="text" id="phone" name="phone" placeholder="Enter your phone number" />
+            <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required/>
             
             <button onClick={handleNext} className="next">Next</button>
             

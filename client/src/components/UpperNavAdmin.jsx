@@ -1,8 +1,9 @@
 import React from "react";
 
+
 const UpperNavAdmin = () => {
     return(
-        <div className="upper-nav-admin">
+        <div className="navbar">
            
         </div>
     )

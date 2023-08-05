@@ -245,6 +245,7 @@ html{
   
         
         }
+
         /* Adjust padding for phone below 930px*/
         @media (max-width: 750px) {
             .auth{
@@ -268,8 +269,126 @@ html{
             }
         }}
 
-     
+    /* Reset default margin and padding */
+    body, ul {
+        margin: 0;
+        padding: 0;
+    }    
+    // UPPER NAV 
+    .navbar {
+        background-color: black;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+        /* Style the logo */
+        .logo a {
+        color: white;
+        font-size: 24px;
+        text-decoration: none;
+        }
+
+        /* Style the navigation links */
+        .nav-links {
+        list-style: none;
+        display: flex;
+        }
+
+        .nav-links li {
+        margin: 0 15px;
+        }
+
+        .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        }
+
+        .nav-links li:hover {
+        color: $lightPink; 
+        }
+        .nav-links a:hover {
+            color: $lightPink; 
+            }
+
+        /* Style the icons */
+        .nav-links li:last-child {
+        margin-left: auto;
+        }
+
         
+        /* Style the dropdown menus */
+        .dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            width: 150px;
+            margin-right: 40px;
+            padding: 10px;
+            
+
+
+            div{
+                padding-left: 10px;
+                cursor: pointer;
+                color: rgb(0, 0, 0);
+                border-bottom: 1px solid rgba(128, 128, 128, 0.531);
+                
+            }
+
+            div:hover{
+                color: rgba(0, 0, 0, 0.618);
+            }
+
+            b{
+                margin-left: 6px;
+            }
+        }
+        
+        .n{
+            width: 300px;
+            margin-right: 65px;
+        }
+        
+        /* Style the overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            z-index: 0;
+            display: none;
+        }
+        
+        /* Show the overlay when the dropdown is active */
+        .icon:hover + .dropdown, .dropdown:hover, .overlay {
+            display: block;
+        }
+         
+
+    // HOME
+    .home{
+        background-color: white;
+        display: flex;
+        justify-content: flex-start;
+        height: 92vh;
+        padding: 15px;
+        
+    }
+
 
   
 

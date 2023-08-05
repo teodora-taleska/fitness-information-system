@@ -89,23 +89,23 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path:"/m",
+    path:"/home",
     element: <Member />,
     children: [
       {
-        path: "/m",
+        path: "/home",
         element: <Home />
       },
       {
-        path: "/m/contact",
+        path: "/home/contact",
         element:<Contact/>
       },
       {
-        path: "/m/shop",
+        path: "/home/shop",
         element:<Shop/>
       },
       {
-        path:"/m/events",
+        path:"/home/events",
         element:<Events/>
       }
     ]
