@@ -8,7 +8,7 @@ const AdminLogin = () => {
         
             
             
-                <form>
+                <form className="form-m">
                     <h1>Fitness Information System</h1>
                     <p>Administrative access</p>
                     <input type="text" placeholder="id" required/>

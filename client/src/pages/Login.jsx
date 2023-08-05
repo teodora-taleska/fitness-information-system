@@ -8,7 +8,7 @@ const Login = () => {
         
             
             
-                <form>
+                <form className="form-m">
                     <h1>Fitness Information System</h1>
                     <p>We help you save your valuable time by consolidating all the information from one fitness center in one place. 
                     </p>
@@ -22,7 +22,7 @@ const Login = () => {
                     
                     <div className="buttons">
                         <button className="login">Login</button>
-                        <button className="register">Create profile</button>
+                        <Link to="/register"><button className="register">Create profile</button></Link>
                     </div>
                    
                     
