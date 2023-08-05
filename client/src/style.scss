@@ -432,6 +432,10 @@ html{
           }
     }
 
+    .admin{
+            margin-left: 250px;
+        }
+
     // ADMIN NAV (left)
     .admin-nav{
         width: 250px;
@@ -442,11 +446,73 @@ html{
         top: 0;
         left: 0;
         overflow-y: auto;
+
+        .nav-header {
+            padding: 20px;
+            text-align: center;
+          }
+          
+          .nav-list {
+            list-style-type: none;
+            padding: 0;
+          }
+          
+          .nav-item > a {
+            display: block;
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+          }
+          
+          .nav-item > a:hover {
+            background-color: #555;
+          }
+          
+          .dropdown {
+            display: none;
+            background-color: #444;
+            list-style-type: none;
+            padding: 0;
+          }
+          
+          .nav-item:hover .dropdown {
+            display: block;
+          }
+          
+          .dropdown li > a {
+            display: block;
+            padding: 10px 30px;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+          }
+          
+          .dropdown li > a:hover {
+            background-color: #555;
+          }
+
+          /* Style for the logout button */
+            .logout-button {
+                position: absolute;
+                bottom: 20px;
+                left: 47%;
+                background-color: transparent;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                transition: color 0.3s;
+            }
+            
+            
+            .logout-button:hover {
+                color: #ccc;
+                text-decoration: none;
+            }
+                    
     }
 
-    .admin{
-        margin-left: 250px;
-    }
+    
          
 
     // HOME
