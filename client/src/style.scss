@@ -2,6 +2,7 @@ $background: rgba(146, 41, 41, 0.65);
 $buttonsFontColor: rgb(146, 41, 41);
 $membership:rgb(148, 63, 63);
 $lightPink: rgb(235, 142, 142);
+$borderMenu: 1px solid rgba(128, 128, 128, 0.531);
 
 html{
     background-color: black;
@@ -269,261 +270,276 @@ html{
             }
         }}
 
-    /* Reset default margin and padding */
-    body, ul {
-        margin: 0;
-        padding: 0;
-    }    
-    // UPPER NAV 
-    .navbar {
-        background-color: black;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 20px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    
+        /* Reset default margin and padding */
+        body, ul {
+            margin: 0;
+            padding: 0;
+        }    
+        // UPPER NAV 
+        .navbar {
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        
 
-        /* Style the logo */
-        .logo a {
-        color: white;
-        font-size: 24px;
-        text-decoration: none;
-        }
+            /* Style the logo */
+            .logo a {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            }
 
-        /* Style the navigation links */
-        .nav-links {
-        list-style: none;
-        display: flex;
-        }
+            /* Style the navigation links */
+            .nav-links {
+            list-style: none;
+            display: flex;
+            }
 
-        .nav-links li {
-        margin: 0 15px;
-        }
+            .nav-links li {
+            margin: 0 15px;
+            }
 
-        .nav-links a {
-        color: white;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-        }
+            .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            }
 
-        .nav-links li:hover {
-        color: $lightPink; 
-        }
-        .nav-links a:hover {
+            .nav-links li:hover  {
             color: $lightPink; 
             }
-
-        /* Style the icons */
-        .nav-links li:last-child {
-        margin-left: auto;
-        }
-
-        
-        /* Style the dropdown menus */
-        .dropdown {
-            position: absolute;
-            top: 55px;
-            right: 0;
-            background-color: white;
-            border: 1px solid #ccc;
-            border-radius: 5px;
             
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            z-index: 1;
-            width: 150px;
-            margin-right: 40px;
-            padding: 10px;
+            .nav-links a:hover {
+                color: $lightPink; 
+            }
+
+            /* Style the icons */
+            .nav-links li:last-child {
+            margin-left: auto;
+            }
+
             
-
-
-            div {
-
-                padding-left: 10px;
-                cursor: pointer;
-                color: rgb(0, 0, 0);
-                border-bottom: 1px solid rgba(128, 128, 128, 0.531);
+            /* Style the dropdown menus */
+            .dropdown {
+                position: absolute;
+                top: 56.4px;
+                right: 0;
+                background-color: white;
+                border: 1px solid #ccc;
+                border-radius: 5px;
                 
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                z-index: 1;
+                width: 250px;
+                margin-right: 20px; 
+                // padding: 10px;
+                
+
+
+                div , .d{
+
+                    padding-left: 10px;
+                    cursor: pointer;
+                    color: rgb(0, 0, 0);
+                    padding: 12px;
+                }
+                .d{
+                  padding: 21px;
+                }
+
+               li{
+                list-style: none;
+               }
+                .n-header{
+                  color: black;
+                  margin-left: 12px;
+                }
+
+                b{margin-left: 4px;}
+
+                div:hover, .d:hover{
+                    color: rgb(0, 0, 0);
+                    background-color: rgb(242, 224, 224);
+                    left: 0px;
+                    
+                }
+
+                .user{
+                  margin-left: 7px;
+                }
+            }
+            
+           
+            
+            /* Style the overlay */
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.2);
+                z-index: 0;
+                display: none;
+            }
+            
+            /* Show the overlay when the dropdown is active */
+            .icon:hover + .dropdown, .dropdown:hover, .overlay {
+                display: block;
             }
 
-            div:hover{
-                color: rgba(0, 0, 0, 0.618);
+            // For smaller screens 
+            .menu-toggle {
+                display: none; /* Hide the menu toggle button by default */
+                cursor: pointer;
+                font-size: 1.5rem;
+              }
+              
+              /* Media query for smaller screens */
+              @media (max-width: 1050px) {
+                .menu-toggle {
+                  display: block; /* Show the menu toggle button on smaller screens */
+                  color: white;
+                  position: relative;
+                  right: 11px;
+                }
+
+                .menu-toggle:hover{
+                  color: $lightPink;
+                }
+
+                .nav-links{
+                    display: none;
+                    
+                }
+
+                .nav-open{
+                    background-color: white;
+                    border-radius: 5px;
+                    z-index: 1;
+                }
+
+                
+
+                .nav-open a{
+                    color: black;
+                    text-decoration: none;
+                    
+                }
+
+                .nav-open a:hover{
+                    color: rgba(0, 0, 0, 0.593);
+                }
+
+              
+              
+              
+                
+              
+                
+              }
+        }
+
+        .admin{
+                margin-left: 250px;
             }
 
-            b{
-                margin-left: 6px;
-            }
-        }
-        
-        .n{
-            width: 300px;
-            margin-right: 65px;
-        }
-        
-        /* Style the overlay */
-        .overlay {
+        // ADMIN NAV (left)
+        .admin-nav{
+            width: 250px;
+            height: 100vh;
+            background-color: #333;
+            color: #fff;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.2);
-            z-index: 0;
-            display: none;
-        }
-        
-        /* Show the overlay when the dropdown is active */
-        .icon:hover + .dropdown, .dropdown:hover, .overlay {
-            display: block;
-        }
+            overflow-y: auto;
 
-        // For smaller screens 
-        .menu-toggle {
-            display: none; /* Hide the menu toggle button by default */
-            cursor: pointer;
-            font-size: 1.5rem;
-          }
-          
-          /* Media query for smaller screens */
-          @media (max-width: 1050px) {
-            .menu-toggle {
-              display: block; /* Show the menu toggle button on smaller screens */
-              color: white;
-              position: relative;
-              right: 11px;
-            }
-
-            .nav-links{
-                display: none;
-                
-            }
-
-            .nav-open{
-                background-color: white;
-                border-radius: 5px;
-                z-index: 1;
-                padding: 5px;
-                
-
-            }
-
-            .nav-open a{
-                color: black;
-                text-decoration: none;
-                padding: 5px;
-             }
-
-            .nav-open a:hover{
-                color: rgba(0, 0, 0, 0.593);
-            }
-
-            .nav-open li{
-                padding: 10px 10px;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.275);
-            }
-           
-           
-          
-            
-          
-            
-          }
-    }
-
-    .admin{
-            margin-left: 250px;
-        }
-
-    // ADMIN NAV (left)
-    .admin-nav{
-        width: 250px;
-        height: 100vh;
-        background-color: #333;
-        color: #fff;
-        position: fixed;
-        top: 0;
-        left: 0;
-        overflow-y: auto;
-
-        .nav-header {
-            padding: 20px;
-            text-align: center;
-          }
-          
-          .nav-list {
-            list-style-type: none;
-            padding: 0;
-          }
-          
-          .nav-item > a {
-            display: block;
-            padding: 10px 20px;
-            color: #fff;
-            text-decoration: none;
-            transition: background-color 0.3s;
-          }
-          
-          .nav-item > a:hover {
-            background-color: #555;
-          }
-          
-          .dropdown {
-            display: none;
-            background-color: #444;
-            list-style-type: none;
-            padding: 0;
-          }
-          
-          .nav-item:hover .dropdown {
-            display: block;
-          }
-          
-          .dropdown li > a {
-            display: block;
-            padding: 10px 30px;
-            color: #fff;
-            text-decoration: none;
-            transition: background-color 0.3s;
-          }
-          
-          .dropdown li > a:hover {
-            background-color: #555;
-          }
-
-          /* Style for the logout button */
-            .logout-button {
-                position: absolute;
-                bottom: 20px;
-                left: 47%;
-                background-color: transparent;
-                border: none;
+            .nav-header {
+                padding: 20px;
+                text-align: center;
+              }
+              
+              .nav-list {
+                list-style-type: none;
+                padding: 0;
+              }
+              
+              .nav-item > a {
+                display: block;
+                padding: 10px 20px;
                 color: #fff;
-                cursor: pointer;
-                transition: color 0.3s;
-            }
-            
-            
-            .logout-button:hover {
-                color: #ccc;
                 text-decoration: none;
-            }
-                    
-    }
+                transition: background-color 0.3s;
+              }
+              
+              .nav-item > a:hover {
+                background-color: #555;
+              }
+              
+              .dropdown {
+                display: none;
+                background-color: #444;
+                list-style-type: none;
+                padding: 0;
+              }
+              
+              .nav-item .dropdown.active{
+                display: block;
+              }
+              
+              .dropdown li > a {
+                display: block;
+                padding: 10px 30px;
+                color: #fff;
+                text-decoration: none;
+                transition: background-color 0.3s;
+              }
+              
+              .dropdown li > a:hover {
+                background-color: #555;
+              }
+
+              /* Style for the logout button */
+                .logout-button {
+                    position: absolute;
+                    bottom: 20px;
+                    left: 47%;
+                    background-color: transparent;
+                    border: none;
+                    color: #fff;
+                    cursor: pointer;
+                    transition: color 0.3s;
+                }
+                
+                
+                .logout-button:hover {
+                    color: #ccc;
+                    text-decoration: none;
+                }
+                        
+        }
+
+        // ADMIN EDITING PAGE
+        
 
     
          
 
-    // HOME
-    .home{
-        background-color: white;
-        display: flex;
-        justify-content: flex-start;
-        height: 92vh;
-        padding: 15px;
-        
-    }
+        // HOME
+        .home{
+            background-color: white;
+            display: flex;
+            justify-content: flex-start;
+            height: 92vh;
+            padding: 15px;
+              
+          }
 
 
   

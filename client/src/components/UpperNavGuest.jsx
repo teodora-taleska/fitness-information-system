@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import { FiMenu } from "react-icons/fi";
+
+import { FaBell, FaUser, FaEvernote, FaInfo, FaShopify} from "react-icons/fa"
+import { FiActivity, FiLogOut, FiMenu, FiPhoneCall } from 'react-icons/fi'
 
 
 
@@ -52,16 +54,17 @@ const UpperNavGuest = () => {
                 </div>
 
                  {/* Dropdown menu */}
-                    {menuOpen && (
+                 {menuOpen && (
                         <div className="dropdown">
                             <ul className="nav-open">
-                                <li><Link to='/home' onClick={closeMenu}>Home</Link></li>
-                                <li><Link onClick={closeMenu}>About</Link></li>
-                                <li><Link onClick={closeMenu}>Activities</Link></li>
-                                <li><Link to="/home/events" onClick={closeMenu}>Events</Link></li>
-                                <li><Link to="/home/shop" onClick={closeMenu}>Shop</Link></li>
-                                <li><Link to="/home/contact" onClick={closeMenu}>Contact</Link></li>
-                                <li><Link to="/register" onClick={closeMenu}>Register</Link></li>
+                                <li className="d"><Link to='/home' onClick={closeMenu}><FaBell/><span className="user">Home</span></Link></li>
+                                <li className="d"><Link onClick={closeMenu}><FaInfo/><span className="user">About</span></Link></li>
+                                <li className="d"><Link onClick={closeMenu}><FiActivity/><span className="user">Activities</span></Link></li>
+                                <li className="d"><Link to="/home/events" onClick={closeMenu}><FaEvernote/><span className="user">Events</span></Link></li>
+                                <li className="d"><Link to="/home/shop" onClick={closeMenu}><FaShopify/><span className="user">Shop</span></Link></li>
+                                <li className="d"><Link to="/home/contact" onClick={closeMenu}><FiPhoneCall/><span className="user">Contact</span></Link></li>
+                                <li className="d"><Link onClick={closeMenu}><FaUser/><span className="user">Profile</span></Link></li>
+                                <li className="d"><Link to="/" onClick={closeMenu}><FiLogOut/><span className="user">Logout</span></Link></li>
                             </ul>
                         </div>
                     )}
