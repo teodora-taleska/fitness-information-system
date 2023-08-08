@@ -654,13 +654,85 @@ html{
 
             .about-section{
               justify-content: flex-start;
-              height: 100vh;
+              height: 20%;
               background-color: #290202;
               color: white;
               padding: $sectionPadding;
 
+              
 
             }
+
+            .gallery-section{
+              justify-content: flex-start;
+              text-align: center;
+              padding: 50px 0;
+              background-color: #121212;
+              color: white;
+              padding: $sectionPadding;
+              height: 100%;
+             
+             
+                
+              .image-container{
+                display: flex;
+                // flex-wrap: wrap;
+                justify-content: space-evenly;
+                width: 100%;
+                
+                
+                
+                .image1{
+                  background-image: url("1.jpg");
+                }
+                .image2{
+                  background-image: url("2.jpg");
+                }
+                .image3{
+                  background-image: url("3.jpg");
+                }
+
+                .image1, .image2, .image3{
+                  background-size: cover;
+                  width: 450px;
+                  height: 250px;
+                  
+                  margin: 10px;
+                  margin-top: 30px;
+                  box-shadow: 1.5px 1px 5px rgba(14, 14, 14, 0.745);
+                  transition: transform 0.3s ease, box-shadow 0.3s ease;
+                 
+                  &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.626);
+                  }
+                }
+
+                    
+              }
+        
+              
+              
+            }
+            @media (max-width: 462px) {
+                
+              .gallery-section{
+                height: 130vh;
+              .image-container {
+               flex-direction: column;
+               justify-content: center;
+               align-items: center;
+                .image1, .image2, .image3 {
+                  width: 300px;
+                  height: 180px; 
+
+                  
+                }
+              }
+              .image-container.passive{
+                opacity: 0;
+              }
+            }}
 
           }
 
