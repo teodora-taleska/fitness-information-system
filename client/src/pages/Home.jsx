@@ -49,9 +49,9 @@ const Home = () => {
                         <div className="image image3"></div>
                     </div>
                     <div className="image-container passive">
-                        <div className="image image2"></div>
-                        <div className="image image3"></div>
-                        <div className="image image1"></div>
+                        <div className="image image4"></div>
+                        <div className="image image5"></div>
+                        <div className="image image6"></div>
                     </div>
                 
                

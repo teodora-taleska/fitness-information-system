@@ -692,7 +692,19 @@ html{
                   background-image: url("3.jpg");
                 }
 
-                .image1, .image2, .image3{
+                .image4{
+                  background-image: url("4.jpg");
+                }
+
+                .image5{
+                  background-image: url("5.jpg");
+                }
+
+                .image6{
+                  background-image: url("6.jpg");
+                }
+
+                .image1, .image2, .image3, .image4, .image5, .image6{
                   background-size: cover;
                   width: 450px;
                   height: 250px;
@@ -717,7 +729,7 @@ html{
             @media (max-width: 462px) {
                 
               .gallery-section{
-                height: 130vh;
+                height: 120vh;
               .image-container {
                flex-direction: column;
                justify-content: center;
