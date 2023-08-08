@@ -3,52 +3,80 @@ $buttonsFontColor: rgb(146, 41, 41);
 $membership:rgb(148, 63, 63);
 $lightPink: rgb(235, 142, 142);
 $borderMenu: 1px solid rgba(128, 128, 128, 0.531);
+$buttonsHover: rgba(146, 41, 41, 0.708);;
+$buttonPadding: 1.125rem; /* Convert 18px to rem */
+$buttonMargin: 0.3125rem; /* Convert 5px to rem */
+$buttonBorderRadius: 0.3125rem; /* Convert 5px to rem */
+$buttonFontSize: 0.8rem;
+$buttonHoverFS: 0.9rem;
+$highlight: rgb(247, 54, 54);
+$sectionPadding: 35px;
 
 html{
+    font-size: 16px; /* Set the root font size */
     background-color: black;
 }
 
 .app{
 
     .container{
+
+      // BUTTONS
+      .buttons{
+        display: flex;
+
+      }
+      button{
+          padding: $buttonPadding;
+          margin: $buttonMargin;
+          flex:1;
+          border-radius: $buttonBorderRadius;
+          cursor: pointer;
+          font-size: $buttonFontSize;
+          transition: background-color 0.2s ease;
+          border:none;
+          
+      }
         
         //LOGIN & REGISTER
         .auth{
             display: flex;
             align-items: center;
             justify-content: flex-start;
-
-           height: 100vh;
-           background-image: url("welcome.jpeg");
-           color: white;
+            height: 100vh;
+            background-image: url("welcome.jpeg");
+            background-size: cover; 
+            background-repeat: no-repeat;
+            background-position: center center;
+            color: white;
            
             p{
                 text-align: justify;
             }
             .bottom{
                 text-align: center;
-                font-size: 12px;
+                font-size: 0.75rem;
                 color: rgba(255, 255, 255, 0.809);
             }
             h1{
                 text-align: left;
-                font-size: 30px;
+                font-size: 1.875rem;
                 color: rgb(255, 255, 255);
-                margin-bottom: 0px;
+                margin-bottom: 0;
             }
 
             .form-m{
                 display: flex;
                 justify-content: center;
                 flex-direction: column;
-                padding: 50px;
+                padding: 3.125rem; 
                 padding-right: 10%;
                 background-color: $background;
                 margin-left:40px;
                 padding-left: 10%;
                 
                 width: 30%;
-                gap: 20px;
+                gap: 1.25rem; 
                 height: 80%;
                 
             }
@@ -57,23 +85,22 @@ html{
 
             
             
-            input{
-                padding: 5px;
-                border: none;
-                border-bottom: 2px solid rgba(255, 255, 255, 0.436);
-                background-color: rgba(255, 255, 255, 0);
-                color: rgba(255, 255, 255, 0.902);
-                font-size: 13px;
+            input {
+              padding: 0.3125rem;
+              border: none;
+              border-bottom: 0.125rem solid rgba(255, 255, 255, 0.436);
+              background-color: rgba(255, 255, 255, 0);
+              color: rgba(255, 255, 255, 0.902);
+              font-size: 0.8125rem;
             }
-            br{
-                margin-top: 10px;
+      
+            br {
+              margin-top: 0.625rem;
             }
-        
-            
-    
-            span{
-                color: white;
-                margin-top: 5px;
+      
+            span {
+              color: white;
+              margin-top: 0.3125rem;
             }
               
             .links{
@@ -82,25 +109,14 @@ html{
             }
              i{
                 color: rgba(228, 157, 157, 0.801);
-                font-size: 12px;
+                font-size: 0.75rem; 
                 
              }
 
              i:hover{
                 color: white;
              }
-            .buttons{
-                display: flex;
-
-            }
-            button{
-                padding: 25px;
-                margin: 5;
-                flex:1;
-                border-radius: 5px;
-                
-
-            }
+           
 
             .next, .back{
                 background-color: rgb(252, 236, 236);
@@ -108,25 +124,25 @@ html{
                 box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.2);
             }
             .next:hover, .back:hover{
-                background-color: $buttonsFontColor;
+                background-color: $buttonsHover;
                 color:white;
-                font-size: 17px;
+                font-size: $buttonHoverFS;
                 border-color: $buttonsFontColor;
-                transition: background-color 0.4s, color 0.4s, font-size 0.4s;
+                transition: background-color 0.2s, color 0.2s, font-size 0.2s;
             }
            
               
             .login{
-                background-color: $buttonsFontColor;
+                background-color: $buttonsHover;
                 color: white;
-                font-size: 15px;
+                font-size: $buttonFontSize;
                 border-color: $buttonsFontColor;
-                transition: background-color 0.4s, color 0.4s, font-size 0.4s;
+                transition: background-color 0.2s, color 0.2s, font-size 0.2s;
             } 
             .login:hover{
                 background-color: rgb(252, 236, 236);
                 color: $buttonsFontColor;
-                font-size: 17px;
+                font-size: $buttonHoverFS;
                 box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.2);
                
                 
@@ -135,68 +151,67 @@ html{
                 background-color: rgb(252, 236, 236);
                 border-color: rgb(231, 201, 201);
                 color: $buttonsFontColor;
-                transition: background-color 0.4s, color 0.4s, font-size 0.4s;
+                transition: background-color 0.2s, color 0.2s, font-size 0.2s;
             }
             .register:hover{
                 background-color: rgb(243, 207, 207);
-                font-size: 16px;
+                font-size: $buttonHoverFS;
                 border-color: $buttonsFontColor;
                 box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.2);
             }
 
-/* Register form */
+            /* Register form */
 
-  .progress-dots {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-    margin-top: 20px;
-  }
-  
-  .progress-dots span {
-    width: 15px;
-    height: 15px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 50%;
-    margin: 0 5px;
-  }
-  
-  .progress-dots .active {
-    background-color: $lightPink; 
-  
-    box-shadow: 1px 1px 2px rgb(148, 115, 115);
-  }
-  
-  .membership-option {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .membership-option h3 {
-    margin-top: 0;
-  }
-  
-  
-  label{
-    font-size: 13px;
-  }
+              .progress-dots {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 0.625rem;
+                margin-top: 1.25rem;
+              }
+              
+              .progress-dots span {
+                width: 1rem;
+                height: 1rem;
+                background-color: rgb(255, 255, 255);
+                border-radius: 50%;
+                margin: 0 5px;
+              }
+              
+              .progress-dots .active {
+                background-color: $lightPink;        
+                box-shadow: 1px 1px 2px rgb(148, 115, 115);
+              }
+              
+              .membership-option {
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                padding: 0.625rem;;
+                margin-bottom: 0.625rem;;
+              }
+              
+              .membership-option h3 {
+                margin-top: 0;
+              }
+              
+              
+              label{
+                font-size: 0.6rem;
+              }
 
-.membership-option {
-    background-color: $membership;
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-  }
-  
-  .membership-option.selected {
-    background-color: rgb(255, 255, 255);
-    color: $buttonsFontColor;
-  }
-  
+            .membership-option {
+                background-color: $membership;
+                border: none;
+                border-radius: 8px;
+                padding: 10px;
+                margin-bottom: 10px;
+                cursor: pointer;
+              }
+              
+              .membership-option.selected {
+                background-color: rgba(255, 255, 255, 0.75);
+                color: $buttonsFontColor;
+              }
+              
 /* Styles for the popup container */
 .popup {
     position: fixed;
@@ -269,12 +284,7 @@ html{
             width: 20%;
             }
         }}
-
-        /* Reset default margin and padding */
-        body, ul {
-            margin: 0;
-            padding: 0;
-        }    
+ 
         // UPPER NAV 
         .navbar {
             background-color: rgb(0, 0, 0);
@@ -284,6 +294,7 @@ html{
             justify-content: space-between;
             padding: 10px 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            padding-left: 25px;
         
 
             /* Style the logo */
@@ -430,6 +441,7 @@ html{
                     color: black;
                     text-decoration: none;
                     
+                    
                 }
 
                 .nav-open a:hover{
@@ -536,9 +548,120 @@ html{
             background-color: white;
             display: flex;
             justify-content: flex-start;
-            height: 92vh;
-            padding: 15px;
+            flex-direction: column;
+                
               
+                
+
+            section {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              height: 95vh;
+             
+              
+              
+              span{
+                color: $highlight;
+              }
+
+              h2 {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+              }
+          
+              p {
+                font-size: 1rem;
+                line-height: 1.6;
+                color: rgba(255, 255, 255, 0.972);
+              }
+          
+            
+              
+          
+                              
+            }
+
+            .header{
+              position: relative; /* Needed for positioning overlay */
+              background-image: url("women-model.jpg");
+              background-size: cover; 
+              background-repeat: no-repeat;
+              background-position: center center;
+              
+
+              h2{
+                text-align: left;
+              }
+              p{
+                text-align: justify;
+              }
+              .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.717);
+                // z-index: 1;
+
+                .scroll-indicator {
+                  position:absolute;
+                  bottom: 35px;
+                  left: 50%;
+                  color: #999;
+                }
+                
+                .scroll-indicator svg {
+                  width: 24px;
+                  height: 24px;
+                  animation: bounce 2s infinite;
+                }
+                
+
+                @keyframes bounce {
+                  0%, 20%, 50%, 80%, 100% {
+                    transform: translateY(0);
+                  }
+                  40% {
+                    transform: translateY(-10px);
+                  }
+                  60% {
+                    transform: translateY(-5px);
+                  }
+                }
+                
+              }
+              
+
+              .content {
+                position: relative;
+                color: #fff;
+                padding: $sectionPadding;
+
+                button{
+                  color: $buttonsFontColor;
+                  
+                }
+                button:hover{
+                  color: #ffffff;
+                  background-color: $highlight;
+                }
+              }
+               
+            }
+
+            .about-section{
+              justify-content: flex-start;
+              height: 100vh;
+              background-color: #290202;
+              color: white;
+              padding: $sectionPadding;
+
+
+            }
+
           }
 
 

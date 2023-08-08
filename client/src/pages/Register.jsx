@@ -70,7 +70,7 @@ const Register = () => {
             <label htmlFor='phone'>Phone number*</label>
             <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required/>
             
-            <button onClick={handleNext} className="next">Next</button>
+            <button onClick={handleNext} className="next">NEXT</button>
             
             <p className='bottom'>You alredy have an account?<Link to="/"><i>Login</i></Link></p>
           </div>
@@ -116,13 +116,13 @@ const Register = () => {
             </div>
 
             <div className='buttons'>
-                <button onClick={handleBack} className="back">Back</button>
+                <button onClick={handleBack} className="back">BACK</button>
                 <button
                 onClick={handleNext}
                 className="next"
                 disabled={!selectedMembership} // Disable the button if no membership is selected
                 >
-                Next
+                NEXT
                 </button>
             </div>
           </div>
@@ -155,8 +155,8 @@ const Register = () => {
             <input type="text" id="billingAddress" name="billingAddress" placeholder="Enter billing address" required/>
 
             <div className='buttons'>
-                <button onClick={handleBack} className='back'>Back</button>
-                <button onClick={handleDone} className="login">Done</button>
+                <button onClick={handleBack} className='back'>BACK</button>
+                <button onClick={handleDone} className="login">DONE</button>
             </div>
           </div>
         );
@@ -176,8 +176,8 @@ const Register = () => {
         <div className="popup">
           <div className="popup-content">
             <p>Are you sure you want to proceed with the transaction?</p>
-            <button onClick={handleConfirmTransaction}>Yes</button>
-            <button onClick={() => setShowConfirmationPopup(false)}>Cancel</button>
+            <button onClick={handleConfirmTransaction}>YES</button>
+            <button onClick={() => setShowConfirmationPopup(false)}>CANCEL</button>
           </div>
         </div>
       )}

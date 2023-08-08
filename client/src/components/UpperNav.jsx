@@ -30,7 +30,7 @@ const UpperNav = () => {
     return(
         <div className="navbar">
            <div className="logo">
-            <Link to="/home">FitnessCenter</Link>
+            <Link to="/home">FusionFit</Link>
            </div>
 
            <ul className="nav-links">
@@ -38,7 +38,7 @@ const UpperNav = () => {
                     <Link to='/home'>Home</Link>
                 </li>
                 <li>
-                    <Link >About</Link>
+                    <Link >About us</Link>
                 </li>
                 <li>
                     <Link>Activities</Link>
@@ -115,13 +115,14 @@ const UpperNav = () => {
                     {menuOpen && (
                         <div className="dropdown">
                             <ul className="nav-open">
-                                <Link to='/home' onClick={closeMenu}><li className="d"><FaBell/><span className="user">Home</span></li></Link>
-                                <Link onClick={closeMenu}><li className="d"><FaInfo/><span className="user">About</span></li></Link>
+                            <Link onClick={closeMenu}><li className="d"><FaUser/><span className="user">Profile</span></li></Link>
+                                <Link to='/home' onClick={closeMenu}><li className="d"><FaHome/><span className="user">Home</span></li></Link>
+                                <Link onClick={closeMenu}><li className="d"><FaInfo/><span className="user">About us</span></li></Link>
                                 <Link onClick={closeMenu}><li className="d"><FiActivity/><span className="user">Activities</span></li></Link>
                                 <Link to="/home/events" onClick={closeMenu}><li className="d"><FaEvernote/><span className="user">Events</span></li></Link>
                                 <Link to="/home/shop" onClick={closeMenu}><li className="d"><FaShopify/><span className="user">Shop</span></li></Link>
                                 <Link to="/home/contact" onClick={closeMenu}><li className="d"><FiPhoneCall/><span className="user">Contact</span></li></Link>
-                                <Link onClick={closeMenu}><li className="d"><FaUser/><span className="user">Profile</span></li></Link>
+                               
                                 <Link to="/" onClick={closeMenu}><li className="d"><FiLogOut/><span className="user">Logout</span></li></Link>
                             </ul>
                         </div>

@@ -21,8 +21,8 @@ const Login = () => {
                     </div>
                     
                     <div className="buttons">
-                        <button className="login">Login</button>
-                        <Link to="/register"><button className="register">Create profile</button></Link>
+                        <button className="login">LOGIN</button>
+                        <Link to="/register"><button className="register">CREATE PROFILE</button></Link>
                     </div>
                    
                     
