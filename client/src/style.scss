@@ -546,7 +546,7 @@ html{
          
 
         // HOME
-        .home, .shop{
+        .home{
             background-color: white;
             display: flex;
             justify-content: flex-start;
@@ -818,24 +818,26 @@ html{
         // SHOP
         .shop{
           background-image: url("shop.jpg");
-          
           background-repeat: no-repeat;
           height: 100vh;
-          justify-content: center;
+          display: flex;
+          flex-direction: column;
+       
           
 
           .main{
             height: 100vh;
             padding: $sectionPadding;
-            justify-content: center;
-            align-items: flex-start;
             z-index: 1;
+            display: flex;
+            align-items: center;
              h2{
               font-size: 3.5rem;
               color: white;
              }
              p{
               font-size: 1rem;
+              color: white;
              }
              button{
                   color: $buttonsFontColor;
