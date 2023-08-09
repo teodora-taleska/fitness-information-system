@@ -59,17 +59,21 @@ const Home = () => {
 
            
 
-            <section className="membership-section">
-                <h2>Join the FusionFit Family</h2>
-                <p>Ready to elevate your fitness game? Join us today!</p>
-                <p>Experience the benefits of FusionFit:</p>
-                <ul>
-                <li>Personalized fusion workouts</li>
-                <li>Certified trainers for guidance</li>
-                <li>A supportive community of fitness enthusiasts</li>
-                <li>Flexible membership options</li>
-                </ul>
-                <button className="join-button">Join Now</button>
+            <section className="joinus-section">
+                
+                <div className="content">
+                   <h2>Join the FusionFit Family</h2>
+                    <p>Ready to elevate your fitness game? Join us today!</p>
+                    <p>Experience the benefits of FusionFit:</p>
+                    <ul>
+                        <li>Personalized fusion workouts</li>
+                        <li>Certified trainers for guidance</li>
+                        <li>A supportive community of fitness enthusiasts</li>
+                        <li>Flexible membership options</li>
+                    </ul>
+                    <button className="join-button">JOIN NOW</button>  
+                </div>
+                
             </section>
 
             <footer className="footer">

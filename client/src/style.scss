@@ -558,7 +558,7 @@ html{
               flex-direction: column;
               align-items: center;
               justify-content: center;
-              height: 95vh;
+              // height: 95vh;
              
               
               
@@ -589,6 +589,7 @@ html{
               background-size: cover; 
               background-repeat: no-repeat;
               background-position: center center;
+              height: 95vh;
               
 
               h2{
@@ -639,9 +640,15 @@ html{
                 position: relative;
                 color: #fff;
                 padding: $sectionPadding;
+                
+                h2{
+                 margin-bottom: 20px;
+                }
 
                 button{
                   color: $buttonsFontColor;
+                  width: 175px;
+                  margin-top: 30px;
                   
                 }
                 button:hover{
@@ -729,7 +736,7 @@ html{
             @media (max-width: 462px) {
                 
               .gallery-section{
-                height: 120vh;
+                height: 110vh;
               .image-container {
                flex-direction: column;
                justify-content: center;
@@ -748,8 +755,73 @@ html{
 
           }
 
+          .joinus-section{
+              height: 90vh;
+              background-image: url("joinUs.jpg");
+              background-size:cover;
+              background-repeat: no-repeat;
+              padding: $sectionPadding;
+              // opacity: 0.9;
+              filter: brightness(1);
+             
+              
+              .content {
+                
+                position: absolute;
+                left: 6%;
+                color: #fff;
+                padding: $sectionPadding;
+                z-index: 1;
+                
+                text-align: left;
+                
+                h2{
+                  margin-bottom: 100px;
+                }
 
-  
+                button{
+                  color: $buttonsFontColor;
+                  margin-top: 30px;
+                  // position: relative;
+                  // left: 20%;
+                  width: 175px;
+                  
+                }
+                button:hover{
+                  color: #ffffff;
+                  background-color: $highlight;
+                }
+              }
+             
+          }
+          .joinus-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Overlay color */
+            mix-blend-mode: multiply; /* Blend mode to darken */
+          }
+
+          .footer{
+            background-color: rgb(0, 0, 0);
+            color: white;
+            padding: 20px;
+            text-align: center;
+
+            p{margin: 0;}
+          }
+
+                   
+          // .footer p::before {
+          //   content: "\00A9"; /* Unicode for © symbol */
+          //   font-size: 18px;
+          //   margin-right: 5px;
+          // }
+          
+          
 
     }
 
