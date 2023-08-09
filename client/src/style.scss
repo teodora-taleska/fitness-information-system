@@ -546,7 +546,7 @@ html{
          
 
         // HOME
-        .home{
+        .home, .shop{
             background-color: white;
             display: flex;
             justify-content: flex-start;
@@ -578,12 +578,9 @@ html{
                 line-height: 1.6;
                 color: rgba(255, 255, 255, 0.972);
               }
-          
-            
-              
-          
-                              
+                           
             }
+          
 
             .header{
               position: relative; /* Needed for positioning overlay */
@@ -598,6 +595,7 @@ html{
 
               h2{
                 text-align: left;
+                font-size: 3.5rem;
               }
               p{
                 text-align: justify;
@@ -760,7 +758,7 @@ html{
               }
             }}
 
-          }
+          
 
           .joinus-section{
               height: 90vh;
@@ -803,6 +801,7 @@ html{
               }
              
           }
+        
           .joinus-section::before {
             content: "";
             position: absolute;
@@ -814,13 +813,63 @@ html{
             mix-blend-mode: multiply; /* Blend mode to darken */
           }
 
-          .footer{
+        }
+
+        // SHOP
+        .shop{
+          background-image: url("shop.jpg");
+          
+          background-repeat: no-repeat;
+          height: 100vh;
+          justify-content: center;
+          
+
+          .main{
+            height: 100vh;
+            padding: $sectionPadding;
+            justify-content: center;
+            align-items: flex-start;
+            z-index: 1;
+             h2{
+              font-size: 3.5rem;
+              color: white;
+             }
+             p{
+              font-size: 1rem;
+             }
+             button{
+                  color: $buttonsFontColor;
+                  width: 175px;
+                  margin-top: 30px;
+                  
+             }
+             button:hover{
+              color: #ffffff;
+              background-color: $highlight;
+            }
+          }
+
+         
+        }
+        .shop::before {
+          content: "";
+          position: absolute;
+          top: 5;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.7); /* Overlay color */
+          mix-blend-mode: multiply; /* Blend mode to darken */
+        }
+
+          footer{
             background-color: rgb(0, 0, 0);
             color: white;
             padding: 20px;
             text-align: center;
 
             p{margin: 0;}
+            z-index: 1;
           }
 
           
