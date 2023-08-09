@@ -13,8 +13,10 @@ $highlight: rgb(247, 54, 54);
 $sectionPadding: 35px;
 
 html{
-    font-size: 16px; /* Set the root font size */
+    font-size: 15px; /* Set the root font size */
     background-color: black;
+    font-family: 'Archivo Black', sans-serif; 
+    
 }
 
 .app{
@@ -556,8 +558,8 @@ html{
             section {
               display: flex;
               flex-direction: column;
-              align-items: center;
-              justify-content: center;
+              // align-items: center;
+              // justify-content: center;
               // height: 95vh;
              
               
@@ -590,6 +592,8 @@ html{
               background-repeat: no-repeat;
               background-position: center center;
               height: 95vh;
+              align-items: flex-start;
+              justify-content: center;
               
 
               h2{
@@ -660,11 +664,13 @@ html{
             }
 
             .about-section{
-              justify-content: flex-start;
+              text-align: center;
               height: 20%;
               background-color: #290202;
               color: white;
               padding: $sectionPadding;
+              align-items: center;
+              justify-content: center;
 
               
 
@@ -678,6 +684,7 @@ html{
               color: white;
               padding: $sectionPadding;
               height: 100%;
+              
              
              
                 
@@ -763,6 +770,8 @@ html{
               padding: $sectionPadding;
               // opacity: 0.9;
               filter: brightness(1);
+              align-items: flex-start;
+              justify-content: center;
              
               
               .content {
@@ -776,7 +785,7 @@ html{
                 text-align: left;
                 
                 h2{
-                  margin-bottom: 100px;
+                  margin-bottom: 60px;
                 }
 
                 button{
@@ -814,12 +823,6 @@ html{
             p{margin: 0;}
           }
 
-                   
-          // .footer p::before {
-          //   content: "\00A9"; /* Unicode for © symbol */
-          //   font-size: 18px;
-          //   margin-right: 5px;
-          // }
           
           
 

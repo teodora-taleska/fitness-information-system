@@ -20,7 +20,7 @@ const Home = () => {
                     <h2>BUILD <span>YOUR</span> BODY <br/>
                 TRANSFORM <span>YOUR</span> MIND</h2>
 
-                    <p>Are you ready to embark on a journey towards a stronger, fitter, and healthier version of yourself? Look no further than FusionFit. Our state-of-the-art fitness facility is designed to be your ultimate destination for achieving your wellness goals and transforming your lifestyle.</p>
+                    <p>Are you ready to embark on a journey towards a stronger, fitter, and healthier version of yourself? Look no further than FusionFit. <br/>Our state-of-the-art fitness facility is designed to be your ultimate destination for achieving your wellness goals and transforming your lifestyle.</p>
                    
                     <Link to="/home/contact"><button >CONTACT</button></Link>
                     <button >READ MORE</button>
