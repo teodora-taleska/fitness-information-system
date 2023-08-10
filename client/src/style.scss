@@ -459,94 +459,12 @@ html{
               }
         }
 
-        .admin{
-                margin-left: 250px;
-            }
-
-        // ADMIN NAV (left)
-        .admin-nav{
-            width: 250px;
-            height: 100vh;
-            background-color: #333;
-            color: #fff;
-            position: fixed;
-            top: 0;
-            left: 0;
-            overflow-y: auto;
-
-            .nav-header {
-                padding: 20px;
-                text-align: center;
-              }
-              
-              .nav-list {
-                list-style-type: none;
-                padding: 0;
-              }
-              
-              .nav-item > a {
-                display: block;
-                padding: 10px 20px;
-                color: #fff;
-                text-decoration: none;
-                transition: background-color 0.3s;
-              }
-              
-              .nav-item > a:hover {
-                background-color: #555;
-              }
-              
-              .dropdown {
-                display: none;
-                background-color: #444;
-                list-style-type: none;
-                padding: 0;
-              }
-              
-              .nav-item .dropdown.active{
-                display: block;
-              }
-              
-              .dropdown li > a {
-                display: block;
-                padding: 10px 30px;
-                color: #fff;
-                text-decoration: none;
-                transition: background-color 0.3s;
-              }
-              
-              .dropdown li > a:hover {
-                background-color: #555;
-              }
-
-              /* Style for the logout button */
-                .logout-button {
-                    position: absolute;
-                    bottom: 20px;
-                    left: 47%;
-                    background-color: transparent;
-                    border: none;
-                    color: #fff;
-                    cursor: pointer;
-                    transition: color 0.3s;
-                }
-                
-                
-                .logout-button:hover {
-                    color: #ccc;
-                    text-decoration: none;
-                }
-                        
-        }
-
-        // ADMIN EDITING PAGE
         
-
     
          
 
         // HOME
-        .home{
+        .home, .edit-home{
             background-color: white;
             display: flex;
             justify-content: flex-start;
@@ -874,7 +792,115 @@ html{
             z-index: 1;
           }
 
+          .admin{
+            margin-left: 250px;
+        }
+
+    // ADMIN NAV (left)
+    .admin-nav{
+        width: 250px;
+        height: 100vh;
+        background-color: #333;
+        color: #fff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: auto;
+
+        .nav-header {
+            padding: 20px;
+            text-align: center;
+          }
           
+          .nav-list {
+            list-style-type: none;
+            padding: 0;
+          }
+          
+          .nav-item > a {
+            display: block;
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+          }
+          
+          .nav-item > a:hover {
+            background-color: #555;
+          }
+          
+          .dropdown {
+            display: none;
+            background-color: #444;
+            list-style-type: none;
+            padding: 0;
+          }
+          
+          .nav-item .dropdown.active{
+            display: block;
+          }
+          
+          .dropdown li > a {
+            display: block;
+            padding: 10px 30px;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+          }
+          
+          .dropdown li > a:hover {
+            background-color: #555;
+          }
+
+          /* Style for the logout button */
+            .logout-button {
+                position: absolute;
+                bottom: 25px;
+                left: 45%;
+                background-color: transparent;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                font-size: 20px;
+                height:26px;
+                width: 26px;
+                padding: 2px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            
+            
+
+            .close{
+              position: absolute;
+              top: 15px;
+              left: 205px;
+              font-size: 26px;
+              height:26px;
+              width: 26px;
+              padding: 2px;
+              cursor: pointer;
+            }
+            .close:hover, .logout-button:hover{
+              border-radius: 15px;
+              background-color: #555;
+            }
+                    
+    }
+
+    // ADMIN EDITING PAGE
+          .admin{
+            margin-left: 250px;
+        }
+          .edit-home{
+            margin-left: 245px;
+          }
+
+          .admin.closed, .edit-home.closed{
+            margin-left: 0;
+          }
           
 
     }

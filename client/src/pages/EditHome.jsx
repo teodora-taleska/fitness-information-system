@@ -4,7 +4,7 @@ const EditHome = () => {
     return(
         <div className="edit-home">
            <section className="header">
-
+                <div className="overlay"></div>
                 <div className="content">
                     <h2>BUILD <span>YOUR</span> BODY <br/>
                 TRANSFORM <span>YOUR</span> MIND</h2>

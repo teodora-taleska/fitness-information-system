@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import { FiLogOut } from 'react-icons/fi'
+import { FiLogOut, FiX } from 'react-icons/fi'
 
 const AdminNav = () => {
     const [editPagesOpen, setEditPagesOpen] = useState(false);
@@ -16,9 +16,14 @@ const AdminNav = () => {
 
     return(
         <div className="admin-nav">
+            <div className="close">
+                <FiX />
+            </div>
             <div className="nav-header">
                 <h1>Admin Panel</h1>
             </div>
+
+            
             <ul className="nav-list" >
                 <li className="nav-item"
                 >
@@ -63,6 +68,8 @@ const AdminNav = () => {
 
                 
             </ul>
+
+        
 
             <Link to="/"><div className="logout-button">
                 <FiLogOut />    
