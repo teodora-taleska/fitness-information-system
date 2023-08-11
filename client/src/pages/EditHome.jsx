@@ -1,8 +1,8 @@
 import React from "react";
 
-const EditHome = () => {
+const EditHome = ({adminNavClosed}) => {
     return(
-        <div className="edit-home">
+        <div className={`edit-home phone ${adminNavClosed ? 'closed' : ''}`}>
            <section className="header">
                 <div className="overlay"></div>
                 <div className="content">

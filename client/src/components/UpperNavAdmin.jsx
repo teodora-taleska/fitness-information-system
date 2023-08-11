@@ -5,7 +5,7 @@ import { FiActivity, FiLogOut, FiMenu, FiPhoneCall } from 'react-icons/fi'
 
 
 
-const UpperNavAdmin = () => {
+const UpperNavAdmin = ({adminNavClosed}) => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -16,7 +16,7 @@ const UpperNavAdmin = () => {
     };
 
     return(
-        <div className="navbar admin">
+        <div className={`navbar admin phone ${adminNavClosed ? 'closed' : ''}`}>
            <div className="logo">
             <Link>FusionFit</Link>
            </div>

@@ -1,3 +1,5 @@
+
+import React, {useState} from "react";
 import "./style.scss"
 import Login from "./pages/Login";
 import {
@@ -24,6 +26,14 @@ import Contact from "./pages/Contact";
 import Shop from "./pages/Shop";
 import EventsGuest from "./pages/EventsGuest";
 
+
+
+function App() {
+  const [adminNavClosed, setAdminNavClosed] = useState(false);
+const handleAdminNavToggle = () => {
+  setAdminNavClosed(!adminNavClosed);
+};
+
 // Views
 const Member = () => {
   return (
@@ -46,8 +56,8 @@ const Guest = () => {
 const Admin = () => {
   return (
     <>
-      <AdminNav />
-      <UpperNavAdmin />
+      <AdminNav adminNavClosed={adminNavClosed} onToggle={handleAdminNavToggle}/>
+      <UpperNavAdmin adminNavClosed={adminNavClosed}/>
       <Outlet />
     </>
   )
@@ -72,19 +82,19 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/admin",
-        element: <EditHome />
+        element: <EditHome adminNavClosed={adminNavClosed}/>
       },
       {
         path: "/admin/add-employee",
-        element: <AddEmployee />
+        element: <AddEmployee adminNavClosed={adminNavClosed}/>
       },
       {
         path:"/admin/modify-employee",
-        element: <ModifyEmployee />
+        element: <ModifyEmployee adminNavClosed={adminNavClosed}/>
       },
       {
         path: "/admin/delete-employee",
-        element:<DeleteEmployee />
+        element:<DeleteEmployee adminNavClosed={adminNavClosed}/>
       }
     ]
   },
@@ -135,7 +145,6 @@ const router = createBrowserRouter([
   
 ]);
 
-function App() {
   return (
     <div className="app">
       <div className="container">

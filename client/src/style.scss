@@ -798,6 +798,7 @@ html{
 
     // ADMIN NAV (left)
     .admin-nav{
+        z-index: 2;
         width: 250px;
         height: 100vh;
         background-color: #333;
@@ -856,7 +857,7 @@ html{
             .logout-button {
                 position: absolute;
                 bottom: 25px;
-                left: 45%;
+                left: 43%;
                 background-color: transparent;
                 border: none;
                 color: #fff;
@@ -865,6 +866,7 @@ html{
                 height:26px;
                 width: 26px;
                 padding: 2px;
+                padding-left: 3px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -887,22 +889,149 @@ html{
               border-radius: 15px;
               background-color: #555;
             }
-                    
+            animation: slideIn 0.3s ease-out forwards;
     }
+
+    @keyframes slideOut {
+      from {
+        transform: translateX(0); /* Starting position */
+        // opacity: 1; /* Starting opacity */
+      }
+      to {
+        transform: translateX(-100%); /* Ending position */
+        // opacity: 0; /* Ending opacity */
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%); 
+        
+      }
+      to {
+        transform: translateX(0); 
+        
+        
+      }
+    }
+
+    /* For the components in the admin page*/
+    @keyframes slideOut2 {
+      from {
+        margin-left: 250px;
+      }
+      to {
+        margin-left: 0px;
+      }
+    }
+
+    @keyframes slideIn2 {
+      from {
+        margin-left: 0px;
+      }
+      to {
+        margin-left: 250px;
+      }
+    }
+
+            .admin-nav.closed{
+              animation: slideOut 0.3s ease forwards;
+              /* Move the element to the left and out of view */
+            }
 
     // ADMIN EDITING PAGE
           .admin{
             margin-left: 250px;
+            animation: slideIn2 0.3s ease-out forwards;
         }
           .edit-home{
             margin-left: 245px;
+            animation: slideIn2 0.3s ease-out forwards;
           }
 
           .admin.closed, .edit-home.closed{
-            margin-left: 0;
+            animation: slideOut2 0.3s ease forwards;
           }
           
+          .helper{
+            position: absolute;
+            left: 0;
+            top: 90px;
+            z-index: 1;
+            button{
+              border-top-left-radius: 0;
+              border-bottom-left-radius: 0;
+              border-top-right-radius: 12px;
+              border-bottom-right-radius: 12px;
+              background-color: white;
+              font-size: 15px;
+              // transition: width 0.5s ease;
+              p{
+                opacity:0;
+                display: none;}
+              overflow: hidden; /* Hide overflow during animation*/
+            }
 
+            @keyframes fadeIn {
+              from {
+                width: 135px;
+                height: 50px;
+              }
+              to {
+                width: 170px;
+                height: 50px;
+              }
+            }
+
+            @keyframes fadeInP {
+              from {
+                opacity: 0;
+              }
+              to {
+                opacity: 1;
+              }
+            }
+
+            
+
+            button:hover{
+              animation: fadeIn 0.5s ease forwards;
+              width: 160px;
+              height: 50px;
+              p{display: flex;
+                animation: fadeInP 0.5s ease forwards;
+              margin: 0;}
+              .icon{
+                animation: fadeInP 0.5s ease forwards;
+                position: absolute;
+                right: 0;
+                top: 25%;
+                margin-right: 20px;
+                height: 30px;
+              }
+            }
+          }
+
+
+          /*  To make the admin nav slide out when the screen is less than or equal to 690*/
+          @media (max-width: 690px) {
+            .admin-nav{
+              animation: slideOut 0.3s ease forwards;
+            }
+            .admin, .edit-home{
+              animation: slideOut2 0.3s ease forwards;
+            }
+
+            .admin-nav.closed{
+              animation: slideIn 0.3s ease-out forwards;
+            }
+            
+          }
+          // @media (min-width: 691px) {
+          //   .admin-nav{
+          //     animation: slideIn 0.3s ease-out forwards;
+          //   }            
+          // }
     }
 
 }
