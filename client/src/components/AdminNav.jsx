@@ -3,18 +3,27 @@ import { Link } from "react-router-dom";
 import { FiLogOut } from 'react-icons/fi'
 
 const AdminNav = () => {
-    
+    const [editPagesOpen, setEditPagesOpen] = useState(false);
+    const [manageEmployeesOpen, setManageEmployeesOpen] = useState(false);
+
+    const toggleEditPages = () => {
+        setEditPagesOpen(!editPagesOpen);
+    };
+
+    const toggleManageEmployees = () => {
+        setManageEmployeesOpen(!manageEmployeesOpen);
+    };
 
     return(
         <div className="admin-nav">
             <div className="nav-header">
                 <h1>Admin Panel</h1>
             </div>
-            <ul className="nav-list">
+            <ul className="nav-list" >
                 <li className="nav-item"
                 >
-                    <a href="#">Edit pages</a>
-                    <ul className="dropdown">
+                    <a href="#" onClick={toggleEditPages}>Edit pages</a>
+                    <ul className={`dropdown ${editPagesOpen ? 'active' : ''}`}>
                         <li><Link to="/admin">Home</Link></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Activities</a></li>
@@ -26,10 +35,10 @@ const AdminNav = () => {
 
                 </li>
 
-                <li className="nav-item"
+                <li className="nav-item" 
               >
-                    <a href="#" >Manage employees</a>
-                    <ul className="dropdown">
+                    <a href="#" onClick={toggleManageEmployees}>Manage employees</a>
+                    <ul className={`dropdown ${manageEmployeesOpen ? 'active' : ''}`}>
                         <li><Link to="/admin/add-employee">Add employee account</Link></li>
                         <li><Link to="/admin/modify-employee">Modify employee account</Link></li>
                         <li><Link to="/admin/delete-employee">Delete employee account</Link></li>
@@ -37,6 +46,19 @@ const AdminNav = () => {
                     </ul>
                 
 
+                </li>
+
+                <li className="nav-item">
+                    <a>Manage events</a>
+                </li>
+                <li className="nav-item">
+                    <a>Manage activities</a>
+                </li>
+                <li className="nav-item">
+                    <a>Manage products</a>
+                </li>
+                <li className="nav-item">
+                    <a>Manage memberships</a>
                 </li>
 
                 

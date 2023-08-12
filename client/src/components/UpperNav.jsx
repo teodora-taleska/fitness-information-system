@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import { FaBell, FaCalendar, FaUser} from "react-icons/fa"
-import { FiLogOut, FiMenu } from 'react-icons/fi'
-
+import { FaBell, FaCalendar, FaUser, FaHome, FaEvernote, FaInfo, FaShopify} from "react-icons/fa"
+import { FiActivity, FiLogOut, FiMenu, FiPhoneCall } from 'react-icons/fi'
 
 
 
@@ -31,7 +30,7 @@ const UpperNav = () => {
     return(
         <div className="navbar">
            <div className="logo">
-            <Link to="/home">FitnessCenter</Link>
+            <Link to="/home">FusionFit</Link>
            </div>
 
            <ul className="nav-links">
@@ -39,7 +38,7 @@ const UpperNav = () => {
                     <Link to='/home'>Home</Link>
                 </li>
                 <li>
-                    <Link >About</Link>
+                    <Link >About us</Link>
                 </li>
                 <li>
                     <Link>Activities</Link>
@@ -58,8 +57,9 @@ const UpperNav = () => {
                     <div className="icon" onClick={toggleNotifications}>
                         <FaBell />
                         {showNotifications && (
-                        <div className="dropdown n">
-                            <div  className="notification">
+                        <div className="dropdown">
+                            <h2 className="n-header">Notifications</h2>
+                            <div  className="notification ">
                                 <p><FaCalendar /> 
                                 <b>Upcoming events</b> <br/>
                                 Join our upcoming 'Yoga Workshop' this Saturday at 10 AM.</p>
@@ -84,19 +84,19 @@ const UpperNav = () => {
                         <div className="dropdown">
                             <div  className="notification">
                                 <p><FaUser /> 
-                                <b>Profile</b> 
+                                <span className="user">Profile</span>
                                 </p>
                             </div>
 
                             <div  className="notification">
                                 <p><FaCalendar /> 
-                                <b>Calendar</b>
+                                <span className="user">Calendar</span>
                                 </p>
                             </div>
                             
                             <Link to="/"><div  className="notification">
                                 <p><FiLogOut /> 
-                                <b>Logout</b> </p>
+                                <span className="user">Logout</span></p>
                             </div></Link>
                         </div>
                         )}
@@ -115,13 +115,15 @@ const UpperNav = () => {
                     {menuOpen && (
                         <div className="dropdown">
                             <ul className="nav-open">
-                                <li><Link to='/home' onClick={closeMenu}>Home</Link></li>
-                                <li><Link onClick={closeMenu}>About</Link></li>
-                                <li><Link onClick={closeMenu}>Activities</Link></li>
-                                <li><Link to="/home/events" onClick={closeMenu}>Events</Link></li>
-                                <li><Link to="/home/shop" onClick={closeMenu}>Shop</Link></li>
-                                <li><Link to="/home/contact" onClick={closeMenu}>Contact</Link></li>
-                                <li><Link onClick={closeMenu}>Profile</Link></li>
+                            <Link onClick={closeMenu}><li className="d"><FaUser/><span className="user">Profile</span></li></Link>
+                                <Link to='/home' onClick={closeMenu}><li className="d"><FaHome/><span className="user">Home</span></li></Link>
+                                <Link onClick={closeMenu}><li className="d"><FaInfo/><span className="user">About us</span></li></Link>
+                                <Link onClick={closeMenu}><li className="d"><FiActivity/><span className="user">Activities</span></li></Link>
+                                <Link to="/home/events" onClick={closeMenu}><li className="d"><FaEvernote/><span className="user">Events</span></li></Link>
+                                <Link to="/home/shop" onClick={closeMenu}><li className="d"><FaShopify/><span className="user">Shop</span></li></Link>
+                                <Link to="/home/contact" onClick={closeMenu}><li className="d"><FiPhoneCall/><span className="user">Contact</span></li></Link>
+                               
+                                <Link to="/" onClick={closeMenu}><li className="d"><FiLogOut/><span className="user">Logout</span></li></Link>
                             </ul>
                         </div>
                     )}

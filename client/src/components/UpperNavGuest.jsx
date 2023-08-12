@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import { FiMenu } from "react-icons/fi";
+
+import { FaBell, FaUser, FaEvernote, FaInfo, FaShopify, FaHome} from "react-icons/fa"
+import { FiActivity, FiLogOut, FiMenu, FiPhoneCall } from 'react-icons/fi'
 
 
 
@@ -17,7 +19,7 @@ const UpperNavGuest = () => {
     return(
         <div className="navbar">
            <div className="logo">
-            <Link to="/home">FitnessCenter</Link>
+            <Link to="/home">FusionFit</Link>
            </div>
 
            <ul className="nav-links">
@@ -25,7 +27,7 @@ const UpperNavGuest = () => {
                     <Link to='/home'>Home</Link>
                 </li>
                 <li>
-                    <Link >About</Link>
+                    <Link >About us</Link>
                 </li>
                 <li>
                     <Link>Activities</Link>
@@ -52,16 +54,18 @@ const UpperNavGuest = () => {
                 </div>
 
                  {/* Dropdown menu */}
-                    {menuOpen && (
+                 {menuOpen && (
                         <div className="dropdown">
                             <ul className="nav-open">
-                                <li><Link to='/home' onClick={closeMenu}>Home</Link></li>
-                                <li><Link onClick={closeMenu}>About</Link></li>
-                                <li><Link onClick={closeMenu}>Activities</Link></li>
-                                <li><Link to="/home/events" onClick={closeMenu}>Events</Link></li>
-                                <li><Link to="/home/shop" onClick={closeMenu}>Shop</Link></li>
-                                <li><Link to="/home/contact" onClick={closeMenu}>Contact</Link></li>
-                                <li><Link to="/register" onClick={closeMenu}>Register</Link></li>
+                            <Link onClick={closeMenu}><li className="d"><FaUser/><span className="user">Profile</span></li></Link>
+                            <Link to='/home' onClick={closeMenu}><li className="d"><FaHome/><span className="user">Home</span></li></Link>
+                                <Link onClick={closeMenu}><li className="d"><FaInfo/><span className="user">About us</span></li></Link>
+                                <Link onClick={closeMenu}><li className="d"><FiActivity/><span className="user">Activities</span></li></Link>
+                                <Link to="/home/events" onClick={closeMenu}><li className="d"><FaEvernote/><span className="user">Events</span></li></Link>
+                                <Link to="/home/shop" onClick={closeMenu}><li className="d"><FaShopify/><span className="user">Shop</span></li></Link>
+                                <Link to="/home/contact" onClick={closeMenu}><li className="d"><FiPhoneCall/><span className="user">Contact</span></li></Link>
+                                
+                                <Link to="/" onClick={closeMenu}><li className="d"><FiLogOut/><span className="user">Logout</span></li></Link>
                             </ul>
                         </div>
                     )}
