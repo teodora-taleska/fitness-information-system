@@ -1,10 +1,13 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import { FiLogOut } from 'react-icons/fi'
+import { FiLogOut, FiX, FiChevronsRight } from 'react-icons/fi'
 
-const AdminNav = () => {
+const AdminNav = ({ adminNavClosed, onToggle}) => {
     const [editPagesOpen, setEditPagesOpen] = useState(false);
     const [manageEmployeesOpen, setManageEmployeesOpen] = useState(false);
+    
+
+   
 
     const toggleEditPages = () => {
         setEditPagesOpen(!editPagesOpen);
@@ -14,11 +17,26 @@ const AdminNav = () => {
         setManageEmployeesOpen(!manageEmployeesOpen);
     };
 
+
+
     return(
-        <div className="admin-nav">
+        <div className="admin-panel ">
+            <div className={`helper `}
+            onClick={onToggle}>
+                <button>
+                    <p>ADMIN PANEL</p>
+                    <FiChevronsRight className="icon"/></button>
+            </div>
+        
+        <div className={`admin-nav phone ${adminNavClosed ? 'closed' : ''}`}>
+            <div className="close" onClick={onToggle}>
+                <FiX />
+            </div>
             <div className="nav-header">
                 <h1>Admin Panel</h1>
             </div>
+
+            
             <ul className="nav-list" >
                 <li className="nav-item"
                 >
@@ -64,9 +82,12 @@ const AdminNav = () => {
                 
             </ul>
 
+        
+
             <Link to="/"><div className="logout-button">
                 <FiLogOut />    
             </div></Link>
+        </div>
         </div>
     )
 }

@@ -13,8 +13,10 @@ $highlight: rgb(247, 54, 54);
 $sectionPadding: 35px;
 
 html{
-    font-size: 16px; /* Set the root font size */
+    font-size: 15px; /* Set the root font size */
     background-color: black;
+    font-family: 'Archivo Black', sans-serif; 
+    
 }
 
 .app{
@@ -457,94 +459,12 @@ html{
               }
         }
 
-        .admin{
-                margin-left: 250px;
-            }
-
-        // ADMIN NAV (left)
-        .admin-nav{
-            width: 250px;
-            height: 100vh;
-            background-color: #333;
-            color: #fff;
-            position: fixed;
-            top: 0;
-            left: 0;
-            overflow-y: auto;
-
-            .nav-header {
-                padding: 20px;
-                text-align: center;
-              }
-              
-              .nav-list {
-                list-style-type: none;
-                padding: 0;
-              }
-              
-              .nav-item > a {
-                display: block;
-                padding: 10px 20px;
-                color: #fff;
-                text-decoration: none;
-                transition: background-color 0.3s;
-              }
-              
-              .nav-item > a:hover {
-                background-color: #555;
-              }
-              
-              .dropdown {
-                display: none;
-                background-color: #444;
-                list-style-type: none;
-                padding: 0;
-              }
-              
-              .nav-item .dropdown.active{
-                display: block;
-              }
-              
-              .dropdown li > a {
-                display: block;
-                padding: 10px 30px;
-                color: #fff;
-                text-decoration: none;
-                transition: background-color 0.3s;
-              }
-              
-              .dropdown li > a:hover {
-                background-color: #555;
-              }
-
-              /* Style for the logout button */
-                .logout-button {
-                    position: absolute;
-                    bottom: 20px;
-                    left: 47%;
-                    background-color: transparent;
-                    border: none;
-                    color: #fff;
-                    cursor: pointer;
-                    transition: color 0.3s;
-                }
-                
-                
-                .logout-button:hover {
-                    color: #ccc;
-                    text-decoration: none;
-                }
-                        
-        }
-
-        // ADMIN EDITING PAGE
         
-
     
          
 
         // HOME
-        .home{
+        .home, .edit-home{
             background-color: white;
             display: flex;
             justify-content: flex-start;
@@ -556,9 +476,9 @@ html{
             section {
               display: flex;
               flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              height: 95vh;
+              // align-items: center;
+              // justify-content: center;
+              // height: 95vh;
              
               
               
@@ -576,12 +496,9 @@ html{
                 line-height: 1.6;
                 color: rgba(255, 255, 255, 0.972);
               }
-          
-            
-              
-          
-                              
+                           
             }
+          
 
             .header{
               position: relative; /* Needed for positioning overlay */
@@ -589,10 +506,14 @@ html{
               background-size: cover; 
               background-repeat: no-repeat;
               background-position: center center;
+              height: 95vh;
+              align-items: flex-start;
+              justify-content: center;
               
 
               h2{
                 text-align: left;
+                font-size: 3.5rem;
               }
               p{
                 text-align: justify;
@@ -639,9 +560,15 @@ html{
                 position: relative;
                 color: #fff;
                 padding: $sectionPadding;
+                
+                h2{
+                 margin-bottom: 20px;
+                }
 
                 button{
                   color: $buttonsFontColor;
+                  width: 175px;
+                  margin-top: 30px;
                   
                 }
                 button:hover{
@@ -653,20 +580,495 @@ html{
             }
 
             .about-section{
-              justify-content: flex-start;
-              height: 100vh;
+              text-align: center;
+              height: 20%;
               background-color: #290202;
               color: white;
               padding: $sectionPadding;
+              align-items: center;
+              justify-content: center;
 
+              
 
             }
 
+            .gallery-section{
+              justify-content: flex-start;
+              text-align: center;
+              padding: 50px 0;
+              background-color: #121212;
+              color: white;
+              padding: $sectionPadding;
+              height: 100%;
+              
+             
+             
+                
+              .image-container{
+                display: flex;
+                // flex-wrap: wrap;
+                justify-content: space-evenly;
+                width: 100%;
+                
+                
+                
+                .image1{
+                  background-image: url("1.jpg");
+                }
+                .image2{
+                  background-image: url("2.jpg");
+                }
+                .image3{
+                  background-image: url("3.jpg");
+                }
+
+                .image4{
+                  background-image: url("4.jpg");
+                }
+
+                .image5{
+                  background-image: url("5.jpg");
+                }
+
+                .image6{
+                  background-image: url("6.jpg");
+                }
+
+                .image1, .image2, .image3, .image4, .image5, .image6{
+                  background-size: cover;
+                  width: 450px;
+                  height: 250px;
+                  
+                  margin: 10px;
+                  margin-top: 30px;
+                  box-shadow: 1.5px 1px 5px rgba(14, 14, 14, 0.745);
+                  transition: transform 0.3s ease, box-shadow 0.3s ease;
+                 
+                  &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.626);
+                  }
+                }
+
+                    
+              }
+        
+              
+              
+            }
+            @media (max-width: 462px) {
+                
+              .gallery-section{
+                height: 110vh;
+              .image-container {
+               flex-direction: column;
+               justify-content: center;
+               align-items: center;
+                .image1, .image2, .image3 {
+                  width: 300px;
+                  height: 180px; 
+
+                  
+                }
+              }
+              .image-container.passive{
+                opacity: 0;
+              }
+            }}
+
+          
+
+          .joinus-section{
+              height: 90vh;
+              background-image: url("joinUs.jpg");
+              background-size:cover;
+              background-repeat: no-repeat;
+              padding: $sectionPadding;
+              // opacity: 0.9;
+              filter: brightness(1);
+              align-items: flex-start;
+              justify-content: center;
+             
+              
+              .content {
+                
+                position: absolute;
+                left: 6%;
+                color: #fff;
+                padding: $sectionPadding;
+                z-index: 1;
+                
+                text-align: left;
+                
+                h2{
+                  margin-bottom: 60px;
+                }
+
+                button{
+                  color: $buttonsFontColor;
+                  margin-top: 30px;
+                  // position: relative;
+                  // left: 20%;
+                  width: 175px;
+                  
+                }
+                button:hover{
+                  color: #ffffff;
+                  background-color: $highlight;
+                }
+              }
+             
+          }
+        
+          .joinus-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Overlay color */
+            mix-blend-mode: multiply; /* Blend mode to darken */
+          }
+
+        }
+
+        // SHOP
+        .shop{
+          background-image: url("shop.jpg");
+          background-repeat: no-repeat;
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+       
+          
+
+          .main{
+            height: 100vh;
+            padding: $sectionPadding;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+             h2{
+              font-size: 3.5rem;
+              color: white;
+             }
+             p{
+              font-size: 1rem;
+              color: white;
+             }
+             button{
+                  color: $buttonsFontColor;
+                  width: 175px;
+                  margin-top: 30px;
+                  
+             }
+             button:hover{
+              color: #ffffff;
+              background-color: $highlight;
+            }
+          }
+
+         
+        }
+        .shop::before {
+          content: "";
+          position: absolute;
+          top: 5;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.7); /* Overlay color */
+          mix-blend-mode: multiply; /* Blend mode to darken */
+        }
+
+          footer{
+            background-color: rgb(0, 0, 0);
+            color: white;
+            padding: 20px;
+            text-align: center;
+
+            p{margin: 0;}
+            z-index: 1;
+          }
+
+          .admin{
+            margin-left: 250px;
+        }
+
+    // ADMIN NAV (left)
+    .admin-nav{
+        z-index: 2;
+        width: 250px;
+        height: 100vh;
+        background-color: #333;
+        color: #fff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: auto;
+
+        .nav-header {
+            padding: 20px;
+            text-align: center;
+          }
+          
+          .nav-list {
+            list-style-type: none;
+            padding: 0;
+          }
+          
+          .nav-item > a {
+            display: block;
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+          }
+          
+          .nav-item > a:hover {
+            background-color: #555;
+          }
+          
+          .dropdown {
+            display: none;
+            background-color: #444;
+            list-style-type: none;
+            padding: 0;
+          }
+          
+          .nav-item .dropdown.active{
+            display: block;
+          }
+          
+          .dropdown li > a {
+            display: block;
+            padding: 10px 30px;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+          }
+          
+          .dropdown li > a:hover {
+            background-color: #555;
+          }
+
+          /* Style for the logout button */
+            .logout-button {
+                position: absolute;
+                bottom: 25px;
+                left: 43%;
+                background-color: transparent;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                font-size: 20px;
+                height:26px;
+                width: 26px;
+                padding: 2px;
+                padding-left: 3px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            
+            
+
+            .close{
+              position: absolute;
+              top: 15px;
+              left: 205px;
+              font-size: 26px;
+              height:26px;
+              width: 26px;
+              padding: 2px;
+              cursor: pointer;
+            }
+            .close:hover, .logout-button:hover{
+              border-radius: 15px;
+              background-color: #555;
+            }
+            animation: slideIn 0.3s ease-out forwards;
+    }
+
+    @keyframes slideOut {
+      from {
+        transform: translateX(0); /* Starting position */
+        // opacity: 1; /* Starting opacity */
+      }
+      to {
+        transform: translateX(-100%); /* Ending position */
+        // opacity: 0; /* Ending opacity */
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%); 
+        
+      }
+      to {
+        transform: translateX(0); 
+        
+        
+      }
+    }
+
+    /* For the components in the admin page*/
+    @keyframes slideOut2 {
+      from {
+        margin-left: 250px;
+      }
+      to {
+        margin-left: 0px;
+      }
+    }
+
+    @keyframes slideIn2 {
+      from {
+        margin-left: 0px;
+      }
+      to {
+        margin-left: 250px;
+      }
+    }
+
+            .admin-nav.closed{
+              animation: slideOut 0.3s ease forwards;
+              /* Move the element to the left and out of view */
+            }
+
+    // ADMIN EDITING PAGE
+          .admin{
+            margin-left: 250px;
+            animation: slideIn2 0.3s ease-out forwards;
+        }
+          .edit-home{
+            margin-left: 245px;
+            animation: slideIn2 0.3s ease-out forwards;
+            display: flex;
+
+            .edit-btn{
+              flex-direction: row;
+              // font-size: 10px;
+              color: rgb(255, 255, 255);
+             
+              
+              // transform: translateY(-50%);
+              // border: none;
+              background-color: transparent;
+              cursor: pointer;
+              font-size: 24px;
+              padding: 5px;
+
+              
+            }
+            p{
+              margin-right: 40px;
+            }
+            input {
+              // border: none;
+              background-color: transparent;
+              color: #fff;
+              // font-weight: bold;
+              width: 100%;
+              padding: 5px;
+              // outline: none;
+
+            }
+            .edit-btn:hover{
+              background-color: rgba(223, 222, 222, 0.12);
+              cursor: pointer;
+             
+              // padding: 2px;
+              border-radius: 13px;
+            }
+          }
+
+          .admin.closed, .edit-home.closed{
+            animation: slideOut2 0.3s ease forwards;
+          }
+          
+          .helper{
+            position: absolute;
+            left: 0;
+            top: 90px;
+            z-index: 1;
+            button{
+              border-top-left-radius: 0;
+              border-bottom-left-radius: 0;
+              border-top-right-radius: 12px;
+              border-bottom-right-radius: 12px;
+              background-color: white;
+              font-size: 15px;
+              // transition: width 0.5s ease;
+              p{
+                opacity:0;
+                display: none;}
+              overflow: hidden; /* Hide overflow during animation*/
+            }
+
+            @keyframes fadeIn {
+              from {
+                width: 135px;
+                height: 50px;
+              }
+              to {
+                width: 170px;
+                height: 50px;
+              }
+            }
+
+            @keyframes fadeInP {
+              from {
+                opacity: 0;
+              }
+              to {
+                opacity: 1;
+              }
+            }
+
+            
+
+            button:hover{
+              animation: fadeIn 0.5s ease forwards;
+              width: 160px;
+              height: 50px;
+              p{display: flex;
+                animation: fadeInP 0.5s ease forwards;
+              margin: 0;}
+              .icon{
+                animation: fadeInP 0.5s ease forwards;
+                position: absolute;
+                right: 0;
+                top: 25%;
+                margin-right: 20px;
+                height: 30px;
+              }
+            }
           }
 
 
-  
+          /*  To make the admin nav slide out when the screen is less than or equal to 690*/
+          @media (max-width: 690px) {
+            .admin-nav{
+              animation: slideOut 0.3s ease forwards;
+            }
+            .admin, .edit-home{
+              animation: slideOut2 0.3s ease forwards;
+            }
 
+            .admin-nav.closed{
+              animation: slideIn 0.3s ease-out forwards;
+            }
+            
+          }
+          // @media (min-width: 691px) {
+          //   .admin-nav{
+          //     animation: slideIn 0.3s ease-out forwards;
+          //   }            
+          // }
     }
 
 }
