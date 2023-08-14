@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from "axios"
 
 const Register = () => {
   const [part, setPart] = useState(1);
@@ -7,12 +8,44 @@ const Register = () => {
   const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
+  const[inputs, setInputs] = useState({
+    name:"",
+    surname:"",
+    email:"",
+    password:"",
+    role:"",
+    phoneNumber:""
+  })
+
+  const handleChange = e => {
+    setInputs(prev=>(
+      {...prev,
+        [e.target.name]: e.target.value}))
+        // console.log(inputs)
+  }
+
+  
 
   const handleNext = () => {
     if (part < 3) {
       setPart(part + 1);
     }
   };
+
+  const handleNext1 = async e => {
+    e.preventDefault()
+    try{
+      const res = await axios.post("http://88.200.63.148:5066/api/auth/register", inputs)
+      console.log(res)
+      
+      if (part < 3) {
+      setPart(part + 1);
+    }
+    } catch(err){
+      console.log(err)
+    }
+      
+  }
 
   const handleBack = () => {
     if (part > 1) {
@@ -31,6 +64,7 @@ const Register = () => {
   };
 
   const handleConfirmTransaction = () => {
+    
     // After successful processing, show the success popup
     setShowConfirmationPopup(false);
     setShowSuccessPopup(true);
@@ -41,38 +75,52 @@ const Register = () => {
       case 1:
         return (
           <div className='form-m'>
-           
-            {/* Part 1: User Details */}
-            {/* Display the line with dots */}
-            <div className="progress-dots">
-              <span className={part === 1 ? 'active' : ''}></span>
-              <span className={part === 2 ? 'active' : ''}></span>
-              <span className={part === 3 ? 'active' : ''}></span>
-            </div>
-            <h3>Create an account</h3>
-            {/* Form fields */}
-            <label htmlFor='nameInput'>First name*</label>
-            <input type="text" id="nameInput" name="name" placeholder="Enter your first name" required/>
+
+         
+
             
+              {/* Part 1: User Details */}
+              {/* Display the line with dots */}
+              <div className="progress-dots">
+                <span className={part === 1 ? 'active' : ''}></span>
+                <span className={part === 2 ? 'active' : ''}></span>
+                <span className={part === 3 ? 'active' : ''}></span>
+              </div>
+              <h3>Create an account</h3>
+              {/* Form fields */}
+             
+                <label htmlFor='nameInput'>First name*</label>
+                <input type="text" id="nameInput" name="name" placeholder="Enter your first name" required
+                    onChange={handleChange}/>
+                
 
-            <label htmlFor='surname'>Last name*</label>
-            <input type="text" id="surname" name="surname" placeholder="Enter your last name" required/>
+                <label htmlFor='surname'>Last name*</label>
+                <input type="text" id="surname" name="surname" placeholder="Enter your last name" required
+                    onChange={handleChange}/>
 
-            <label htmlFor='email'>E-mail*</label>
-            <input type="email" id="email" name="email" placeholder="Enter your e-mail" required/>
+                <label htmlFor='email'>E-mail*</label>
+                <input type="email" id="email" name="email" placeholder="Enter your e-mail" required
+                    onChange={handleChange}/>
 
-            <label htmlFor='pass'>Password*</label>
-            <input type="password" id="password" name="password" placeholder="Enter password" required/>
+                <label htmlFor='pass'>Password*</label>
+                <input type="password" id="password" name="password" placeholder="Enter password" required
+                    onChange={handleChange}/>
 
-            <label htmlFor='pass2'>Confirm password*</label>
-            <input type="password" id="pass2" name="pass2" placeholder="Confirm your password" required/>
+                {/* <label htmlFor='pass2'>Confirm password*</label>
+                <input type="password" id="pass2" name="pass2" placeholder="Confirm your password" required
+                    onChange={handleChange}/> */}
 
-            <label htmlFor='phone'>Phone number*</label>
-            <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required/>
-            
-            <button onClick={handleNext} className="next">NEXT</button>
-            
-            <p className='bottom'>You alredy have an account?<Link to="/"><i>Login</i></Link></p>
+                <label htmlFor='phone'>Phone number*</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required
+                    onChange={handleChange}/>
+                
+                  
+                   <button onClick={handleNext1} className="next">NEXT</button>
+              
+               
+                
+                <p className='bottom'>You alredy have an account?<Link to="/"><i>Login</i></Link></p>
+             
           </div>
         );
 
@@ -156,7 +204,7 @@ const Register = () => {
 
             <div className='buttons'>
                 <button onClick={handleBack} className='back'>BACK</button>
-                <button onClick={handleDone} className="login">DONE</button>
+                <button onClick={handleDone} className="login">SUMBIT</button>
             </div>
           </div>
         );
@@ -187,7 +235,7 @@ const Register = () => {
         <div className="popup">
           <div className="popup-content">
             <p>Profile successfully created!</p>
-            <Link to="/home"><button>OK</button></Link>
+            <Link to="/"><button>OK</button></Link>
           </div>
         </div>
       )}
