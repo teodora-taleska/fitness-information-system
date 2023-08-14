@@ -25,7 +25,7 @@ export const register = (req, res) => {
             req.body.surname, 
             req.body.email, 
             hash,
-            "member",
+            req.body.role,
             req.body.phoneNumber,
         ]
 

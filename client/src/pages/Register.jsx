@@ -106,12 +106,16 @@ const Register = () => {
                 <input type="password" id="password" name="password" placeholder="Enter password" required
                     onChange={handleChange}/>
 
+              <label htmlFor='role'>Role*</label>
+                <input type="text" id="role" name="role" placeholder="Enter role: ex. Member" required
+                    onChange={handleChange}/>
+
                 {/* <label htmlFor='pass2'>Confirm password*</label>
                 <input type="password" id="pass2" name="pass2" placeholder="Confirm your password" required
                     onChange={handleChange}/> */}
 
                 <label htmlFor='phone'>Phone number*</label>
-                <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required
+                <input type="text" id="phone" name="phoneNumber" placeholder="Enter your phone number" required
                     onChange={handleChange}/>
                 
                   
