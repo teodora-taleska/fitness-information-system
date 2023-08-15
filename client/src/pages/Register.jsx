@@ -7,21 +7,50 @@ const Register = () => {
   const [selectedMembership, setSelectedMembership] = useState(null);
   const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showPassPopup, setShowPassPopup] = useState(false);
+  const [showErrorPopup, setShowErrorPopup] = useState(false);
+  const [err, setError] = useState(null);
+  const [passMatch, setPassMatch] = useState(true);
+  const [password, setPassword] = useState('');
+  const [pass2, setPass2] = useState('');
 
   const[inputs, setInputs] = useState({
     name:"",
     surname:"",
     email:"",
     password:"",
-    role:"",
+    role:"member",
     phoneNumber:""
   })
 
   const handleChange = e => {
+    const {name, value} = e.target;
+
     setInputs(prev=>(
       {...prev,
-        [e.target.name]: e.target.value}))
+        // [e.target.name]: e.target.value
+        [name]: value
+      }))
         // console.log(inputs)
+
+    if (name === 'password') {
+      setPassword(value);
+      // console.log(password)
+
+    } else if (name === 'pass2') {
+      setPass2(value);
+      // console.log(pass2)
+    }
+  
+    // Check if passwords match
+    if (password !== pass2){
+      setPassMatch(false)
+    } 
+    
+    if(password === pass2){
+      setPassMatch(true)    
+    }
+    
   }
 
   
@@ -34,17 +63,27 @@ const Register = () => {
 
   const handleNext1 = async e => {
     e.preventDefault()
+
+    if (!passMatch){
+      setShowPassPopup(true);
+
+      return;
+    }
+    
     try{
       const res = await axios.post("http://88.200.63.148:5066/api/auth/register", inputs)
       console.log(res)
-      
-      if (part < 3) {
-      setPart(part + 1);
-    }
+      setShowErrorPopup(true)
+      setError(res.data)
+       if (res.data==="User has been created!" && part < 3) {
+        setPart(part + 1);
+      }
     } catch(err){
-      console.log(err)
+      setShowErrorPopup(true);
+      setError(err.response.data);
+
     }
-      
+     
   }
 
   const handleBack = () => {
@@ -106,16 +145,19 @@ const Register = () => {
                 <input type="password" id="password" name="password" placeholder="Enter password" required
                     onChange={handleChange}/>
 
-              <label htmlFor='role'>Role*</label>
+              {/* <label htmlFor='role'>Role*</label>
                 <input type="text" id="role" name="role" placeholder="Enter role: ex. Member" required
-                    onChange={handleChange}/>
-
-                {/* <label htmlFor='pass2'>Confirm password*</label>
-                <input type="password" id="pass2" name="pass2" placeholder="Confirm your password" required
                     onChange={handleChange}/> */}
 
+                <label htmlFor='pass2'>Confirm password*</label>
+                <input type="password" id="pass2" name="pass2" placeholder="Confirm your password" required
+                    onChange={handleChange}/>
+
+                
+                
+
                 <label htmlFor='phone'>Phone number*</label>
-                <input type="text" id="phone" name="phoneNumber" placeholder="Enter your phone number" required
+                <input type="text" id="phone" name="phoneNumber" placeholder="Ex. 071292929" required
                     onChange={handleChange}/>
                 
                   
@@ -240,6 +282,26 @@ const Register = () => {
           <div className="popup-content">
             <p>Profile successfully created!</p>
             <Link to="/"><button>OK</button></Link>
+          </div>
+        </div>
+      )}
+
+      {/* Password error Popup */}
+      {showPassPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <p>Passwords do not match!</p>
+            <button onClick={() => setShowPassPopup(false)}>OK</button>
+          </div>
+        </div>
+      )}
+
+      {/* User already exists ERROR Popup */}
+      {showErrorPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <p>{err}</p>
+            <button onClick={() => setShowErrorPopup(false)}>OK</button>
           </div>
         </div>
       )}
