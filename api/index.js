@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(cors())
 
 
-export const db = mysql.createPool({
+export const db = mysql.createConnection({
     host:process.env.DB_HOST,
     user:process.env.DB_USER,
     password:process.env.DB_PASSWORD,
@@ -21,7 +21,7 @@ export const db = mysql.createPool({
 })
 
 
-db.connect((err, connecttion) => {
+db.connect((err) => {
   if (err) {
       console.log("ERROR: "+ err.message)
       return
