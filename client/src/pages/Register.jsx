@@ -71,7 +71,7 @@ const Register = () => {
     }
     
     try{
-      const res = await axios.post("http://88.200.63.148:5066/api/auth/register", inputs)
+      const res = await axios.post("http://88.200.63.148:5067/api/auth/register", inputs)
       console.log(res)
       setShowErrorPopup(true)
       setError(res.data)
