@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser"
 
 import dotenv from "dotenv";
 dotenv.config({path: '.env'}); //Load the enviroment variables from .env file
@@ -11,7 +12,9 @@ import authRoutes from "./routes/auth.js"
 const app = express()
 app.use(express.json())
 app.use(cors())
-
+app.use(cookieParser())
+// Routes
+app.use("/api/auth/", authRoutes)
 
 export const db = mysql.createConnection({
     host:process.env.DB_HOST,
@@ -30,10 +33,9 @@ db.connect((err) => {
   // connection.release()
 })
 
-// Routes
-app.use("/api/auth/", authRoutes)
+
 
 // const port = 5000
-app.listen(5066, () => {
-    console.log("Server connected on port!:" + 5066)
+app.listen(5067, () => {
+    console.log("Server connected on port!:" + 5067)
 })
