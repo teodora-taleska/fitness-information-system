@@ -2,10 +2,14 @@ import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { FaBell, FaCalendar, FaUser, FaHome, FaEvernote, FaInfo, FaShopify} from "react-icons/fa"
 import { FiActivity, FiLogOut, FiMenu, FiPhoneCall } from 'react-icons/fi'
+import { useContext } from "react";
+import { AuthContext } from "../context/authContext";
 
 
 
 const UpperNav = () => {
+
+    const {currentUser, logout} = useContext(AuthContext)
     const [showNotifications, setShowNotifications] = useState(false);
     const [showAccountMenu, setShowAccountMenu] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
@@ -84,7 +88,7 @@ const UpperNav = () => {
                         <div className="dropdown">
                             <div  className="notification">
                                 <p><FaUser /> 
-                                <span className="user">Profile</span>
+                                <span className="user">{currentUser?.name} {currentUser?.surname}</span>
                                 </p>
                             </div>
 
@@ -94,9 +98,9 @@ const UpperNav = () => {
                                 </p>
                             </div>
                             
-                            <Link to="/"><div  className="notification">
+                            <Link to="/"><div  className="notification" onClick={logout}>
                                 <p><FiLogOut /> 
-                                <span className="user">Logout</span></p>
+                                <span className="user" >Logout</span></p>
                             </div></Link>
                         </div>
                         )}
@@ -115,7 +119,7 @@ const UpperNav = () => {
                     {menuOpen && (
                         <div className="dropdown">
                             <ul className="nav-open">
-                            <Link onClick={closeMenu}><li className="d"><FaUser/><span className="user">Profile</span></li></Link>
+                            <Link onClick={closeMenu}><li className="d"><FaUser/><span className="user">{currentUser?.name} {currentUser?.surname}</span></li></Link>
                                 <Link to='/home' onClick={closeMenu}><li className="d"><FaHome/><span className="user">Home</span></li></Link>
                                 <Link onClick={closeMenu}><li className="d"><FaInfo/><span className="user">About us</span></li></Link>
                                 <Link onClick={closeMenu}><li className="d"><FiActivity/><span className="user">Activities</span></li></Link>
@@ -123,7 +127,7 @@ const UpperNav = () => {
                                 <Link to="/home/shop" onClick={closeMenu}><li className="d"><FaShopify/><span className="user">Shop</span></li></Link>
                                 <Link to="/home/contact" onClick={closeMenu}><li className="d"><FiPhoneCall/><span className="user">Contact</span></li></Link>
                                
-                                <Link to="/" onClick={closeMenu}><li className="d"><FiLogOut/><span className="user">Logout</span></li></Link>
+                                <Link to="/" onClick={closeMenu}><li className="d" onClick={logout}><FiLogOut/><span className="user">Logout</span></li></Link>
                             </ul>
                         </div>
                     )}
