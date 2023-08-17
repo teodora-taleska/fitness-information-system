@@ -1,8 +1,10 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import { Link } from "react-router-dom";
 import { FiLogOut, FiX, FiChevronsRight } from 'react-icons/fi'
+import { AuthContext } from "../context/authContext.js";
 
 const AdminNav = ({ adminNavClosed, onToggle}) => {
+    const {logout} = useContext(AuthContext)
     const [editPagesOpen, setEditPagesOpen] = useState(false);
     const [manageEmployeesOpen, setManageEmployeesOpen] = useState(false);
     
@@ -57,9 +59,9 @@ const AdminNav = ({ adminNavClosed, onToggle}) => {
               >
                     <a href="#" onClick={toggleManageEmployees}>Manage employees</a>
                     <ul className={`dropdown ${manageEmployeesOpen ? 'active' : ''}`}>
-                        <li><Link to="/admin/add-employee">Add employee account</Link></li>
-                        <li><Link to="/admin/modify-employee">Modify employee account</Link></li>
-                        <li><Link to="/admin/delete-employee">Delete employee account</Link></li>
+                        <li><Link to="/add-employee">Add employee account</Link></li>
+                        <li><Link to="/modify-employee">Modify employee account</Link></li>
+                        <li><Link to="/delete-employee">Delete employee account</Link></li>
 
                     </ul>
                 
@@ -84,7 +86,7 @@ const AdminNav = ({ adminNavClosed, onToggle}) => {
 
         
 
-            <Link to="/"><div className="logout-button">
+            <Link to="/"><div onClick={logout} className="logout-button">
                 <FiLogOut />    
             </div></Link>
         </div>

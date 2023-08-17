@@ -9,6 +9,7 @@ export const AuthContextProvider = ({children}) =>{
     const login = async(inputs) => {
         const res =await axios.post("http://88.200.63.148:5067/api/auth/login", inputs)
         setCurrentUser(res.data)
+        return res.data.role
     }
 
     const logout = async() => {
