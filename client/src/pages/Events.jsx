@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaPlus } from 'react-icons/fa';
+import { AuthContext } from "../context/authContext";
+import { FiCalendar, FiMap, FiMapPin } from "react-icons/fi";
 
 const Events = () => {
+    const {currentUser} = useContext(AuthContext);
 
     const events = [
         {
@@ -45,6 +48,15 @@ const Events = () => {
         ,
         {
             eventId: 5,
+            title: "Event 5",
+            descr: "Something something something",
+            date:"Date",
+            place: "Somewhere",
+            capacity: 15,
+            img: "https://images.pexels.com/photos/4761352/pexels-photo-4761352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        },
+        {
+            eventId: 6,
             title: "Event 5",
             descr: "Something something something",
             date:"Date",
@@ -117,7 +129,8 @@ const Events = () => {
             </div> 
             <div className="middle">
                  <h3>Upcoming events</h3>
-                 <button>Create event <FaPlus className="icon"/></button>
+                 {currentUser.role === "employee" &&
+                 (<Link to="/write" className="link"><button>Create event <FaPlus className="icon"/></button></Link>)}
             </div>
            
            <div className="events">
@@ -129,8 +142,8 @@ const Events = () => {
                     </div>
                     <div className="content">
                         <h1>{event.title}</h1>
-                        <p>{event.date}</p>
-                        <p>{event.place}</p>
+                        <p><FiCalendar className="icon"/>{event.date}</p>
+                        <p><FiMapPin className="icon"/>{event.place}</p>
                         <Link className="link" to={`/event/${event.eventId}`}><button>Read More</button></Link>
                     </div>
                 </div>
