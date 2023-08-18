@@ -13,13 +13,15 @@ $highlight: rgb(247, 54, 54);
 $sectionPadding: 140px;
 $editBtnColor: rgb(60, 60, 60);
 $mobPadding: 35px;
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Nanum+Gothic&display=swap');
 
 html{
     font-size: 15px; /* Set the root font size */
-    background-color: black;
-    font-family: 'Archivo Black', sans-serif; 
-    
+    background-color: rgb(0, 0, 0);
+    // font-family: 'Archivo Black', sans-serif; 
+    font-family: 'Nanum Gothic', sans-serif;
 }
+
 
 .app{
 
@@ -538,6 +540,7 @@ html{
                 width: 100%;
                 height: 100%;
                 background-color: rgba(0, 0, 0, 0.717);
+                backdrop-filter: blur(3px); 
                 // z-index: 1;
 
                 .scroll-indicator {

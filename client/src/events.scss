@@ -13,7 +13,9 @@ $highlight: rgb(247, 54, 54);
 $sectionPadding: 140px;
 $editBtnColor: rgb(60, 60, 60);
 $mobPadding: 35px;
-$eventBackground: linear-gradient(to bottom, rgb(245, 240, 240), rgb(84, 84, 86));
+$eventBackground: linear-gradient(to bottom, rgb(255, 255, 255), rgb(106, 105, 105));
+$coolRed: rgb(187, 3, 3);
+
 .app{
 
     .container{
@@ -22,24 +24,156 @@ $eventBackground: linear-gradient(to bottom, rgb(245, 240, 240), rgb(84, 84, 86)
         // EVENTS PAGE
         .events-div{
             margin: 0;
-            height: 100vh;
-            padding: $sectionPadding;
-            padding-top: 20px;
+            // padding: $sectionPadding;
+            // padding-top: 20px;
             color: white;
             background: $eventBackground;
+           
+            
+
+            .main-event{
+                height: 85vh;
+                background-image: url("event.jpg");
+                background-size: cover;
+                position: relative; /* Required for positioning the overlay */
+
+                /* Background overlay */
+                &::before {
+                  content: "";
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba(81, 71, 71, 0.837); /* Adjust the transparency here */
+                  backdrop-filter: blur(2px); 
+                }
+                             
+                .content{
+                    padding: $sectionPadding;
+                    padding-top: 20px;
+                    position: relative; /* Required for the z-index to work */
+                    z-index: 1; /* Place the content above the overlay */
+                    height: 57vh;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    padding-top: 100px;
+                    
+                    h1{
+                        font-size: 4rem;
+                        text-align: center;
+                        margin-bottom: 5px;
+                    }
+                    .date{
+                        font-size: 1.3rem;
+                    }
+                    .time{
+                        display: flex;
+                        flex-direction: column;
+                        width: 50%;
+                        margin-top: 40px;
+                        
+                        .one{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-around;
+                            p{
+                                margin: 14px;
+                                width: 100px;
+                                text-align: center;
+                            }
+                        }
+
+                        .two{
+                            display: flex;
+                            justify-content: space-around;
+                        }
+                        .two span{
+                           margin: 3px;
+                            background-color: $coolRed;
+                            padding: 25px;
+                            font-size: 2rem;
+                            border-radius: 10px;
+                            box-shadow: 2px 2px 5px rgba(16, 15, 15, 0.813);
+                        }
+                    }
+                
+                }
+
+                
+                
+            }
+
+            .middle{
+                padding: $sectionPadding;
+                padding-top: 15px;
+                height: 60px;
+                padding-bottom: 15px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+
+                h3{
+                    font-size: 1.7rem;
+                    color: black;
+                    flex: 6;
+                    
+                }
+                button{
+                    background-color: black;
+                    color: white;
+                    flex: 1;
+                    font-size: 1rem;
+                    display: flex;
+                    padding:10px;
+                    justify-content: center;
+                    align-items: center;
+                    box-shadow: 2px 2px 5px rgb(92, 90, 90);
+                    .icon{
+                        padding-left: 7px;
+                    }
+                }
+                button:hover{
+                    background-color: rgb(34, 33, 33);
+                }
+
+            }
 
             .events{
+                padding: $sectionPadding;
+                padding-top: 0;
                 display: flex;
-                gap: 3%;
-                justify-content: space-between;
+                gap: 20px;
+                justify-content: space-around;
+                flex-wrap: wrap; /* This makes items wrap to the next row */
                 
 
                 .event{
                     background-color: rgb(0, 0, 0);
+                    box-shadow: 2px 2px 5px rgb(34, 33, 33);
                     
+                   
 
                     .content{
                         margin: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: flex-start;
+                        
+                        h1{
+                            margin: 0;
+                        }
+                        p{
+                            padding: 0;
+                            margin: 5px;
+                        }
+                        .link{
+                            text-decoration: none;
+                        }
 
                         button{
                             background-color: white;
@@ -48,17 +182,25 @@ $eventBackground: linear-gradient(to bottom, rgb(245, 240, 240), rgb(84, 84, 86)
                             width: 140px;
                             font-size: 13px;
                             margin:0;
+                            height: 40px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            text-align: none;
+                            margin-top: 10px;
+                            
+                            
                             
                         }
                         button:hover{
-                            background-color: rgb(144, 128, 128);
-                            color: rgb(255, 255, 255);
+                            background-color: rgb(218, 212, 212);
+                           
                         }
                     }
 
                     img{
                     width: 100%;  
-                    height: 250px;
+                    height: 260px;
                     object-fit: cover;
                     }
                 }
@@ -173,9 +315,12 @@ $eventBackground: linear-gradient(to bottom, rgb(245, 240, 240), rgb(84, 84, 86)
             
         }
             @media (max-width: 500px) {
-                .events-div, .single-event{
+                .single-event , .events-div .main-event,
+                .events-div .middle, .events-div .events{
                     padding: $mobPadding;
-                    
+                    .content{
+                        padding: $mobPadding;
+                    }
                     .menu{
                     display: none;
                     }

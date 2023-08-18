@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { FaPlus } from 'react-icons/fa';
 
 const Events = () => {
 
@@ -30,12 +31,97 @@ const Events = () => {
             place: "Somewhere",
             capacity: 15,
             img: "https://images.pexels.com/photos/4761352/pexels-photo-4761352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        },
+        ,
+        {
+            eventId: 4,
+            title: "Event 4",
+            descr: "Something something something",
+            date:"Date",
+            place: "Somewhere",
+            capacity: 15,
+            img: "https://images.pexels.com/photos/4761352/pexels-photo-4761352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         }
+        ,
+        {
+            eventId: 5,
+            title: "Event 5",
+            descr: "Something something something",
+            date:"Date",
+            place: "Somewhere",
+            capacity: 15,
+            img: "https://images.pexels.com/photos/4761352/pexels-photo-4761352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        }
+        
     ]
+
+    // Define the event date (year, month [0-based], day, hour, minute, second)
+    const eventDate = new Date(2023, 8, 20, 11, 0, 0); // September 20, 2023, 11:00:00
+
+    // Calculate the time difference in milliseconds between now and the event date
+    const now = new Date();
+    const timeDifference = eventDate - now;
+
+    // Calculate days, hours, minutes, and seconds
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+    // State to hold the countdown values
+    const [countdown, setCountdown] = useState({ days, hours, minutes, seconds });
+
+    // Update the countdown every second
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const updatedTimeDifference = eventDate - new Date();
+            const updatedDays = Math.floor(updatedTimeDifference / (1000 * 60 * 60 * 24));
+            const updatedHours = Math.floor((updatedTimeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const updatedMinutes = Math.floor((updatedTimeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const updatedSeconds = Math.floor((updatedTimeDifference % (1000 * 60)) / 1000);
+            setCountdown({ days: updatedDays, hours: updatedHours, minutes: updatedMinutes, seconds: updatedSeconds });
+        }, 1000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
 
     return(
         <div className="events-div">
-           {/* <div className="events">
+            <div className="main-event">
+                <div className="content">
+                     <h1>FITNESS FUN DAY</h1>
+                    <p className="date">Semptember 20, 2023, 11:00 AM</p>
+                    <p className="location">FusionFit Fitness Center, Anytown</p>
+                    <div className="time">
+                        <div className="one">
+                            <p>Days:</p>
+                            <p>Hours: </p>
+                            <p>Minutes: </p>
+                            <p>Seconds: </p>
+                        </div>
+                        <div className="two">
+                            <span>{countdown.days}</span>
+                            <span>{countdown.hours}</span>
+                            <span>{countdown.minutes}</span>
+                            <span>{countdown.seconds}</span>
+                        </div>
+                       
+                    </div>
+                </div>
+                
+                
+                   
+                
+            </div> 
+            <div className="middle">
+                 <h3>Upcoming events</h3>
+                 <button>Create event <FaPlus className="icon"/></button>
+            </div>
+           
+           <div className="events">
+           
             {events.map(event=>(
                 <div className="event" key={event.eventId}>
                     <div className="img">
@@ -44,11 +130,12 @@ const Events = () => {
                     <div className="content">
                         <h1>{event.title}</h1>
                         <p>{event.date}</p>
-                        <Link to={`/event/${event.eventId}`}><button>Read More</button></Link>
+                        <p>{event.place}</p>
+                        <Link className="link" to={`/event/${event.eventId}`}><button>Read More</button></Link>
                     </div>
                 </div>
             ))}
-           </div> */}
+           </div>
         </div>
     )
 }
