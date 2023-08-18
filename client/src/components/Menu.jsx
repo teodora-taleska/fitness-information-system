@@ -1,12 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const Events = () => {
-
+const Menu = () => {
     const events = [
         {
             eventId: 1,
-            title: "Event 1",
+            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
             descr: "Something something something",
             date:"Date",
             place: "Somewhere",
@@ -15,7 +13,7 @@ const Events = () => {
         },
         {
             eventId: 2,
-            title: "Event 2",
+            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
             descr: "Something something something",
             date:"Date",
             place: "Somewhere",
@@ -24,7 +22,7 @@ const Events = () => {
         },
         {
             eventId: 3,
-            title: "Event 3",
+            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
             descr: "Something something something",
             date:"Date",
             place: "Somewhere",
@@ -33,24 +31,21 @@ const Events = () => {
         }
     ]
 
+
     return(
-        <div className="events-div">
-           {/* <div className="events">
-            {events.map(event=>(
-                <div className="event" key={event.eventId}>
-                    <div className="img">
+        <div className="menu">
+            
+            <h1>Other events you may like</h1>
+                {events.map(event=>(
+                    <div className="event" key={event.eventId}>
                         <img src={event.img} alt="" />
+                        <h3>{event.title}</h3>
+                        <button>Read More</button>
                     </div>
-                    <div className="content">
-                        <h1>{event.title}</h1>
-                        <p>{event.date}</p>
-                        <Link to={`/event/${event.eventId}`}><button>Read More</button></Link>
-                    </div>
-                </div>
-            ))}
-           </div> */}
+                ))}
+            
         </div>
     )
 }
 
-export default Events
+export default Menu

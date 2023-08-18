@@ -1,6 +1,7 @@
 
 import React, {useState} from "react";
 import "./style.scss"
+import "./events.scss"
 import Login from "./pages/Login";
 import {
   createBrowserRouter, 
@@ -24,6 +25,9 @@ import Events from "./pages/Events";
 import Contact from "./pages/Contact";
 import Shop from "./pages/Shop";
 import EventsGuest from "./pages/EventsGuest";
+import Event from "./components/Event";
+import CreateEvent from "./components/CreateEvent";
+import Footer from "./components/Footer";
 
 
 
@@ -39,6 +43,7 @@ const Member = () => {
     <>
       <UpperNav />
       <Outlet />
+      <Footer />
     </>
   )
 }
@@ -48,6 +53,7 @@ const Guest = () => {
     <>
       <UpperNavGuest />
       <Outlet />
+      <Footer/>
     </>
   )
 }
@@ -127,6 +133,14 @@ const router = createBrowserRouter([
       {
         path:"/events",
         element:<Events/>
+      },
+      {
+        path: "/event/:id",
+        element: <Event />
+      },
+      {
+        path: "/write",
+        element: <CreateEvent />
       }
     ]
 
@@ -149,6 +163,7 @@ const router = createBrowserRouter([
       }
     ]
   },
+  
   
 
 

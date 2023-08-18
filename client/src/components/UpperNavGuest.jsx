@@ -19,7 +19,7 @@ const UpperNavGuest = () => {
     return(
         <div className="navbar">
            <div className="logo">
-            <Link to="/home">FusionFit</Link>
+            <Link to="/home"><h3>FusionFit</h3></Link>
            </div>
 
            <ul className="nav-links">

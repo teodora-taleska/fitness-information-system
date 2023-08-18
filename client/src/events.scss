@@ -1,0 +1,186 @@
+$background: rgba(146, 41, 41, 0.65);
+$buttonsFontColor: rgb(146, 41, 41);
+$membership:rgb(148, 63, 63);
+$lightPink: rgb(235, 142, 142);
+$borderMenu: 1px solid rgba(128, 128, 128, 0.531);
+$buttonsHover: rgba(146, 41, 41, 0.708);;
+$buttonPadding: 1.125rem; /* Convert 18px to rem */
+$buttonMargin: 0.3125rem; /* Convert 5px to rem */
+$buttonBorderRadius: 0.3125rem; /* Convert 5px to rem */
+$buttonFontSize: 0.8rem;
+$buttonHoverFS: 0.9rem;
+$highlight: rgb(247, 54, 54);
+$sectionPadding: 140px;
+$editBtnColor: rgb(60, 60, 60);
+$mobPadding: 35px;
+$eventBackground: linear-gradient(to bottom, rgb(245, 240, 240), rgb(84, 84, 86));
+.app{
+
+    .container{
+        
+
+        // EVENTS PAGE
+        .events-div{
+            margin: 0;
+            height: 100vh;
+            padding: $sectionPadding;
+            padding-top: 20px;
+            color: white;
+            background: $eventBackground;
+
+            .events{
+                display: flex;
+                gap: 3%;
+                justify-content: space-between;
+                
+
+                .event{
+                    background-color: rgb(0, 0, 0);
+                    
+
+                    .content{
+                        margin: 10px;
+
+                        button{
+                            background-color: white;
+                            box-shadow: 2px 2px 5px rgb(73, 72, 72);
+                            color: rgb(0, 0, 0);
+                            width: 140px;
+                            font-size: 13px;
+                            margin:0;
+                            
+                        }
+                        button:hover{
+                            background-color: rgb(144, 128, 128);
+                            color: rgb(255, 255, 255);
+                        }
+                    }
+
+                    img{
+                    width: 100%;  
+                    height: 250px;
+                    object-fit: cover;
+                    }
+                }
+            }
+
+            
+
+        }
+
+        .single-event{ 
+            color: rgb(0, 0, 0);
+            display: flex;
+            gap: 50px;
+            padding: $sectionPadding;
+            padding-bottom: 30px;
+            padding-top: 10px;
+            background: $eventBackground;
+            
+            button{
+                background-color: $editBtnColor;
+                box-shadow: 2px 2px 5px rgb(73, 72, 72);
+                color: white;
+                width: 140px;
+                font-size: 13px;
+            }
+            button:hover{
+                background-color: rgb(0, 0, 0);
+                color: rgb(255, 255, 255);
+            }
+                
+            .content{
+               flex:5;
+               gap: 30px;
+               
+               img{
+                margin-top: 6px;
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+                box-shadow: 2px 2px 5px gray;
+               }
+
+                .edit{
+                    color: rgb(0, 0, 0);
+                    display: flex;
+                    font-display: column;
+                    gap:5px;
+                    padding-top: 10px;
+
+                    .edit-b{
+                        color: rgb(0, 0, 0);
+                        padding: 4px;
+                        border-radius: 10px;
+                    }
+                    .edit-b:hover{
+                        background-color: rgb(161, 157, 157);
+                        cursor: pointer;
+                    }
+
+                    p{
+                        font-size: 0.8rem;
+                        width: fit-content;
+                        margin: 0;
+                        margin-right: 7px;
+                        padding-top:4px;
+                    }
+                }
+
+                button{
+                    margin: 0;
+                }
+
+                .descr{
+                    text-align: justify;
+                }
+            }
+            .menu{
+                color: rgb(0, 0, 0);
+                flex: 2;
+                
+
+                h1{
+                    font-size: 20px;
+                    color: rgb(0, 0, 0);
+                    margin:0;
+                    margin-bottom: 10px;
+                }
+
+                .event{
+                    gap: 10px;
+                    margin-bottom: 10px;
+
+                    img{
+                        width: 100%;
+                        height: 200px;
+                        object-fit: cover;
+                        // box-shadow: 2px 2px 5px gray;
+                    }
+
+                    h3{
+                        margin-top: 3px;
+                        margin-bottom: 7px;
+                    }
+
+                    button{
+                        margin: 0;
+                        margin-bottom: 16px;
+                    }
+
+                }
+            }
+            
+        }
+            @media (max-width: 500px) {
+                .events-div, .single-event{
+                    padding: $mobPadding;
+                    
+                    .menu{
+                    display: none;
+                    }
+                }
+                
+            }
+    }
+}
