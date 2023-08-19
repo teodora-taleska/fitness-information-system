@@ -5,14 +5,14 @@ import jwt from "jsonwebtoken"
 
 export const login = (req, res) =>{
     // CHECK USER
-    const q = "SELECT * users WHERE email = ?"
+    const q = "SELECT * FROM users WHERE email = ?"
     db.query(q, [req.body.email], (err,data)=>{
         if (err) return res.json(err);
         // If we don't have any user in the db with this email
         if (data.length === 0) return res.status(404).json("User not found!")
 
         // If there is no error and our user exists -->  check password
-        const isPassCorrect = bcrypt.compareSync(req,body.password, data[0].password)
+        const isPassCorrect = bcrypt.compareSync(req.body.password, data[0].password)
 
         if (!isPassCorrect) return res.status(400).json("Wrong email or password!")
 
@@ -57,5 +57,9 @@ export const register = (req, res) => {
 }
 
 export const logout = (req, res) => {
+	res.clearCookie("access_token", {
+	sameSite:"none", 
+	secure:true
+	}).status(200).json("User has been logged out.")
     
 }
