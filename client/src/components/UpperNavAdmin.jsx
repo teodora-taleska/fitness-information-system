@@ -18,7 +18,7 @@ const UpperNavAdmin = ({adminNavClosed}) => {
     return(
         <div className={`navbar admin phone ${adminNavClosed ? 'closed' : ''}`}>
            <div className="logo">
-            <Link>FusionFit</Link>
+            <Link><h3>FusionFit</h3></Link>
            </div>
 
           

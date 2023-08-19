@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { FaEdit, FaSave } from "react-icons/fa";
+import { FiEdit, FiSave } from "react-icons/fi";
 
 const EditHome = ({adminNavClosed}) => {
     const [isEditing, setIsEditing] = useState(false);
@@ -36,11 +36,11 @@ const EditHome = ({adminNavClosed}) => {
                             onChange={handleInputChange}
                             autoFocus
                         />
-                        <FaSave className="edit-btn" onClick={handleSaveClick}/></div>
+                        <FiSave className="edit-btn" onClick={handleSaveClick}/></div>
                         ) : (
                         <div>
                         
-                        <p><FaEdit className="edit-btn e" onClick={handleEditClick} />{paragraphText}</p>
+                        <p><FiEdit className="edit-btn e" onClick={handleEditClick} />{paragraphText}</p>
                         
                         </div>
                         )}

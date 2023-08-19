@@ -1,6 +1,7 @@
 
 import React, {useState} from "react";
 import "./style.scss"
+import "./events.scss"
 import Login from "./pages/Login";
 import {
   createBrowserRouter, 
@@ -17,7 +18,6 @@ import UpperNavAdmin from "./components/UpperNavAdmin";
 import AdminNav from "./components/AdminNav";
 import EditHome from "./pages/EditHome";
 import AddEmployee from "./components/AddEmployee";
-import AdminLogin from "./pages/AdminLogin";
 import ModifyEmployee from "./components/ModifyEmployee";
 import DeleteEmployee from "./components/DeleteEmployee";
 import Home from "./pages/Home";
@@ -25,6 +25,9 @@ import Events from "./pages/Events";
 import Contact from "./pages/Contact";
 import Shop from "./pages/Shop";
 import EventsGuest from "./pages/EventsGuest";
+import Event from "./components/Event";
+import CreateEvent from "./components/CreateEvent";
+import Footer from "./components/Footer";
 
 
 
@@ -40,6 +43,7 @@ const Member = () => {
     <>
       <UpperNav />
       <Outlet />
+      <Footer />
     </>
   )
 }
@@ -49,16 +53,26 @@ const Guest = () => {
     <>
       <UpperNavGuest />
       <Outlet />
+      <Footer/>
     </>
   )
 }
 
-const Admin = () => {
+const AdminEditPages = () => {
   return (
     <>
       <AdminNav adminNavClosed={adminNavClosed} onToggle={handleAdminNavToggle}/>
       <UpperNavAdmin adminNavClosed={adminNavClosed}/>
       <Outlet />
+    </>
+  )
+}
+
+const AdminEmployees = () =>{
+  return (
+    <>
+    <AdminNav adminNavClosed={adminNavClosed} onToggle={handleAdminNavToggle}/>
+    <Outlet />
     </>
   )
 }
@@ -72,34 +86,36 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />
-  },{
-    path:"/admin-access", 
-    element: <AdminLogin />
   },
   {
-    path:"/admin",
-    element: <Admin/>,
+    path:"/",
+    element: <AdminEditPages/>,
     children: [
       {
-        path: "/admin",
+        path: "/edit-home",
         element: <EditHome adminNavClosed={adminNavClosed}/>
-      },
+      }]
+    },
+    {
+      path:"/",
+      element: <AdminEmployees />,
+      children:[
       {
-        path: "/admin/add-employee",
+        path: "/add-employee",
         element: <AddEmployee adminNavClosed={adminNavClosed}/>
       },
       {
-        path:"/admin/modify-employee",
+        path:"/modify-employee",
         element: <ModifyEmployee adminNavClosed={adminNavClosed}/>
       },
       {
-        path: "/admin/delete-employee",
+        path: "/delete-employee",
         element:<DeleteEmployee adminNavClosed={adminNavClosed}/>
       }
     ]
   },
   {
-    path:"/home",
+    path:"/",
     element: <Member />,
     children: [
       {
@@ -107,22 +123,30 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "/home/contact",
+        path: "/contact",
         element:<Contact/>
       },
       {
-        path: "/home/shop",
+        path: "/shop",
         element:<Shop/>
       },
       {
-        path:"/home/events",
+        path:"/events",
         element:<Events/>
+      },
+      {
+        path: "/event/:id",
+        element: <Event />
+      },
+      {
+        path: "/write",
+        element: <CreateEvent />
       }
     ]
 
   },
   {
-    path:"/guest",
+    path:"/",
     element:<Guest/>,
     children: [
       {
@@ -130,15 +154,16 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "/guest/shop",
+        path: "/shop",
         element:<Shop />
       },
       {
-        path: "/guest/events",
+        path: "/events",
         element:<EventsGuest />
       }
     ]
   },
+  
   
 
 

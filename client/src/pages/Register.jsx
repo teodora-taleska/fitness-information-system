@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios"
 
 const Register = () => {
@@ -22,6 +22,8 @@ const Register = () => {
     role:"member",
     phoneNumber:""
   })
+
+  const navigate = useNavigate()
 
   const handleChange = e => {
     const {name, value} = e.target;
@@ -61,31 +63,6 @@ const Register = () => {
     }
   };
 
-  const handleNext1 = async e => {
-    e.preventDefault()
-
-    if (!passMatch){
-      setShowPassPopup(true);
-
-      return;
-    }
-    
-    try{
-      const res = await axios.post("http://88.200.63.148:5067/api/auth/register", inputs)
-      console.log(res)
-      setShowErrorPopup(true)
-      setError(res.data)
-       if (res.data==="User has been created!" && part < 3) {
-        setPart(part + 1);
-      }
-    } catch(err){
-      setShowErrorPopup(true);
-      setError(err.response.data);
-
-    }
-     
-  }
-
   const handleBack = () => {
     if (part > 1) {
       setPart(part - 1);
@@ -102,11 +79,36 @@ const Register = () => {
     setShowConfirmationPopup(true);
   };
 
-  const handleConfirmTransaction = () => {
+  const handleConfirmTransaction = async e => {
+    e.preventDefault()
+
+    if (!passMatch){
+      setShowPassPopup(true);
+
+      return;
+    }
     
+    try{
+      const res = await axios.post("http://88.200.63.148:5067/api/auth/register", inputs)
+      console.log(res)
+      if (res.data === "User has been created!"){
+        setShowSuccessPopup(true);
+
+      } else {
+         setError(res.data)
+         setShowErrorPopup(true)
+      
+      }
+     
+    } catch(err){
+      setShowErrorPopup(true);
+      setError(err.response.data);
+
+    }
+     
     // After successful processing, show the success popup
     setShowConfirmationPopup(false);
-    setShowSuccessPopup(true);
+    
   };
 
   const renderForm = () => {
@@ -161,7 +163,7 @@ const Register = () => {
                     onChange={handleChange}/>
                 
                   
-                   <button onClick={handleNext1} className="next">NEXT</button>
+                   <button onClick={handleNext} className="next">NEXT</button>
               
                
                 

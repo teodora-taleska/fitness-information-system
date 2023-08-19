@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios"
+import { useContext } from "react";
+import { AuthContext } from "../context/authContext";
+import axios from "axios";
 
 const Login = () => {
     const [showErrorPopup, setShowErrorPopup] = useState(false);
@@ -10,6 +12,10 @@ const Login = () => {
         password:""
     });
     const navigate = useNavigate()
+
+    const {currentUser} = useContext(AuthContext);
+    // console.log(currentUser)
+    const {login} = useContext(AuthContext)
 
     const handleChange = e => {
         setInputs((prev) =>
@@ -22,10 +28,17 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            await axios.post("http://88.200.63.148:5067/api/auth/login", inputs)
-            navigate("/home")
+            const role = await login(inputs)
+            
+            if (role === "admin") {
+                navigate("/edit-home")
+            }  else{
+                 navigate("/home")
+            }
+           
+            
         } catch (err) {
-            setError(err.response.data)
+            setError(err)
         }
     }
 
@@ -36,22 +49,22 @@ const Login = () => {
             
             
                 <form className="form-m">
+                <Link to="/guest"><i className="guest-link"> Enter as a guest</i></Link>
                     <h1>Fitness Information System</h1>
                     <p>We help you save your valuable time by consolidating all the information from one fitness center in one place. 
                     </p>
-                    <Link to="/admin-access"><i className="a">   Log in as an administrator</i></Link>
                     <input type="email" placeholder="e-mail" name="email"  onChange={handleChange}/>
                     <input type="password" placeholder="password" name="password" onChange={handleChange}/>
-                    <div className="links">
-                        <Link><i>Forgot password?</i></Link>
-                        <Link to="/guest"><i> Enter as a guest</i></Link>
-                    </div>
+                    <Link><i className="forgot-pass">Forgot password?</i></Link>
                     
                     <div className="buttons">
                         <button onClick={handleSubmit} className="login">LOGIN</button>
                         <Link to="/register"><button className="register">CREATE PROFILE</button></Link>
                     </div>
-                   
+                  
+                     
+                        
+                    
                     
                     
                 </form>
