@@ -15,22 +15,22 @@ export const getEvents = (req, res) =>{
 
 
 export const getEvent = (req, res) =>{
-    const q = "SELECT `eventId`, `userId`, `title`, `descr`, `date`, `place`, `capacity`, `img`, `cat` FROM Event e JOIN users u ON u.userId=e.userId WHERE e.eventId=?"
+    const q = "SELECT * FROM Event WHERE eventId=?"
 
-    db.query(q, [req.params.eventId], (err, data)=>{
+    db.query(q, [req.params.id], (err, data)=>{
         if (err) return res.status(500).json(err);
         return res.status(200).json(data[0])
     })
 }
 
 export const addEvent = (req, res) =>{
-    const token = req.cookies.access_token
+   /* const token = req.cookies.access_token
     if(!token) return res.status(401).json(401).json("Not authenticated!")
 
     jwt.verify(token, "jwtkey", (err, userInfo)=>{
-    if (err) return res.status(403).json("Token is not valid")
+    if (err) return res.status(403).json("Token is not valid") */
 
-    const q = "INSERT INTO Event(`title`, `descr`, `date`, `place`, `capacity`, `img`, `cat`, `userId`) VALUES (?)" 
+    const q = "INSERT INTO Event(`title`, `descr`, `date`, `place`, `capacity`, `img`, `cat`, `userId`, `postDate`) VALUES (?)" 
 
     const values = [
         req.body.title,
@@ -40,43 +40,44 @@ export const addEvent = (req, res) =>{
         req.body.capacity, 
         req.body.img, 
         req.body.cat, 
-        userInfo.userId
+        req.body.userId, 
+        req.body.postDate
     ]
 
     db.query(q,[values], (err, data) =>{
-        if (err) return res.status(500).json(err)
+        if (err) return res.status(500).json("Event not created")
         return res.json("Event has been created")
     })
-    });
+   // });
 }
 
 export const deleteEvent = (req, res) =>{
-    const token = req.cookies.access_token
-    if(!token) return res.status(401).json(401).json("Not authenticated!")
+    /* const token = req.cookies.access_token
+    if(!token) return res.status(401).json("Not authenticated!")
 
     jwt.verify(token, "jwtkey", (err, userInfo)=>{
-        if (err) return res.status(403).json("Token is not valid")
+        if (err) return res.status(403).json("Token is not valid") */
 
-        const eventId = req.params.eventId
-        const q = "DELETE FROM Event WHERE `eventId`=? AND `userId`=? "
+        const eventId = req.params.id
+        const q = "DELETE FROM Event WHERE `eventId`=?"
 
-        db.query(q, [eventId, userInfo.userId], (err, data)=>{
-            if (err) return res.status(403).json("You can delete only your event!")
+        db.query(q, [eventId], (err, data)=>{
+            if (err) return res.status(403).json(err)
 
             return res.json("Event has been deleted!")
         })
-    })
+   // })
 }
 
 export const updateEvent = (req, res) =>{
-    const token = req.cookies.access_token
+    /* const token = req.cookies.access_token
     if(!token) return res.status(401).json(401).json("Not authenticated!")
 
     jwt.verify(token, "jwtkey", (err, userInfo)=>{
-    if (err) return res.status(403).json("Token is not valid")
-
-    const eventId = req.params.eventId
-    const q = "UPDATE Event SET `title` = ?, `descr` = ? , `date` = ?, `place`= ?, `capacity` = ? , `img` = ?, `cat` = ? WHERE `eventId` = ? AND `userId` = ?" 
+    if (err) return res.status(403).json("Token is not valid") */
+ 
+    const eventId = req.params.id
+    const q = "UPDATE Event SET `title` = ?, `descr` = ? , `date` = ?, `place`= ?, `capacity` = ? , `img` = ?, `cat` = ? WHERE `eventId` = ?" 
 
     const values = [
         req.body.title,
@@ -88,9 +89,9 @@ export const updateEvent = (req, res) =>{
         req.body.cat, 
     ]
 
-    db.query(q,[...values, eventId, userInfo.userId], (err, data) =>{
+    db.query(q,[...values, eventId], (err, data) =>{
         if (err) return res.status(500).json(err)
         return res.json("Event has been updated")
     })
-    });
+    // });
 }
