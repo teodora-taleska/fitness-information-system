@@ -48,7 +48,7 @@ const UpperNav = () => {
                     <Link to='/home'>Activities</Link>
                 </li>
                 <li>
-                    <Link to="/events">Events</Link>
+                    <Link to="/events/?cat=gym">Events</Link>
                 </li>
                 <li>
                     <Link to="/shop">Shop</Link>
@@ -123,7 +123,7 @@ const UpperNav = () => {
                                 <Link to='/home' onClick={closeMenu}><li className="d"><FaHome/><span className="user">Home</span></li></Link>
                                 <Link to='/home' onClick={closeMenu}><li className="d"><FaInfo/><span className="user">About us</span></li></Link>
                                 <Link to='/home' onClick={closeMenu}><li className="d"><FiActivity/><span className="user">Activities</span></li></Link>
-                                <Link to="/events" onClick={closeMenu}><li className="d"><FaEvernote/><span className="user">Events</span></li></Link>
+                                <Link to="/events/?cat=gym" onClick={closeMenu}><li className="d"><FaEvernote/><span className="user">Events</span></li></Link>
                                 <Link to="/shop" onClick={closeMenu}><li className="d"><FaShopify/><span className="user">Shop</span></li></Link>
                                 <Link to="/contact" onClick={closeMenu}><li className="d"><FiPhoneCall/><span className="user">Contact</span></li></Link>
                                

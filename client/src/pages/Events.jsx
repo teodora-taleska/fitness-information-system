@@ -1,71 +1,33 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaPlus } from 'react-icons/fa';
 import { AuthContext } from "../context/authContext";
 import { FiCalendar, FiMap, FiMapPin } from "react-icons/fi";
+import axios from "axios";
 
 const Events = () => {
     const {currentUser} = useContext(AuthContext);
+    const [catOpen, setCatOpen] = useState(false)
+    
+    const[events, setEvents] = useState([])
 
-    const events = [
-        {
-            eventId: 1,
-            title: "Event 1",
-            descr: "Something something something",
-            date:"Date",
-            place: "Somewhere",
-            capacity: 15,
-            img: "https://images.pexels.com/photos/903171/pexels-photo-903171.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        },
-        {
-            eventId: 2,
-            title: "Event 2",
-            descr: "Something something something",
-            date:"Date",
-            place: "Somewhere",
-            capacity: 15,
-            img: "https://images.pexels.com/photos/863926/pexels-photo-863926.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        },
-        {
-            eventId: 3,
-            title: "Event 3",
-            descr: "Something something something",
-            date:"Date",
-            place: "Somewhere",
-            capacity: 15,
-            img: "https://images.pexels.com/photos/4761352/pexels-photo-4761352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        },
-        ,
-        {
-            eventId: 4,
-            title: "Event 4",
-            descr: "Something something something",
-            date:"Date",
-            place: "Somewhere",
-            capacity: 15,
-            img: "https://images.pexels.com/photos/4761352/pexels-photo-4761352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        }
-        ,
-        {
-            eventId: 5,
-            title: "Event 5",
-            descr: "Something something something",
-            date:"Date",
-            place: "Somewhere",
-            capacity: 15,
-            img: "https://images.pexels.com/photos/4761352/pexels-photo-4761352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        },
-        {
-            eventId: 6,
-            title: "Event 5",
-            descr: "Something something something",
-            date:"Date",
-            place: "Somewhere",
-            capacity: 15,
-            img: "https://images.pexels.com/photos/4761352/pexels-photo-4761352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        }
-        
-    ]
+    const cat = useLocation().search
+   
+    
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            try{
+                const res = await axios.get(`http://88.200.63.148:5067/api/events${cat}`);
+                setEvents(res.data);
+                
+            }catch (err) {
+                console.log(err)
+            }
+        };
+        fetchData();
+    }, [cat]); 
+
 
     // Define the event date (year, month [0-based], day, hour, minute, second)
     const eventDate = new Date(2023, 8, 20, 11, 0, 0); // September 20, 2023, 11:00:00
@@ -129,9 +91,23 @@ const Events = () => {
             </div> 
             <div className="middle">
                  <h3>Upcoming events</h3>
+                 
+
                  {currentUser.role === "employee" &&
-                 (<Link to="/write" className="link"><button>Create event <FaPlus className="icon"/></button></Link>)}
-            </div>
+                 (<Link to="/write" className="link"><button className="buttons">Create event <FaPlus className="icon"/></button></Link>)}
+            
+                <button className="buttons cat" onClick={() => setCatOpen(!catOpen)}>Category <FaPlus className="icon"/></button>
+                {catOpen && <div className="dropdown">
+                            <ul>
+                                <Link className="link " to="/events/?cat=gym" onClick={() => setCatOpen(false)}><li className="f" >Gym</li></Link>
+                                <Link className="link" to="/events/?cat=zumba" onClick={() => setCatOpen(false)}><li >Zumba</li></Link>
+                                <Link className="link" to="/events/?cat=yoga" onClick={() => setCatOpen(false)}><li >Yoga</li></Link>
+                                <Link className="link" to="/events/?cat=group-cycling" onClick={() => setCatOpen(false)}><li >Group cycling</li></Link>
+                                <Link className="link" to="/events/?cat=gymnastics" onClick={() => setCatOpen(false)}><li >Gymnastics</li></Link>
+                                <Link className="link" to="/events/?cat=aerobics" onClick={() => setCatOpen(false)}><li className="l">Aerobics</li></Link>
+                            </ul>
+                        </div>}
+                        </div>
            
            <div className="events">
            
@@ -142,7 +118,7 @@ const Events = () => {
                     </div>
                     <div className="content">
                         <h1>{event.title}</h1>
-                        <p><FiCalendar className="icon"/>{event.date}</p>
+                        {/* <p><FiCalendar className="icon"/>{event.date}</p> */}
                         <p><FiMapPin className="icon"/>{event.place}</p>
                         <Link className="link" to={`/event/${event.eventId}`}><button>Read More</button></Link>
                     </div>

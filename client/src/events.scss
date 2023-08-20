@@ -116,25 +116,70 @@ $coolRed: rgb(211, 4, 4);
                 justify-content: space-around;
                 align-items: center;
 
+                .dropdown, .cat{
+                    width: 200px
+                }
+
+                .dropdown{
+                    position: absolute;
+                    margin-top: 270px;
+                    right: 150px;
+                    
+
+                     ul {
+                        display: flex;
+                        flex-direction: column;
+                        
+
+                        
+                        li{
+                          padding: 10px 20px 10px 20px;  
+                          list-style: none;
+                          background-color: rgb(255, 255, 255);
+                          color: teal;
+                          
+                          
+                        }
+                        li:hover{
+                            background-color: rgb(236, 231, 231);
+                        }
+
+                        .f {
+                            border-top-left-radius: 5px;
+                            border-top-right-radius: 5px;
+                        }
+
+                        .l{
+                            border-bottom-left-radius: 5px;
+                            border-bottom-right-radius: 5px;
+                        }
+                        
+                     }
+                    
+                    
+                }
                 h3{
                     font-size: 1.7rem;
                     color: black;
-                    flex: 6;
+                    flex: 9;
                     
                 }
                 .link{
                     text-decoration: none;
                 }
+                .buttons{
+                    flex: 1;
+                }
                 button{
                     background-color: teal;
                     color: white;
-                    flex: 1;
                     font-size: 1rem;
                     display: flex;
                     padding:10px;
                     justify-content: center;
                     align-items: center;
                     box-shadow: 2px 2px 5px rgb(92, 90, 90);
+
                     .icon{
                         padding-left: 7px;
                     }
@@ -431,6 +476,11 @@ $coolRed: rgb(211, 4, 4);
                 .single-event , .events-div .main-event,
                 .events-div .middle, .events-div .events, .write, {
                     padding: $mobPadding;
+
+                    .dropdown{
+                        position: absolute;
+                        right: 50px;
+                    }
                     
                 }
                 .events-div{
@@ -439,6 +489,8 @@ $coolRed: rgb(211, 4, 4);
                     }
                 }
 
+                
+                
                 .write, .single-event{
                     flex-direction: column;
                     gap: 20px;
@@ -453,7 +505,8 @@ $coolRed: rgb(211, 4, 4);
                 }
                 
             
-        
             }
         }
+            
     }
+

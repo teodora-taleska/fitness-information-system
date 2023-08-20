@@ -1,35 +1,21 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
-const Menu = () => {
-    const events = [
-        {
-            eventId: 1,
-            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-            descr: "Something something something",
-            date:"Date",
-            place: "Somewhere",
-            capacity: 15,
-            img: "https://images.pexels.com/photos/903171/pexels-photo-903171.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        },
-        {
-            eventId: 2,
-            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-            descr: "Something something something",
-            date:"Date",
-            place: "Somewhere",
-            capacity: 15,
-            img: "https://images.pexels.com/photos/863926/pexels-photo-863926.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        },
-        {
-            eventId: 3,
-            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-            descr: "Something something something",
-            date:"Date",
-            place: "Somewhere",
-            capacity: 15,
-            img: "https://images.pexels.com/photos/4761352/pexels-photo-4761352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        }
-    ]
+const Menu = ({cat}) => {
+    const[events, setEvents] = useState([])
+   
+    useEffect(()=>{
+        const fetchData = async () => {
+            try{
+                const res = await axios.get(`http://88.200.63.148:5067/api/events/?cat=${cat}`);
+                const recEvents = res.data.slice(1, 4); // Get elements from index 1 to index 3 (4th element is excluded)
+                setEvents(recEvents);
+            }catch (err) {
+                console.log(err)
+            }
+        };
+        fetchData();
+    }, [cat]); 
 
 
     return(

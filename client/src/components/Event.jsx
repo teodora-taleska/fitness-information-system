@@ -1,33 +1,85 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { FiCalendar, FiEdit, FiMapPin, FiTrash } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Menu from "./Menu";
+import moment from "moment"
+import { useContext } from "react";
+import { AuthContext } from "../context/authContext";
 
 const Event = () => {
+    const[event, setEvent] = useState([])
+    const [date, setDate] = useState(null)
+
+        
+    const getText = (html) => {
+        const doc = new DOMParser().parseFromString(html, "text/html")
+        return doc.body.textContent
+    }
+    
+
+    const location = useLocation()
+    const eventId = location.pathname.split("/")[2]
+    const navigate = useNavigate()
+
+    const {currentUser} = useContext(AuthContext)
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            try{
+                const res = await axios.get(`http://88.200.63.148:5067/api/events/${eventId}`);
+                setEvent(res.data);
+                const d = new Date(res.data.date)
+                const year = d.getUTCFullYear();
+                const month = String(d.getUTCMonth()+1).padStart(2, '0');
+                const day = String(d.getUTCDate()).padStart(2, '0');
+                const hours = String(d.getUTCHours()+2).padStart(2, '0');
+                const minutes = String(d.getUTCMinutes()).padStart(2, '0');
+                const seconds = String(d.getUTCSeconds()).padStart(2, '0');
+                const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+                setDate(formattedDate);
+                
+            }catch (err) {
+                console.log(err)
+            }
+        };
+        fetchData();
+    }, [eventId]); 
+
+    const handleDelete = async () =>{
+        try{
+            const res = await axios.delete(`http://88.200.63.148:5067/api/events/${eventId}`)
+            navigate("/events/?cat=gym")
+        }catch (err) {
+            console.log(err)
+        }
+    }
+
     return(
         <div className="single-event">
            
            <div className="content">
-                <img src="https://images.pexels.com/photos/903171/pexels-photo-903171.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+                <img src={event?.img} alt="" />
                 
                 <div className="edit">
-                    <p>Posted 2 days ago</p>
-                    <Link to={`/write?edit=2`}><FiEdit className="edit-b"/></Link>
-                    <FiTrash className="edit-b"/>
-
+                    <p>Posted {moment(event.postDate).fromNow()}</p>
+                    {currentUser.userId === event.userId &&
+                    (<div>
+                        <Link ><FiEdit className="edit-b"/></Link>
+                        <FiTrash className="edit-b" onClick={handleDelete}/>
+                    </div>)
+                    }
                 </div>
-                <h1>Title</h1>
+                <h1>{event.title}</h1>
 
                 
 
-                <p><FiCalendar className="icon"/> Date: </p>
-                <p><FiMapPin className="icon"/> Place: </p>
-                <p className="descr">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquet nibh praesent tristique magna sit amet purus gravida. Suspendisse interdum consectetur libero id faucibus nisl tincidunt. Fermentum posuere urna nec tincidunt praesent. Velit ut tortor pretium viverra suspendisse potenti nullam ac tortor. Amet nisl suscipit adipiscing bibendum est ultricies. A scelerisque purus semper eget duis at tellus at. Morbi tincidunt ornare massa eget egestas purus viverra accumsan. Nibh praesent tristique magna sit amet purus gravida quis blandit. Nunc vel risus commodo viverra. Et netus et malesuada fames ac turpis egestas sed. Nisi quis eleifend quam adipiscing vitae proin sagittis nisl. Est sit amet facilisis magna. Euismod nisi porta lorem mollis aliquam ut. Aliquet lectus proin nibh nisl condimentum id venenatis a. Elementum nisi quis eleifend quam adipiscing vitae proin. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
-
-                <p className="descr">Diam sollicitudin tempor id eu. Commodo viverra maecenas accumsan lacus. Eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis. Mauris rhoncus aenean vel elit scelerisque mauris. Morbi tincidunt ornare massa eget egestas. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra. Ut pharetra sit amet aliquam id. Fermentum odio eu feugiat pretium nibh. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Mi bibendum neque egestas congue quisque. Scelerisque eleifend donec pretium vulputate sapien nec. Aliquam purus sit amet luctus venenatis lectus magna. Lacus sed turpis tincidunt id aliquet risus. Aliquet lectus proin nibh nisl condimentum id. Faucibus vitae aliquet nec ullamcorper. Orci ac auctor augue mauris augue neque gravida in fermentum. Ac turpis egestas integer eget. Consequat semper viverra nam libero.</p>
+                <p><FiCalendar className="icon"/> Date: {date}</p>
+                <p><FiMapPin className="icon"/> Place: {event.place} </p>
+                <p className="descr">{getText(event.descr)}</p>
                 <button className="reserve">RESERVE A SLOT</button>
            </div>
-           <Menu />
+           <Menu cat={event.cat}/>
            
         </div>
     )
