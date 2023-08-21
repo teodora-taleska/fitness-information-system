@@ -63,17 +63,17 @@ const Login = () => {
             
             
                 <form className="form-m">
-                <Link onClick={handleGuest}><i className="guest-link"> Enter as a guest</i></Link>
+                <Link onClick={handleGuest}><i className="link guest"> Enter as a guest</i></Link>
                     <h1>Fitness Information System</h1>
                     <p>We help you save your valuable time by consolidating all the information from one fitness center in one place. 
                     </p>
                     <input type="email" placeholder="e-mail" name="email"  onChange={handleChange}/>
                     <input type="password" placeholder="password" name="password" onChange={handleChange}/>
-                    <Link><i className="forgot-pass">Forgot password?</i></Link>
+                    <Link><i className="link">Forgot password?</i></Link>
                     
-                    <div className="buttons">
-                        <button onClick={handleSubmit} className="login">LOGIN</button>
-                        <Link to="/register"><button className="register">CREATE PROFILE</button></Link>
+                    <div className="buttons login-b">
+                    <Link ><button onClick={handleSubmit} className="login">Login</button></Link>
+                        <Link to="/register"><button className="register">Create Profile</button></Link>
                     </div>
                   
                      

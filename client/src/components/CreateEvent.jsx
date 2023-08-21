@@ -136,7 +136,7 @@ const CreateEvent = () => {
                     <button onClick={handleSubmit}>Publish</button>
                 </div>
             </div>
-           </div>
+</div>
         </div>
     )
 }

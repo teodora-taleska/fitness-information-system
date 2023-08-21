@@ -75,7 +75,9 @@ const Home = () => {
                 </div>
                 
             </section>
-
+            <footer className="footer">
+                <p>&copy; 2023 FusionFit Fitness Center. All rights reserved.</p>
+            </footer>
         </div>
     )
 }

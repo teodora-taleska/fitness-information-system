@@ -29,6 +29,7 @@ html{
 
       /* Styles for the popup container */
       .popup {
+        z-index: 1;
         position: fixed;
         top: 0;
         left: 0;
@@ -65,7 +66,12 @@ html{
         color: black;
         border-radius: 4px;
         cursor: pointer;
+        
+       
       }
+.popup-content .buttons{
+  gap: 10px;
+}
 
       .popup-content button:hover{
         background-color: rgb(240, 232, 232);
@@ -91,6 +97,10 @@ html{
         
         //LOGIN & REGISTER
         .auth{
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
             display: flex;
             align-items: center;
             justify-content: flex-start;
@@ -100,9 +110,10 @@ html{
             background-repeat: no-repeat;
             background-position: center center;
             color: white;
-           
+            
+                    
             p{
-                text-align: justify;
+                text-align: left;
             }
             .bottom{
                 text-align: center;
@@ -117,8 +128,10 @@ html{
             }
 
             .form-m{
+              z-index: 1;
+              height: 90vh;
                 display: flex;
-                justify-content: center;
+                justify-content: flex-start;
                 flex-direction: column;
                 padding: 3.125rem; 
                 padding-right: 10%;
@@ -130,9 +143,49 @@ html{
                 gap: 1.25rem; 
                 height: 80%;
                 
-            }
+                .llink{
+                  color: white;
+                  text-decoration: none;
+                }
 
+                h1{
+                  margin-top: 50px;
+                }
+
+                p{
+                  margin-bottom: 90px;
+                }
+
+                .login-b{
+                  margin-top: 160px;
+                }
+
+                .membership-option{
+                  height: 120px;  
+                  padding: 20px;
+
+                  p{
+                    margin-top: 50px;
+                  }
+                }
+              
+            }   
+            
+            
            
+             .link{
+              float: right;
+            }
+            .guest{
+              position: absolute;
+              top: 90px;
+            }
+           
+
+           button{
+               margin-left: 0;
+               margin-right: 0;
+           }
 
             
             
@@ -159,7 +212,7 @@ html{
                 justify-content: space-evenly;
             }
              i{
-                color: rgba(228, 157, 157, 0.801);
+                color: rgba(255, 255, 255, 0.801);
                 font-size: 0.75rem; 
                 
              }
@@ -167,7 +220,14 @@ html{
              i:hover{
                 color: white;
              }
+
+             .next{
+              margin-left: 2px;
+             }
            
+            .back{
+              margin-right: 2px;
+            }
 
             .next, .back{
                 background-color: rgb(252, 236, 236);
@@ -182,6 +242,9 @@ html{
                 transition: background-color 0.2s, color 0.2s, font-size 0.2s;
             }
            
+            .login{
+              margin-right: 3px;
+            }
               
             .login{
                 background-color: $buttonsHover;
@@ -229,7 +292,7 @@ html{
               }
               
               .progress-dots .active {
-                background-color: $lightPink;        
+                background-color: $buttonsFontColor;        
                 box-shadow: 1px 1px 2px rgb(148, 115, 115);
               }
               
@@ -272,6 +335,18 @@ html{
               
   
         
+        }
+         /* Pseudo-element for the overlay effect */
+         .auth::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.349); /* Adjust the alpha value for darkness */
+          backdrop-filter: blur(10px); /* Adjust the blur amount */
+          pointer-events: none; /* Allowing clicks to reach underlying content */
         }
 
         /* Adjust padding for phone below 750*/
@@ -355,7 +430,7 @@ html{
             /* Style the dropdown menus */
             .dropdown {
                 position: absolute;
-                top: 56.4px;
+                top: 65px;
                 right: 0;
                 background-color: white;
                 border: 1px solid #ccc;
@@ -364,10 +439,16 @@ html{
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 z-index: 1;
                 width: 250px;
-                margin-right: 20px; 
+                margin-right: $sectionPadding; 
                 // padding: 10px;
                 
-
+              .nav-open{
+                display: flex;
+                flex-direction: column;
+                margin-left: 0;
+                padding-left: 0;
+               
+              }
 
                 div , .d{
 
@@ -400,6 +481,13 @@ html{
                 .user{
                   margin-left: 7px;
                 }
+            }
+
+            @media (max-width: 500px) {
+                .dropdown{
+                  margin-right: 30px;
+                  width: 200px;
+                }              
             }
             
            
@@ -486,6 +574,11 @@ html{
 
         // HOME
         .home, .edit-home{
+          position: absolute;
+          top: 70px;
+          left: 0;
+          right: 0;
+          
             background-color: white;
             display: flex;
             justify-content: flex-start;
@@ -773,6 +866,10 @@ html{
           height: 100vh;
           display: flex;
           flex-direction: column;
+          position: absolute;
+          top: 70px;
+          left: 0;
+          right: 0;
        
           
 
@@ -803,6 +900,13 @@ html{
           }
 
          
+        }
+
+        @media (max-width: 500px) {
+          .shop .main{
+            padding-left: $mobPadding;
+            padding-right: $mobPadding;
+          }            
         }
         .shop::before {
           content: "";
@@ -1096,7 +1200,20 @@ html{
             }
           }
 
+          .edit-home{
+            position: absolute;
+            left: 0px;
+            top: 70px;
+            right: 0px;
+            bottom: 0px;
+          }
 
+          .navbar{
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+          }
           /*  To make the admin nav slide out when the screen is less than or equal to 690*/
           @media (max-width: 690px) {
             .admin-nav{

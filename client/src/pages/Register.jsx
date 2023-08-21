@@ -164,11 +164,11 @@ const Register = () => {
                     onChange={handleChange}/>
                 
                   
-                   <button onClick={handleNext} className="next">NEXT</button>
+                   <button onClick={handleNext} className="next">Next</button>
               
                
                 
-                <p className='bottom'>You alredy have an account?<Link to="/"><i>Login</i></Link></p>
+                <p className='bottom'>You alredy have an account?<Link to="/" className='llink'><i>Login</i></Link></p>
              
           </div>
         );
@@ -185,13 +185,16 @@ const Register = () => {
 
             <h3>Choose your best plan</h3>
             {/* Membership options */}
+            <div className='mem'>
+
+           
             <div
               className={`membership-option ${selectedMembership === 'basic' ? 'selected' : ''}`}
               onClick={() => handleMembershipClick('basic')}
             >
               <h3>Basic Membership</h3>
-              <p>Unlimited gym entrances</p>
-              <p>Cost: 30 €/month</p>
+              <p>Unlimited gym entrances<br/>
+              Cost: 30 €/month</p>
             </div>
 
             <div
@@ -199,8 +202,8 @@ const Register = () => {
               onClick={() => handleMembershipClick('standard')}
             >
               <h3>Standard Membership</h3>
-              <p>15 tickets plus unlimited gym entrances</p>
-              <p>Cost: 45 €/month</p>
+              <p>15 tickets plus unlimited gym entrances<br/>
+              Cost: 45 €/month</p>
             </div>
 
             <div
@@ -208,18 +211,19 @@ const Register = () => {
               onClick={() => handleMembershipClick('premium')}
             >
               <h3>Premium Membership</h3>
-              <p>30 tickets plus unlimited gym entrances</p>
-              <p>Cost: 60 €/month</p>
+              <p>30 tickets plus unlimited gym entrances<br/>
+              Cost: 60 €/month</p>
+            </div>
             </div>
 
             <div className='buttons'>
-                <button onClick={handleBack} className="back">BACK</button>
+                <button onClick={handleBack} className="back">Back</button>
                 <button
                 onClick={handleNext}
                 className="next"
                 disabled={!selectedMembership} // Disable the button if no membership is selected
                 >
-                NEXT
+                Next
                 </button>
             </div>
           </div>
@@ -252,8 +256,8 @@ const Register = () => {
             <input type="text" id="billingAddress" name="billingAddress" placeholder="Enter billing address" required/>
 
             <div className='buttons'>
-                <button onClick={handleBack} className='back'>BACK</button>
-                <button onClick={handleDone} className="login">SUMBIT</button>
+                <button onClick={handleBack} className='back'>Back</button>
+                <button onClick={handleDone} className="login">Submit</button>
             </div>
           </div>
         );
@@ -273,8 +277,11 @@ const Register = () => {
         <div className="popup">
           <div className="popup-content">
             <p>Are you sure you want to proceed with the transaction?</p>
-            <button onClick={() => setShowConfirmationPopup(false)}>Cancel</button>
+            <div className="buttons">
+              <button onClick={() => setShowConfirmationPopup(false)}>Cancel</button>
             <button onClick={handleConfirmTransaction}>Yes</button>
+            </div>
+            
           </div>
         </div>
       )}

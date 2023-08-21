@@ -124,6 +124,9 @@ const Events = () => {
                 </div>
             ))}
            </div>
+           <footer className="footer">
+                <p>&copy; 2023 FusionFit Fitness Center. All rights reserved.</p>
+            </footer>
         </div>
     )
 }

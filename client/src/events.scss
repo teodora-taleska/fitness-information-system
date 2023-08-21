@@ -23,6 +23,10 @@ $coolRed: rgb(211, 4, 4);
 
         // EVENTS PAGE
         .events-div{
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
             margin: 0;
             // padding: $sectionPadding;
             // padding-top: 20px;
@@ -36,6 +40,7 @@ $coolRed: rgb(211, 4, 4);
                 background-image: url("event.jpg");
                 background-size: cover;
                 position: relative; /* Required for positioning the overlay */
+
 
                 /* Background overlay */
                 &::before {
@@ -264,6 +269,11 @@ $coolRed: rgb(211, 4, 4);
         }
 
         .single-event{ 
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
+            min-height: 100vh;
             color: rgb(0, 0, 0);
             display: flex;
             gap: 50px;
@@ -450,6 +460,10 @@ $coolRed: rgb(211, 4, 4);
         }
 
         .write{
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
             background-color: white;
             padding: $sectionPadding;
             
