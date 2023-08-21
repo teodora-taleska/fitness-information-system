@@ -2,6 +2,7 @@
 import React, {useState} from "react";
 import "./style.scss"
 import "./events.scss"
+import "./employees.scss"
 import Login from "./pages/Login";
 import {
   createBrowserRouter, 
@@ -19,7 +20,7 @@ import AdminNav from "./components/AdminNav";
 import EditHome from "./pages/EditHome";
 import AddEmployee from "./components/AddEmployee";
 import ModifyEmployee from "./components/ModifyEmployee";
-import DeleteEmployee from "./components/DeleteEmployee";
+import EmployeeIndex from "./components/EmployeeIndex";
 import Home from "./pages/Home";
 import Events from "./pages/Events";
 import Contact from "./pages/Contact";
@@ -105,12 +106,12 @@ const router = createBrowserRouter([
         element: <AddEmployee adminNavClosed={adminNavClosed}/>
       },
       {
-        path:"/modify-employee",
+        path:"/modify-employee/:id",
         element: <ModifyEmployee adminNavClosed={adminNavClosed}/>
       },
       {
-        path: "/delete-employee",
-        element:<DeleteEmployee adminNavClosed={adminNavClosed}/>
+        path: "/get-employee",
+        element:<EmployeeIndex adminNavClosed={adminNavClosed}/>
       }
     ]
   },

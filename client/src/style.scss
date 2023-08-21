@@ -606,7 +606,8 @@ html{
               height: 20%;
               background-color: #290202;
               color: white;
-              padding: $sectionPadding;
+              padding-left: $sectionPadding; 
+              padding-right: $sectionPadding;
               align-items: center;
               justify-content: center;
 
@@ -620,7 +621,8 @@ html{
               padding: 50px 0;
               background-color: #121212;
               color: white;
-              padding: $sectionPadding;
+              padding-left: $sectionPadding;
+              padding-right: $sectionPadding;
               height: 100%;
               
              
@@ -696,6 +698,7 @@ html{
               .image-container.passive{
                 opacity: 0;
               }
+
             }}
 
           
@@ -705,7 +708,8 @@ html{
               background-image: url("joinUs.jpg");
               background-size:cover;
               background-repeat: no-repeat;
-              padding: $sectionPadding;
+              padding-left: $sectionPadding;
+              padding-right: $sectionPadding;
               // opacity: 0.9;
               filter: brightness(1);
               align-items: flex-start;
@@ -751,6 +755,13 @@ html{
             height: 100%;
             background-color: rgba(0, 0, 0, 0.7); /* Overlay color */
             mix-blend-mode: multiply; /* Blend mode to darken */
+          }
+
+          @media (max-width: 500px) {
+            .header .content, .about-section, .gallery-section, .joinus-section{
+              padding-left: $mobPadding;
+              padding-right: $mobPadding;
+            }            
           }
 
         }
@@ -823,7 +834,7 @@ html{
         z-index: 2;
         width: 250px;
         height: 100vh;
-        background-color: #333;
+        background-color: teal;
         color: #fff;
         position: fixed;
         top: 0;
@@ -833,6 +844,8 @@ html{
         .nav-header {
             padding: 20px;
             text-align: center;
+            margin-top: 25px;
+            margin-bottom: 30px;
           }
           
           .nav-list {
@@ -842,19 +855,21 @@ html{
           
           .nav-item > a {
             display: block;
-            padding: 10px 20px;
+            padding: 12px 20px;
+            padding-left: 32px;
             color: #fff;
             text-decoration: none;
             transition: background-color 0.3s;
           }
           
           .nav-item > a:hover {
-            background-color: #555;
+            background-color: rgb(37, 161, 161);
+            cursor: pointer;
           }
           
           .dropdown {
             display: none;
-            background-color: #444;
+            background-color: rgb(34, 155, 155);
             list-style-type: none;
             padding: 0;
           }
@@ -872,7 +887,7 @@ html{
           }
           
           .dropdown li > a:hover {
-            background-color: #555;
+            background-color: rgb(39, 141, 141);
           }
 
           /* Style for the logout button */
@@ -909,7 +924,7 @@ html{
             }
             .close:hover, .logout-button:hover{
               border-radius: 15px;
-              background-color: #555;
+              background-color: rgb(37, 161, 161);
             }
             animation: slideIn 0.3s ease-out forwards;
     }
@@ -940,7 +955,7 @@ html{
     /* For the components in the admin page*/
     @keyframes slideOut2 {
       from {
-        margin-left: 250px;
+        margin-left: 245px;
       }
       to {
         margin-left: 0px;
@@ -1022,7 +1037,8 @@ html{
               border-bottom-left-radius: 0;
               border-top-right-radius: 12px;
               border-bottom-right-radius: 12px;
-              background-color: white;
+              background-color: teal;
+              color: white;
               font-size: 15px;
               // transition: width 0.5s ease;
               p{

@@ -42,9 +42,15 @@ const AdminNav = ({ adminNavClosed, onToggle}) => {
             <ul className="nav-list" >
                 <li className="nav-item"
                 >
-                    <a href="#" onClick={toggleEditPages}>Edit pages</a>
+                    <li className="nav-item">
+                    <a>Dashboard Overview</a>
+                    </li>
+                    <li className="nav-item">
+                    <a>User Management</a>
+                    </li>
+                    <a href="#" onClick={toggleEditPages}>Content Management</a>
                     <ul className={`dropdown ${editPagesOpen ? 'active' : ''}`}>
-                        <li><Link to="/admin">Home</Link></li>
+                        <li><Link to="/edit-home">Home</Link></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Activities</a></li>
                         <li><a href="#">Events</a></li>
@@ -57,11 +63,11 @@ const AdminNav = ({ adminNavClosed, onToggle}) => {
 
                 <li className="nav-item" 
               >
-                    <a href="#" onClick={toggleManageEmployees}>Manage employees</a>
+                    <a href="#" onClick={toggleManageEmployees}>Employee Management</a>
                     <ul className={`dropdown ${manageEmployeesOpen ? 'active' : ''}`}>
+                        <li><Link to="/get-employee">Employee index</Link></li>
                         <li><Link to="/add-employee">Add employee account</Link></li>
                         <li><Link to="/modify-employee">Modify employee account</Link></li>
-                        <li><Link to="/delete-employee">Delete employee account</Link></li>
 
                     </ul>
                 
@@ -69,16 +75,31 @@ const AdminNav = ({ adminNavClosed, onToggle}) => {
                 </li>
 
                 <li className="nav-item">
-                    <a>Manage events</a>
+                    <a>Event Management</a>
                 </li>
                 <li className="nav-item">
-                    <a>Manage activities</a>
+                    <a>Activity Management</a>
                 </li>
                 <li className="nav-item">
-                    <a>Manage products</a>
+                    <a>Shop Management</a>
                 </li>
                 <li className="nav-item">
-                    <a>Manage memberships</a>
+                    <a>Reports and Analytics</a>
+                </li>
+                <li className="nav-item">
+                    <a>Settings and Configuration</a>
+                </li>
+                <li className="nav-item">
+                    <a>Permissions and Access Control</a>
+                </li>
+                <li className="nav-item">
+                    <a>Audit Logs</a>
+                </li>
+                <li className="nav-item">
+                    <a>Help and Support</a>
+                </li>
+                <li className="nav-item">
+                    <a>Security Management</a>
                 </li>
 
                 

@@ -25,26 +25,26 @@ const UpperNavAdmin = ({adminNavClosed}) => {
 
            <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
                 <li>
-                    <Link >Home</Link>
+                    <Link to="/edit-home" >Home</Link>
                 </li>
                 <li>
-                    <Link >About us</Link>
+                    <Link to="/edit-home" >About us</Link>
                 </li>
                 <li>
-                    <Link>Activities</Link>
+                    <Link to="/edit-home">Activities</Link>
                 </li>
                 <li>
-                    <Link >Events</Link>
+                    <Link to="/edit-home" >Events</Link>
                 </li>
                 <li>
-                    <Link >Shop</Link>
+                    <Link to="/edit-home" >Shop</Link>
                 </li>
                 <li>
-                    <Link >Contact</Link>
+                    <Link to="/edit-home" >Contact</Link>
                 </li>
                 
                 <li>
-                    <Link >Register</Link>    
+                    <Link to="/edit-home" >Register</Link>    
                 </li>
              
            </ul>
@@ -58,15 +58,15 @@ const UpperNavAdmin = ({adminNavClosed}) => {
                  {menuOpen && (
                         <div className="dropdown">
                             <ul className="nav-open">
-                            <Link onClick={closeMenu}><li className="d"><FaUser/><span className="user">Profile</span></li></Link>
-                            <Link  onClick={closeMenu}><li className="d"><FaHome/><span className="user">Home</span></li></Link>
-                                <Link onClick={closeMenu}><li className="d"><FaInfo/><span className="user">About us</span></li></Link>
-                                <Link onClick={closeMenu}><li className="d"><FiActivity/><span className="user">Activities</span></li></Link>
-                                <Link  onClick={closeMenu}><li className="d"><FaEvernote/><span className="user">Events</span></li></Link>
-                                <Link  onClick={closeMenu}><li className="d"><FaShopify/><span className="user">Shop</span></li></Link>
-                                <Link  onClick={closeMenu}><li className="d"><FiPhoneCall/><span className="user">Contact</span></li></Link>
+                            <Link to="/edit-home" onClick={closeMenu}><li className="d"><FaUser/><span className="user">Profile</span></li></Link>
+                            <Link to="/edit-home"  onClick={closeMenu}><li className="d"><FaHome/><span className="user">Home</span></li></Link>
+                                <Link to="/edit-home" onClick={closeMenu}><li className="d"><FaInfo/><span className="user">About us</span></li></Link>
+                                <Link to="/edit-home" onClick={closeMenu}><li className="d"><FiActivity/><span className="user">Activities</span></li></Link>
+                                <Link to="/edit-home" onClick={closeMenu}><li className="d"><FaEvernote/><span className="user">Events</span></li></Link>
+                                <Link to="/edit-home" onClick={closeMenu}><li className="d"><FaShopify/><span className="user">Shop</span></li></Link>
+                                <Link to="/edit-home" onClick={closeMenu}><li className="d"><FiPhoneCall/><span className="user">Contact</span></li></Link>
                                 
-                                <Link onClick={closeMenu}><li className="d"><FiLogOut/><span className="user">Logout</span></li></Link>
+                                <Link  to="/edit-home" onClick={closeMenu}><li className="d"><FiLogOut/><span className="user">Logout</span></li></Link>
                             </ul>
                         </div>
                     )}
