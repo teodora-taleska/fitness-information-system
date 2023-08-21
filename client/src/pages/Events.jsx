@@ -12,8 +12,7 @@ const Events = () => {
     const[events, setEvents] = useState([])
 
     const cat = useLocation().search
-   
-    
+
 
     useEffect(()=>{
         const fetchData = async () => {
