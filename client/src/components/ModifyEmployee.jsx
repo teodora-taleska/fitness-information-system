@@ -60,11 +60,11 @@ const ModifyEmployee = ({adminNavClosed}) => {
         <div className={`employee ${adminNavClosed ? 'closed' : ''}`}>
            
            <div className="header">
-                <p>{currentUser.name} {currentUser.surname}</p>
+                <h4>{currentUser.name} {currentUser.surname}</h4>
             </div>
 
             <div className="content">
-                <div className="header">
+                <div className="h">
                     <h1>Employees</h1>
                 </div>
 

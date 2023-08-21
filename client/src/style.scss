@@ -17,7 +17,7 @@ $mobPadding: 35px;
 
 html{
     font-size: 15px; /* Set the root font size */
-    background-color: rgb(0, 0, 0);
+    background-color: white;
     // font-family: 'Archivo Black', sans-serif; 
     font-family: 'Nanum Gothic', sans-serif;
 }
@@ -880,7 +880,7 @@ html{
           
           .dropdown li > a {
             display: block;
-            padding: 10px 30px;
+            padding: 10px 60px;
             color: #fff;
             text-decoration: none;
             transition: background-color 0.3s;
@@ -892,8 +892,9 @@ html{
 
           /* Style for the logout button */
             .logout-button {
-                position: absolute;
-                bottom: 25px;
+                position: relative;
+                margin-top: 90px;
+                bottom: 10px;
                 left: 43%;
                 background-color: transparent;
                 border: none;
@@ -907,6 +908,14 @@ html{
                 display: flex;
                 align-items: center;
                 justify-content: center;
+            }
+
+            .nav-item {
+              a{
+                display: flex;
+                align-items: center;
+                gap: 6px;
+              }
             }
             
             
