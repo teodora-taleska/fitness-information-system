@@ -53,7 +53,7 @@ export const addEmployee = (req, res) =>{
 }
 
 export const deleteEmployee = (req, res) =>{
-        const employeeId = req.params.id
+        const userId = req.params.id
         const q = "DELETE FROM users WHERE `userId`=?"
 
         db.query(q, [userId], (err, data)=>{
