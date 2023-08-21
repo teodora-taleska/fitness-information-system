@@ -81,6 +81,7 @@ const Register = () => {
 
   const handleConfirmTransaction = async e => {
     e.preventDefault()
+    setShowConfirmationPopup(false)
 
     if (!passMatch){
       setShowPassPopup(true);
@@ -272,8 +273,8 @@ const Register = () => {
         <div className="popup">
           <div className="popup-content">
             <p>Are you sure you want to proceed with the transaction?</p>
-            <button onClick={handleConfirmTransaction}>YES</button>
-            <button onClick={() => setShowConfirmationPopup(false)}>CANCEL</button>
+            <button onClick={() => setShowConfirmationPopup(false)}>Cancel</button>
+            <button onClick={handleConfirmTransaction}>Yes</button>
           </div>
         </div>
       )}

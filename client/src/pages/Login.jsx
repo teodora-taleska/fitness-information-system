@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
-import axios from "axios";
 
 const Login = () => {
     const [showErrorPopup, setShowErrorPopup] = useState(false);
@@ -11,11 +10,26 @@ const Login = () => {
         email:"",
         password:""
     });
+
+    
     const navigate = useNavigate()
 
-    const {currentUser} = useContext(AuthContext);
-    // console.log(currentUser)
     const {login} = useContext(AuthContext)
+
+    const handleGuest = async e => {
+        const guest = {
+            email:"guest@gmail.com",
+            password: "vvv"
+        }
+        try {
+            await login(guest)
+            navigate("/guest")
+           
+            
+        } catch (err) {
+            setError(err)
+        }
+    }
 
     const handleChange = e => {
         setInputs((prev) =>
@@ -49,7 +63,7 @@ const Login = () => {
             
             
                 <form className="form-m">
-                <Link to="/guest"><i className="guest-link"> Enter as a guest</i></Link>
+                <Link onClick={handleGuest}><i className="guest-link"> Enter as a guest</i></Link>
                     <h1>Fitness Information System</h1>
                     <p>We help you save your valuable time by consolidating all the information from one fitness center in one place. 
                     </p>

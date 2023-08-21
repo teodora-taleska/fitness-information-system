@@ -8,8 +8,44 @@ import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
 
 const Event = () => {
+    const {currentUser} = useContext(AuthContext)
     const[event, setEvent] = useState([])
     const [date, setDate] = useState(null)
+
+    const [guest, setGuest] = useState(false)
+    const [showGuestPopup, setShowGuestPopup] = useState(false)
+
+    const [showPopup, setShowPopup] = useState(false)
+    const [loading, setLoading] = useState(false)
+    
+    const handleUser = () => {
+        if (currentUser.role === "employee" || currentUser.role === "member"){
+            setGuest(false)
+        } else{
+           setGuest(true) 
+        }
+        
+    }
+
+    useEffect(() =>{
+        handleUser();
+
+        if (showPopup){
+            setLoading(true);
+            // Simulate an asynchronous operation
+            setTimeout(()=>{
+                setLoading(false)
+            }, 3000); // Simulate a 3-second delay
+        }
+    }, [showPopup])
+
+    const handleReservation = () => {
+        if (guest) {
+            setShowGuestPopup(true)
+        } else {
+            setShowPopup(true)
+        }
+    }
 
         
     const getText = (html) => {
@@ -22,7 +58,6 @@ const Event = () => {
     const eventId = location.pathname.split("/")[2]
     const navigate = useNavigate()
 
-    const {currentUser} = useContext(AuthContext)
 
     useEffect(()=>{
         const fetchData = async () => {
@@ -77,9 +112,40 @@ const Event = () => {
                 <p><FiCalendar className="icon"/> Date: {date}</p>
                 <p><FiMapPin className="icon"/> Place: {event.place} </p>
                 <p className="descr">{getText(event.descr)}</p>
-                <button className="reserve">RESERVE A SLOT</button>
+
+
+                <button className="reserve" onClick={handleReservation}>RESERVE A SLOT</button>
            </div>
            <Menu cat={event.cat}/>
+
+           {showGuestPopup && (
+                <div className="popup">
+                    <div className="popup-content">
+                        <p>Before making a reservation for attendance at the event, it is necessary to complete the registration process.</p>
+                        <div className="buttons">
+                            <button onClick={() => setShowGuestPopup(false)}>Cancel</button>
+                            <Link className="link" to="/register"><button >Register</button></Link>
+                        </div>
+                        
+                    </div>
+                </div>
+           )}
+
+            {showPopup && (
+                <div className="popup">
+                    {loading ? (
+                        <div className="loading-overlay">
+                            <div className="loading-circle"></div>
+                            <p>Loading...</p>
+                        </div>
+                    ) : (
+                        <div className="popup-content">
+                            <p>You have been successfully registered for the event.</p>
+                            <button onClick={() => setShowPopup(false)}>OK</button>
+                        </div>
+                    )}
+                </div>
+            )}
            
         </div>
     )
