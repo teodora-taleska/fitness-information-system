@@ -21,7 +21,7 @@ const ModifyEmployee = ({adminNavClosed}) => {
                 const fetchData = async () => {
                     console.log(userId)
                     try{
-                        const res = await axios.get(`http://88.200.63.148:5067/api/employees/${userId}`);
+                        const res = await axios.get(`http://88.200.63.148:5068/api/employees/${userId}`);
                         setEmployee(res.data);
                         
                     }catch (err) {

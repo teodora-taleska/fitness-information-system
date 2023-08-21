@@ -62,7 +62,7 @@ const Event = () => {
     useEffect(()=>{
         const fetchData = async () => {
             try{
-                const res = await axios.get(`http://88.200.63.148:5067/api/events/${eventId}`);
+                const res = await axios.get(`http://88.200.63.148:5068/api/events/${eventId}`);
                 setEvent(res.data);
                 const d = new Date(res.data.date)
                 const year = d.getUTCFullYear();
@@ -83,7 +83,7 @@ const Event = () => {
 
     const handleDelete = async () =>{
         try{
-            const res = await axios.delete(`http://88.200.63.148:5067/api/events/${eventId}`)
+            const res = await axios.delete(`http://88.200.63.148:5068/api/events/${eventId}`)
             navigate("/events/?cat=gym")
         }catch (err) {
             console.log(err)

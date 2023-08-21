@@ -44,7 +44,7 @@ const AddEmployee = ({adminNavClosed}) => {
         e.preventDefault()
         
         try{
-            const res = await axios.post("http://88.200.63.148:5067/api/employees", inputs)
+            const res = await axios.post("http://88.200.63.148:5068/api/employees", inputs)
             if (res.status === 200) {
                 setShowConfirmation(true)
             } 

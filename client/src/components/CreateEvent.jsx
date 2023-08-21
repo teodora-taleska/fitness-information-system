@@ -48,7 +48,7 @@ const CreateEvent = () => {
         }))
 
         try{
-            const res = await axios.post("http://88.200.63.148:5067/api/events", inputs)
+            const res = await axios.post("http://88.200.63.148:5068/api/events", inputs)
             console.log(res)
 
         }catch(err){

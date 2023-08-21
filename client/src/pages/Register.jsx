@@ -90,7 +90,7 @@ const Register = () => {
     }
     
     try{
-      const res = await axios.post("http://88.200.63.148:5067/api/auth/register", inputs)
+      const res = await axios.post("http://88.200.63.148:5068/api/auth/register", inputs)
       console.log(res)
       if (res.data === "User has been created!"){
         setShowSuccessPopup(true);

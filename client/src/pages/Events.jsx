@@ -17,7 +17,7 @@ const Events = () => {
     useEffect(()=>{
         const fetchData = async () => {
             try{
-                const res = await axios.get(`http://88.200.63.148:5067/api/events${cat}`);
+                const res = await axios.get(`http://88.200.63.148:5068/api/events${cat}`);
                 setEvents(res.data);
                 
             }catch (err) {

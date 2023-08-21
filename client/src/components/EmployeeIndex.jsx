@@ -18,7 +18,7 @@ const EmployeeIndex = ({adminNavClosed}) => {
     useEffect(()=>{
         const fetchData = async () => {
             try{
-                const res = await axios.get(`http://88.200.63.148:5067/api/employees`);
+                const res = await axios.get(`http://88.200.63.148:5068/api/employees`);
                 setEmployees(res.data);
                 
             }catch (err) {
@@ -31,7 +31,7 @@ const EmployeeIndex = ({adminNavClosed}) => {
     const handleDelete = async () =>{
         console.log(id)
         try{
-            await axios.delete(`http://88.200.63.148:5067/api/employees/${id}`)
+            await axios.delete(`http://88.200.63.148:5068/api/employees/${id}`)
             navigate("/get-employee")
         }catch (err) {
             console.log(err)
