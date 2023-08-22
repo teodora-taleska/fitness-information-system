@@ -6,7 +6,7 @@ export const AuthContext = createContext()
 
 export const AuthContextProvider = ({children}) =>{
     const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("user") || null))
-    const PORT = process.env.PORT || 5065
+    const PORT = process.env.PORT || 5067
     const login = async(inputs) => {
         const res =await axios.post(`http://88.200.63.148:${PORT}/api/auth/login`, inputs)
         setCurrentUser(res.data)

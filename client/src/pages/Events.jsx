@@ -10,7 +10,7 @@ const Events = () => {
     const [catOpen, setCatOpen] = useState(false)
     
     const[events, setEvents] = useState([])
-    const PORT = process.env.PORT || 5065
+    const PORT = process.env.PORT || 5067
 
     const cat = useLocation().search
 

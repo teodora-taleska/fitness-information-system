@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 const Menu = ({cat}) => {
     const[events, setEvents] = useState([])
-    const PORT = process.env.PORT || 5065
+    const PORT = process.env.PORT || 5067
    
     useEffect(()=>{
         const fetchData = async () => {

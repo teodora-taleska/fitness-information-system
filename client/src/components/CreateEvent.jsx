@@ -17,7 +17,7 @@ const CreateEvent = () => {
     const [img, setImg] = useState("")
     const [cat, setCat] = useState('')
     const [capacity, setCapacity] = useState(0)
-    const PORT = process.env.PORT || 5065
+    const PORT = process.env.PORT || 5067
 
     const[inputs, setInputs] = useState({
         title:"",

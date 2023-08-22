@@ -13,7 +13,7 @@ const Register = () => {
   const [passMatch, setPassMatch] = useState(true);
   const [password, setPassword] = useState('');
   const [pass2, setPass2] = useState('');
-  const PORT = process.env.PORT || 5065
+  const PORT = process.env.PORT || 5067
 
   const[inputs, setInputs] = useState({
     name:"",

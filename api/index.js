@@ -12,7 +12,7 @@ import eventRoutes from "./routes/events.js"
 import authRoutes from "./routes/auth.js"
 import employeeRoutes from "./routes/employees.js"
 
-const PORT = process.env.PORT || 5065
+const PORT = process.env.PORT || 5067
 
 const app = express()
 app.use(express.json())
