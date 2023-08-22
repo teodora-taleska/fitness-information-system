@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser"
-// import path from "path"
+import path from "path"
 
 import dotenv from "dotenv";
 dotenv.config({path: '.env'}); //Load the enviroment variables from .env file
@@ -16,6 +16,14 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 app.use(cookieParser())
+const __filename = new URL(import.meta.url).pathname;
+const __dirname = path.dirname(__filename);
+
+// app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.static(path.join(__dirname, "public")));
+app.use('/css', express.static(path.join(__dirname, "/public/static/css")));
+app.use('/media', express.static(path.join(__dirname, "/public/static/media")));
+app.use('/js', express.static(path.join(__dirname, "/public/static/js")));
 
 
 // Routes
