@@ -12,6 +12,8 @@ import eventRoutes from "./routes/events.js"
 import authRoutes from "./routes/auth.js"
 import employeeRoutes from "./routes/employees.js"
 
+const PORT = process.env.PORT || 5065
+
 const app = express()
 app.use(express.json())
 app.use(cors())
@@ -53,6 +55,6 @@ db.connect((err) => {
 
 
 // const port = 5000
-app.listen(5068, () => {
-    console.log("Server connected on port!:" + 5068)
+app.listen(PORT, () => {
+    console.log("Server connected on port!:" + PORT)
 })

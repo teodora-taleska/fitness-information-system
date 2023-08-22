@@ -9,7 +9,7 @@ const EmployeeIndex = ({adminNavClosed}) => {
     const {currentUser} = useContext(AuthContext)
     const[employees, setEmployees] = useState([])
     const [confirm, setConfirm] = useState(false)
-
+    const PORT = process.env.PORT || 5065
     const [id, setId] = useState(null)
 
     const navigate = useNavigate()
@@ -18,7 +18,7 @@ const EmployeeIndex = ({adminNavClosed}) => {
     useEffect(()=>{
         const fetchData = async () => {
             try{
-                const res = await axios.get(`http://88.200.63.148:5068/api/employees`);
+                const res = await axios.get(`http://88.200.63.148:${PORT}/api/employees`);
                 setEmployees(res.data);
                 
             }catch (err) {
@@ -31,7 +31,7 @@ const EmployeeIndex = ({adminNavClosed}) => {
     const handleDelete = async () =>{
         console.log(id)
         try{
-            await axios.delete(`http://88.200.63.148:5068/api/employees/${id}`)
+            await axios.delete(`http://88.200.63.148:${PORT}/api/employees/${id}`)
             navigate("/get-employee")
         }catch (err) {
             console.log(err)

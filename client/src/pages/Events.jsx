@@ -10,6 +10,7 @@ const Events = () => {
     const [catOpen, setCatOpen] = useState(false)
     
     const[events, setEvents] = useState([])
+    const PORT = process.env.PORT || 5065
 
     const cat = useLocation().search
 
@@ -17,7 +18,7 @@ const Events = () => {
     useEffect(()=>{
         const fetchData = async () => {
             try{
-                const res = await axios.get(`http://88.200.63.148:5068/api/events${cat}`);
+                const res = await axios.get(`http://88.200.63.148:${PORT}/api/events${cat}`);
                 setEvents(res.data);
                 
             }catch (err) {

@@ -17,6 +17,7 @@ const CreateEvent = () => {
     const [img, setImg] = useState("")
     const [cat, setCat] = useState('')
     const [capacity, setCapacity] = useState(0)
+    const PORT = process.env.PORT || 5065
 
     const[inputs, setInputs] = useState({
         title:"",
@@ -48,7 +49,7 @@ const CreateEvent = () => {
         }))
 
         try{
-            const res = await axios.post("http://88.200.63.148:5068/api/events", inputs)
+            const res = await axios.post(`http://88.200.63.148:${PORT}/api/events`, inputs)
             console.log(res)
 
         }catch(err){

@@ -9,6 +9,7 @@ const ModifyEmployee = ({adminNavClosed}) => {
     const [showConfirmation, setShowConfirmation] = useState(false)
     const [showError, setShowError] = useState(false)
     const [employee, setEmployee] = useState([])
+    const PORT = process.env.PORT || 5065
 
     const location = useLocation()
     const userId = location.pathname.split("/")[2]
@@ -21,7 +22,7 @@ const ModifyEmployee = ({adminNavClosed}) => {
                 const fetchData = async () => {
                     console.log(userId)
                     try{
-                        const res = await axios.get(`http://88.200.63.148:5068/api/employees/${userId}`);
+                        const res = await axios.get(`http://88.200.63.148:${PORT}/api/employees/${userId}`);
                         setEmployee(res.data);
                         
                     }catch (err) {

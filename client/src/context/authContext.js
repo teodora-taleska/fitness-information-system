@@ -3,17 +3,18 @@ import {createContext, useEffect, useState} from "react"
 
 export const AuthContext = createContext() 
 
+
 export const AuthContextProvider = ({children}) =>{
     const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("user") || null))
-
+    const PORT = process.env.PORT || 5065
     const login = async(inputs) => {
-        const res =await axios.post("http://88.200.63.148:5068/api/auth/login", inputs)
+        const res =await axios.post(`http://88.200.63.148:${PORT}/api/auth/login`, inputs)
         setCurrentUser(res.data)
         return res.data.role
     }
 
     const logout = async() => {
-        const res =await axios.post("http://88.200.63.148:5068/api/auth/logout")
+        const res =await axios.post(`http://88.200.63.148:${PORT}/api/auth/logout`)
         setCurrentUser(null)
     }
 

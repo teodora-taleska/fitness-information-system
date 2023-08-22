@@ -13,6 +13,7 @@ const Register = () => {
   const [passMatch, setPassMatch] = useState(true);
   const [password, setPassword] = useState('');
   const [pass2, setPass2] = useState('');
+  const PORT = process.env.PORT || 5065
 
   const[inputs, setInputs] = useState({
     name:"",
@@ -90,7 +91,7 @@ const Register = () => {
     }
     
     try{
-      const res = await axios.post("http://88.200.63.148:5068/api/auth/register", inputs)
+      const res = await axios.post(`http://88.200.63.148:${PORT}/api/auth/register`, inputs)
       console.log(res)
       if (res.data === "User has been created!"){
         setShowSuccessPopup(true);

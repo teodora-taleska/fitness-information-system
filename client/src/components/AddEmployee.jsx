@@ -5,6 +5,7 @@ import { AuthContext } from "../context/authContext";
 
 const AddEmployee = ({adminNavClosed}) => {
     const {currentUser} = useContext(AuthContext)
+    const PORT = process.env.PORT || 5065
 
     const [showConfirmation, setShowConfirmation] = useState(false)
     const [showError, setShowError] = useState(false)
@@ -44,7 +45,7 @@ const AddEmployee = ({adminNavClosed}) => {
         e.preventDefault()
         
         try{
-            const res = await axios.post("http://88.200.63.148:5068/api/employees", inputs)
+            const res = await axios.post(`http://88.200.63.148:${PORT}/api/employees`, inputs)
             if (res.status === 200) {
                 setShowConfirmation(true)
             } 

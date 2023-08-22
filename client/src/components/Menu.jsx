@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 
 const Menu = ({cat}) => {
     const[events, setEvents] = useState([])
+    const PORT = process.env.PORT || 5065
    
     useEffect(()=>{
         const fetchData = async () => {
             try{
-                const res = await axios.get(`http://88.200.63.148:5067/api/events/?cat=${cat}`);
+                const res = await axios.get(`http://88.200.63.148:${PORT}/api/events/?cat=${cat}`);
                 const recEvents = res.data.slice(1, 4); // Get elements from index 1 to index 3 (4th element is excluded)
                 setEvents(recEvents);
             }catch (err) {
