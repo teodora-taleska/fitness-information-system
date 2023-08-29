@@ -30,16 +30,6 @@ const AddEmployee = ({adminNavClosed}) => {
           }))
         }
 
-    const deleteInputs = () => {
-        setInputs({
-            name:"",
-            surname:"",
-            email:"",
-            password:"",
-            role:"",
-            phoneNumber:""
-        })
-    }
 
     const handleSubmit = async e =>{
         e.preventDefault()
@@ -95,7 +85,7 @@ const AddEmployee = ({adminNavClosed}) => {
                     <input type="text" id="phone" name="phoneNumber" placeholder="Ex. 071292929" required
                         onChange={handleChange}/>
 
-                    <button onClick={handleSubmit}>Save</button>
+                    <button className="empform" onClick={handleSubmit}>Save</button>
                     
                 </form>
 
@@ -105,8 +95,7 @@ const AddEmployee = ({adminNavClosed}) => {
                         <p>Employee has been successfully created!</p>
                         <button onClick={() => {
                             setShowConfirmation(false);
-                            navigate("/get-employee")
-                            deleteInputs();
+                            // navigate("/get-employee")
                             }}>OK</button>
                     </div>
                 </div>

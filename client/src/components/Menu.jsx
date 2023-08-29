@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { FiMapPin } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Menu = ({cat}) => {
     const[events, setEvents] = useState([])
@@ -27,7 +29,8 @@ const Menu = ({cat}) => {
                     <div className="event" key={event.eventId}>
                         <img src={event.img} alt="" />
                         <h3>{event.title}</h3>
-                        <button>Read More</button>
+                        <p><FiMapPin className="icon"/> Place: {event.place}</p>
+                        <Link className="link" to={`/event/${event.eventId}`}><button>Read More</button></Link>
                     </div>
                 ))}
             

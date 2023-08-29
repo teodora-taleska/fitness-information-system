@@ -93,7 +93,7 @@ const Event = () => {
 
     return(
         <div className="single-event">
-           
+           <div className="main">
            <div className="content">
                 <img src={event?.img} alt="" />
                 
@@ -118,6 +118,10 @@ const Event = () => {
                 <button className="reserve" onClick={handleReservation}>RESERVE A SLOT</button>
            </div>
            <Menu cat={event.cat}/>
+           </div>
+           <footer className="footer">
+                <p>&copy; 2023 FusionFit Fitness Center. All rights reserved.</p>
+            </footer>
 
            {showGuestPopup && (
                 <div className="popup">

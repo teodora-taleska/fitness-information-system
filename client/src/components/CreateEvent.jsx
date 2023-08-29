@@ -6,6 +6,7 @@ import ReactQuill from "react-quill"
 import 'react-quill/dist/quill.snow.css'
 import { useLocation } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
+import Footer from "./Footer";
 
 const CreateEvent = () => {
     const {currentUser} = useContext(AuthContext);
@@ -34,23 +35,31 @@ const CreateEvent = () => {
 
     const handleSubmit = async  e =>{
         e.preventDefault()
-
-        setInputs(prev => ({
-            ...prev, 
-            title: title, 
-            descr: value, 
-            date: date, 
-            place: location, 
-            capacity: capacity,
-            img: img, 
-            cat: cat, 
-            postDate:  moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"), 
-            userId: currentUser.userId
-        }))
-
+    setInputs(prev => ({
+                    ...prev, 
+                    title: title, 
+                    descr: value, 
+                    date: date, 
+                    place: location, 
+                    capacity: capacity,
+                    img: img, 
+                    cat: cat, 
+                    postDate:  moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"), 
+                    userId: currentUser.userId
+                }))
         try{
+           
             const res = await axios.post(`http://88.200.63.148:${PORT}/api/events`, inputs)
             console.log(res)
+            // Clear the input fields after successful submission
+            setValue('');
+            setTitle('');
+            setLocation('');
+            setDate(null);
+            setImg('');
+            setCat('');
+            setCapacity('');
+            
 
         }catch(err){
             console.log(err)
@@ -60,7 +69,8 @@ const CreateEvent = () => {
 
     return(
         <div className="write">
-           <div className="content">
+            
+           <div className="content"><h2>Create event</h2>
              <input type="text" placeholder="Title" value={title} onChange={e => setTitle(e.target.value)}/>
              <input type="text" placeholder="Location" value={location} onChange={e => setLocation(e.target.value)}/>
              <input type="datetime-local" placeholder="Date"  value={date}
@@ -119,8 +129,8 @@ const CreateEvent = () => {
                 </div>
 
             </div>
-            <input type="number" name="capacity" placeholder="Enter capacity"  onChange={e => setCapacity(e.target.value)}/>
-            <input className="url" onChange={e => setImg(e.target.value)} type="text" id="img" placeholder="Image URL" />
+            <input  type="number" name="capacity" placeholder="Enter capacity"  onChange={e => setCapacity(e.target.value)}/>
+            <input  onChange={e => setImg(e.target.value)} type="text" id="img" placeholder="Image URL" />
            
 
             <div className="item">
@@ -137,7 +147,11 @@ const CreateEvent = () => {
                     <button onClick={handleSubmit}>Publish</button>
                 </div>
             </div>
-</div>
+            <footer className="footer">
+                <p>&copy; 2023 FusionFit Fitness Center. All rights reserved.</p>
+            </footer>
+        </div>
+            
         </div>
     )
 }

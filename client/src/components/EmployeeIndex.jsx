@@ -9,7 +9,7 @@ const EmployeeIndex = ({adminNavClosed}) => {
     const {currentUser} = useContext(AuthContext)
     const[employees, setEmployees] = useState([])
     const [confirm, setConfirm] = useState(false)
-    const PORT = process.env.PORT || 5065
+    const PORT = process.env.PORT || 5067
     const [id, setId] = useState(null)
 
     const navigate = useNavigate()
@@ -90,7 +90,7 @@ const EmployeeIndex = ({adminNavClosed}) => {
                     <div className="popup-content">
                         <p>Are you sure you want to delete this employee?</p>
                         <button onClick={() => setConfirm(false)}>Cancel</button>
-                        <button onClick={() => {
+                        <button className="yes" onClick={() => {
                             setConfirm(false);
                             handleDelete()
                             }}>Yes</button>

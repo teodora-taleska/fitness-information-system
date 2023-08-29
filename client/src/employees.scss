@@ -22,6 +22,11 @@
             display: flex;
             flex-direction: column;
 
+            form .empform{
+                margin: 0;
+                border-radius: 0;
+            }
+
             .header{
                 display: flex;
                 flex-direction: column;
@@ -43,7 +48,7 @@
                 background-color: rgb(255, 255, 255);
 
                 .h{
-                    padding-left: 70px;
+                    padding-left: 200px;
                     padding-right: 70px;
                     padding-top: 70px;
                     background-color: rgb(255, 255, 255);
@@ -114,14 +119,15 @@
 
                 form{
                     display: flex;
+                    padding-left: 200px;
+                    padding-right: 200px;
                     flex-direction: column;
-                    padding-left: 70px;
-                    padding-right: 70px;
                     padding-top: 50px;
 
                     input{
                         border: 1px solid rgb(156, 202, 202);
                         padding: 12px;
+                        font-size: 1rem;
                         color: rgb(109, 106, 106);
                         margin-top: 13px;
                     }
@@ -146,14 +152,23 @@
             
         }
 
+
         .employee.closed{
             animation: slideOut3 0.3s ease forwards;
         }
 
          /*  To make the admin nav slide out when the screen is less than or equal to 690*/
-         @media (max-width: 690px) {
+         @media (max-width: 750px) {
             .employee{
               animation: slideOut3 0.3s ease forwards;
+
+              .content{
+                 .h, form{
+                    padding-left: 70px;
+                    padding-right: 70px;
+              }
+              }
+             
             }
           }
     }

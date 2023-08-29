@@ -76,6 +76,15 @@ html{
       .popup-content button:hover{
         background-color: rgb(240, 232, 232);
       }
+      .popup-content .yes:hover{
+        background-color: rgb(255, 49, 49);
+        color: white;
+    }
+
+    .popup-content button:hover{
+      background-color: teal;
+      color: white;
+    }
 
 
       // BUTTONS
@@ -327,7 +336,7 @@ html{
               }
 
               .popup-content {
-
+        
                 p{
                   text-align: center;
                 }
@@ -870,6 +879,7 @@ html{
           top: 70px;
           left: 0;
           right: 0;
+          z-index: -1;
        
           
 
@@ -997,7 +1007,7 @@ html{
           /* Style for the logout button */
             .logout-button {
                 position: relative;
-                margin-top: 90px;
+                margin-top: 200px;
                 bottom: 10px;
                 left: 43%;
                 background-color: transparent;

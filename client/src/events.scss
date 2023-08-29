@@ -14,7 +14,7 @@ $sectionPadding: 140px;
 $editBtnColor: rgb(60, 60, 60);
 $mobPadding: 35px;
 $eventBackground: linear-gradient(to bottom, rgb(245, 236, 236), rgb(216, 221, 221));
-$coolRed: rgb(211, 4, 4);
+$coolRed: #290202;
 
 .app{
 
@@ -30,7 +30,7 @@ $coolRed: rgb(211, 4, 4);
             margin: 0;
             // padding: $sectionPadding;
             // padding-top: 20px;
-            color: white;
+            color: $coolRed;
             background: $eventBackground;
            
             
@@ -50,7 +50,7 @@ $coolRed: rgb(211, 4, 4);
                   left: 0;
                   width: 100%;
                   height: 100%;
-                  background-color: rgba(81, 71, 71, 0.837); /* Adjust the transparency here */
+                  background-color: rgba(213, 203, 203, 0.837); /* Adjust the transparency here */
                   backdrop-filter: blur(2px); 
                 }
                              
@@ -87,20 +87,22 @@ $coolRed: rgb(211, 4, 4);
                             justify-content: space-around;
                             p{
                                 margin: 14px;
-                                width: 100px;
+                                width: 130px;
                                 text-align: center;
                             }
                         }
 
                         .two{
                             display: flex;
+                            gap: 2px;
                             justify-content: space-around;
                         }
                         .two span{
+                            color: white;
                            margin: 3px;
                             background-color: $coolRed;
-                            padding: 25px;
-                            font-size: 2rem;
+                            padding: 17px;
+                            font-size: 3.8rem;
                             border-radius: 10px;
                             box-shadow: 2px 2px 5px rgba(16, 15, 15, 0.813);
                         }
@@ -209,6 +211,7 @@ $coolRed: rgb(211, 4, 4);
                     box-shadow: 2px 2px 5px rgb(160, 157, 157);
                     color: black;
                     padding: 6px;
+                    width: 400px;
                     
 
                     .content{
@@ -277,10 +280,24 @@ $coolRed: rgb(211, 4, 4);
             color: rgb(0, 0, 0);
             display: flex;
             gap: 50px;
-            padding: $sectionPadding;
             padding-bottom: 30px;
-            padding-top: 10px;
             background: $eventBackground;
+            display: flex;
+            flex-direction: column;
+
+            
+            .main{
+                padding-left: $sectionPadding;
+                padding-right: $sectionPadding;
+                padding-top: 40px;
+                display: flex;
+                gap: 30px;
+
+                .event .link{
+                    text-decoration: none;
+                }
+            }
+
             
             button{
                 background-color: white;
@@ -460,6 +477,7 @@ $coolRed: rgb(211, 4, 4);
         }
 
         .write{
+
             position: absolute;
             top: 70px;
             left: 0;
@@ -468,19 +486,30 @@ $coolRed: rgb(211, 4, 4);
             padding: $sectionPadding;
             
             padding-bottom: 60px;
-            padding-top: 30px;
+            padding-top: 50px;
             display: flex;
             gap: 20px;
+
+            
+
+            .footer{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+            }
 
             .content{
                 flex:5;
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
+                margin-bottom: 60px;
 
                 input{
                     padding: 13px;
                     border: 1px solid lightgray;
+                    font-size: 1rem;
                 }
 
                 .editorContainer{
@@ -496,10 +525,13 @@ $coolRed: rgb(211, 4, 4);
                 }
             }
             .menu{
+                margin-top: 83px;
                 flex: 2;
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
+                margin-bottom: 60px;
+
 
                 .item{
                     border: 1px solid lightgray;
@@ -523,12 +555,19 @@ $coolRed: rgb(211, 4, 4);
                     .buttons{
                         display: flex;
                         justify-content: space-between;
+                        height: 60px;
                         :first-child{
                             cursor: pointer;
                             padding: 3px 5px;
                             background-color: white;
                             color: teal;
                             border: 1px solid teal;
+                        }
+                        :first-child:hover{
+                            background-color: rgb(228, 241, 241);
+                        }
+                        :last-child:hover{
+                            background-color: rgb(3, 81, 81);
                         }
                         :last-child{
                             cursor: pointer;
@@ -537,6 +576,7 @@ $coolRed: rgb(211, 4, 4);
                             color: white;
                         }
                     }
+                   
                     .cat{
                         display: flex;
                         align-items: center;
@@ -544,12 +584,18 @@ $coolRed: rgb(211, 4, 4);
                         color: teal;
                     }
                 }
+                input{
+                    padding: 13px;
+                    border: 1px solid lightgray;
+                    font-size: 1rem;
+                }
             }
         }
             @media (max-width: 510px) {
-                .single-event , .events-div .main-event,
-                .events-div .middle, .events-div .events, .write, {
-                    padding: $mobPadding;
+                 .events-div .main-event,
+                .events-div .middle, .events-div .events, .write, .single-event .main{
+                    padding-left: $mobPadding;
+                    padding-right: $mobPadding;
 
                     .dropdown{
                         position: absolute;
@@ -563,7 +609,19 @@ $coolRed: rgb(211, 4, 4);
                     }
                 }
 
-                
+                .single-event .main {
+                        display: flex;
+                        flex-direction: column;
+                }
+
+                .events-div .main-event{
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+                    .content{
+                        margin-top: 130px;
+                    }
+                }
                 
                 .write, .single-event{
                     flex-direction: column;
@@ -580,7 +638,7 @@ $coolRed: rgb(211, 4, 4);
                 
             
             }
-        }
+    }
             
     }
 

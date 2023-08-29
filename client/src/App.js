@@ -25,7 +25,6 @@ import Home from "./pages/Home";
 import Events from "./pages/Events";
 import Contact from "./pages/Contact";
 import Shop from "./pages/Shop";
-import EventsGuest from "./pages/EventsGuest";
 import Event from "./components/Event";
 import CreateEvent from "./components/CreateEvent";
 import Footer from "./components/Footer";
@@ -155,12 +154,16 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "/shop",
-        element:<Shop />
+        path: "/guest/events",
+        element:<Events />
       },
       {
-        path: "/events",
-        element:<EventsGuest />
+        path: "/guest/event/:id",
+        element: <Event />
+      },
+      {
+        path :"/guest/shop",
+        element: <Shop />
       }
     ]
   },

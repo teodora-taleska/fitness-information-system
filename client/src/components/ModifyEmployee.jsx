@@ -8,8 +8,15 @@ const ModifyEmployee = ({adminNavClosed}) => {
     const {currentUser} = useContext(AuthContext)
     const [showConfirmation, setShowConfirmation] = useState(false)
     const [showError, setShowError] = useState(false)
-    const [employee, setEmployee] = useState([])
     const PORT = process.env.PORT || 5067
+    const[employee, setEmployee] = useState({
+        name:"",
+        surname:"",
+        email:"",
+        password:"",
+        role:"",
+        phoneNumber:""
+      })
 
     const location = useLocation()
     const userId = location.pathname.split("/")[2]
@@ -47,7 +54,7 @@ const ModifyEmployee = ({adminNavClosed}) => {
         e.preventDefault()
         
         try{
-           // const res = await axios.put(`http://88.200.63.148:5067/api/employees/${userId}`, employee)
+                // const res = await axios.put(`http://88.200.63.148:5067/api/employees/${userId}`, employee)
                 setShowConfirmation(true)        
 
         }catch(err){
@@ -96,7 +103,7 @@ const ModifyEmployee = ({adminNavClosed}) => {
                     <input type="text" id="phone" name="phoneNumber" placeholder="Ex. 071292929" required
                        value={employee.phoneNumber} onChange={handleChange}/>
 
-                    <button onClick={handleUpdate}>Update</button>
+                    <button className="empform" onClick={handleUpdate}>Update</button>
                     
                 </form>
 

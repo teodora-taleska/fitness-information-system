@@ -121,6 +121,7 @@ const Events = () => {
                         {/* <p><FiCalendar className="icon"/>{event.date}</p> */}
                         <p><FiMapPin className="icon"/>{event.place}</p>
                         <Link className="link" to={`/event/${event.eventId}`}><button>Read More</button></Link>
+
                     </div>
                 </div>
             ))}

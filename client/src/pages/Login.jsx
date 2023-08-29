@@ -19,7 +19,7 @@ const Login = () => {
     const handleGuest = async e => {
         const guest = {
             email:"guest@gmail.com",
-            password: "vvv"
+            password: "guest123"
         }
         try {
             await login(guest)
