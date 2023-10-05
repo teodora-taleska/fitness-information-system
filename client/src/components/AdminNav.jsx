@@ -1,8 +1,10 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import { Link } from "react-router-dom";
-import { FiLogOut, FiX, FiChevronsRight } from 'react-icons/fi'
+import { FiLogOut, FiX, FiChevronsRight, FiBarChart, FiFileText, FiUserX, FiUsers, FiActivity, FiPieChart, FiCalendar, FiShoppingBag, FiBarChart2, FiSettings, FiLock, FiClipboard, FiHelpCircle, FiShield } from 'react-icons/fi'
+import { AuthContext } from "../context/authContext.js";
 
 const AdminNav = ({ adminNavClosed, onToggle}) => {
+    const {logout} = useContext(AuthContext)
     const [editPagesOpen, setEditPagesOpen] = useState(false);
     const [manageEmployeesOpen, setManageEmployeesOpen] = useState(false);
     
@@ -40,9 +42,15 @@ const AdminNav = ({ adminNavClosed, onToggle}) => {
             <ul className="nav-list" >
                 <li className="nav-item"
                 >
-                    <a href="#" onClick={toggleEditPages}>Edit pages</a>
+                    <li className="nav-item">
+                    <a><FiBarChart /> Dashboard Overview</a>
+                    </li>
+                    <li className="nav-item">
+                    <a><FiUsers/> User Management</a>
+                    </li>
+                    <a href="#" onClick={toggleEditPages}><FiFileText/> Content Management</a>
                     <ul className={`dropdown ${editPagesOpen ? 'active' : ''}`}>
-                        <li><Link to="/admin">Home</Link></li>
+                        <li><Link to="/edit-home">Home</Link></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Activities</a></li>
                         <li><a href="#">Events</a></li>
@@ -55,11 +63,11 @@ const AdminNav = ({ adminNavClosed, onToggle}) => {
 
                 <li className="nav-item" 
               >
-                    <a href="#" onClick={toggleManageEmployees}>Manage employees</a>
+                    <a href="#" onClick={toggleManageEmployees}><FiUsers/> Employee Management</a>
                     <ul className={`dropdown ${manageEmployeesOpen ? 'active' : ''}`}>
-                        <li><Link to="/admin/add-employee">Add employee account</Link></li>
-                        <li><Link to="/admin/modify-employee">Modify employee account</Link></li>
-                        <li><Link to="/admin/delete-employee">Delete employee account</Link></li>
+                        <li><Link to="/get-employee">Employee index</Link></li>
+                        <li><Link to="/add-employee">Add employee account</Link></li>
+                        {/* <li><Link to="/modify-employee">Modify employee account</Link></li> */}
 
                     </ul>
                 
@@ -67,16 +75,31 @@ const AdminNav = ({ adminNavClosed, onToggle}) => {
                 </li>
 
                 <li className="nav-item">
-                    <a>Manage events</a>
+                    <a><FiCalendar/> Event Management</a>
                 </li>
                 <li className="nav-item">
-                    <a>Manage activities</a>
+                    <a><FiPieChart/> Activity Management</a>
                 </li>
                 <li className="nav-item">
-                    <a>Manage products</a>
+                    <a><FiShoppingBag/> Shop Management</a>
                 </li>
                 <li className="nav-item">
-                    <a>Manage memberships</a>
+                    <a><FiBarChart2/> Reports and Analytics</a>
+                </li>
+                <li className="nav-item">
+                    <a><FiSettings/> Configuration</a>
+                </li>
+                <li className="nav-item">
+                    <a><FiLock/> Access Control</a>
+                </li>
+                <li className="nav-item">
+                    <a><FiClipboard/> Audit Logs</a>
+                </li>
+                <li className="nav-item">
+                    <a><FiHelpCircle/> Help and Support</a>
+                </li>
+                <li className="nav-item">
+                    <a><FiShield/> Security Management</a>
                 </li>
 
                 
@@ -84,7 +107,7 @@ const AdminNav = ({ adminNavClosed, onToggle}) => {
 
         
 
-            <Link to="/"><div className="logout-button">
+            <Link to="/"><div onClick={logout} className="logout-button">
                 <FiLogOut />    
             </div></Link>
         </div>

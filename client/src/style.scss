@@ -10,18 +10,82 @@ $buttonBorderRadius: 0.3125rem; /* Convert 5px to rem */
 $buttonFontSize: 0.8rem;
 $buttonHoverFS: 0.9rem;
 $highlight: rgb(247, 54, 54);
-$sectionPadding: 35px;
+$sectionPadding: 140px;
+$editBtnColor: rgb(60, 60, 60);
+$mobPadding: 35px;
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Nanum+Gothic&display=swap');
 
 html{
     font-size: 15px; /* Set the root font size */
-    background-color: black;
-    font-family: 'Archivo Black', sans-serif; 
-    
+    background-color: white;
+    // font-family: 'Archivo Black', sans-serif; 
+    font-family: 'Nanum Gothic', sans-serif;
 }
+
 
 .app{
 
     .container{
+
+      /* Styles for the popup container */
+      .popup {
+        z-index: 1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Styles for the popup content */
+      .popup-content {
+        background-color: rgb(0, 0, 0);
+        color: white;
+        width: 300px;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0px 2px 10px rgba(59, 58, 58, 0.2);
+
+        p{
+          text-align: center;
+        }
+      }
+
+      /* Styles for buttons inside the popup */
+      .popup-content button {
+        width: 130px;
+        margin: 10px;
+        padding: 10px 20px;
+        border: none;
+        background-color: #ffffff; 
+        color: black;
+        border-radius: 4px;
+        cursor: pointer;
+        
+       
+      }
+.popup-content .buttons{
+  gap: 10px;
+}
+
+      .popup-content button:hover{
+        background-color: rgb(240, 232, 232);
+      }
+      .popup-content .yes:hover{
+        background-color: rgb(255, 49, 49);
+        color: white;
+    }
+
+    .popup-content button:hover{
+      background-color: teal;
+      color: white;
+    }
+
 
       // BUTTONS
       .buttons{
@@ -42,6 +106,10 @@ html{
         
         //LOGIN & REGISTER
         .auth{
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
             display: flex;
             align-items: center;
             justify-content: flex-start;
@@ -51,9 +119,10 @@ html{
             background-repeat: no-repeat;
             background-position: center center;
             color: white;
-           
+            
+                    
             p{
-                text-align: justify;
+                text-align: left;
             }
             .bottom{
                 text-align: center;
@@ -68,8 +137,10 @@ html{
             }
 
             .form-m{
+              z-index: 1;
+              height: 90vh;
                 display: flex;
-                justify-content: center;
+                justify-content: flex-start;
                 flex-direction: column;
                 padding: 3.125rem; 
                 padding-right: 10%;
@@ -81,9 +152,49 @@ html{
                 gap: 1.25rem; 
                 height: 80%;
                 
-            }
+                .llink{
+                  color: white;
+                  text-decoration: none;
+                }
 
+                h1{
+                  margin-top: 50px;
+                }
+
+                p{
+                  margin-bottom: 90px;
+                }
+
+                .login-b{
+                  margin-top: 160px;
+                }
+
+                .membership-option{
+                  height: 120px;  
+                  padding: 20px;
+
+                  p{
+                    margin-top: 50px;
+                  }
+                }
+              
+            }   
+            
+            
            
+             .link{
+              float: right;
+            }
+            .guest{
+              position: absolute;
+              top: 90px;
+            }
+           
+
+           button{
+               margin-left: 0;
+               margin-right: 0;
+           }
 
             
             
@@ -110,7 +221,7 @@ html{
                 justify-content: space-evenly;
             }
              i{
-                color: rgba(228, 157, 157, 0.801);
+                color: rgba(255, 255, 255, 0.801);
                 font-size: 0.75rem; 
                 
              }
@@ -118,7 +229,14 @@ html{
              i:hover{
                 color: white;
              }
+
+             .next{
+              margin-left: 2px;
+             }
            
+            .back{
+              margin-right: 2px;
+            }
 
             .next, .back{
                 background-color: rgb(252, 236, 236);
@@ -133,6 +251,9 @@ html{
                 transition: background-color 0.2s, color 0.2s, font-size 0.2s;
             }
            
+            .login{
+              margin-right: 3px;
+            }
               
             .login{
                 background-color: $buttonsHover;
@@ -180,7 +301,7 @@ html{
               }
               
               .progress-dots .active {
-                background-color: $lightPink;        
+                background-color: $buttonsFontColor;        
                 box-shadow: 1px 1px 2px rgb(148, 115, 115);
               }
               
@@ -213,58 +334,31 @@ html{
                 background-color: rgba(255, 255, 255, 0.75);
                 color: $buttonsFontColor;
               }
-              
-/* Styles for the popup container */
-.popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Styles for the popup content */
-  .popup-content {
-    background-color: $buttonsFontColor;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Styles for buttons inside the popup */
-  .popup-content button {
-    margin: 10px;
-    padding: 10px 20px;
-    border: none;
-    background-color: #ffffff; 
-    color: $buttonsFontColor;
-    border-radius: 4px;
-    cursor: pointer;
-  }
 
-  .popup-content button:hover{
-    background-color: rgba(255, 255, 255, 0.784);
-  }
-  
-  /* Close button style */
-  .popup-content .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.2rem;
-    color: #666;
-    cursor: pointer;
-  }
+              .popup-content {
+        
+                p{
+                  text-align: center;
+                }
+              }
+              
   
         
         }
+         /* Pseudo-element for the overlay effect */
+         .auth::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.349); /* Adjust the alpha value for darkness */
+          backdrop-filter: blur(10px); /* Adjust the blur amount */
+          pointer-events: none; /* Allowing clicks to reach underlying content */
+        }
 
-        /* Adjust padding for phone below 930px*/
+        /* Adjust padding for phone below 750*/
         @media (max-width: 750px) {
             .auth{
                 justify-content: center;
@@ -296,7 +390,9 @@ html{
             justify-content: space-between;
             padding: 10px 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            padding-left: 25px;
+            padding-left: $sectionPadding;
+            padding-right: 127px;
+            height: 55px;
         
 
             /* Style the logo */
@@ -310,7 +406,10 @@ html{
             .nav-links {
             list-style: none;
             display: flex;
+            padding-right: 0;
+            
             }
+            
 
             .nav-links li {
             margin: 0 15px;
@@ -340,7 +439,7 @@ html{
             /* Style the dropdown menus */
             .dropdown {
                 position: absolute;
-                top: 56.4px;
+                top: 65px;
                 right: 0;
                 background-color: white;
                 border: 1px solid #ccc;
@@ -349,10 +448,16 @@ html{
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 z-index: 1;
                 width: 250px;
-                margin-right: 20px; 
+                margin-right: $sectionPadding; 
                 // padding: 10px;
                 
-
+              .nav-open{
+                display: flex;
+                flex-direction: column;
+                margin-left: 0;
+                padding-left: 0;
+               
+              }
 
                 div , .d{
 
@@ -385,6 +490,13 @@ html{
                 .user{
                   margin-left: 7px;
                 }
+            }
+
+            @media (max-width: 500px) {
+                .dropdown{
+                  margin-right: 30px;
+                  width: 200px;
+                }              
             }
             
            
@@ -459,12 +571,23 @@ html{
               }
         }
 
+        @media (max-width: 500px) {
+          .navbar{
+            padding-left: $mobPadding;
+            padding-right: 23px;
+          }
+        }
         
     
          
 
         // HOME
         .home, .edit-home{
+          position: absolute;
+          top: 70px;
+          left: 0;
+          right: 0;
+          
             background-color: white;
             display: flex;
             justify-content: flex-start;
@@ -525,6 +648,7 @@ html{
                 width: 100%;
                 height: 100%;
                 background-color: rgba(0, 0, 0, 0.717);
+                backdrop-filter: blur(3px); 
                 // z-index: 1;
 
                 .scroll-indicator {
@@ -584,7 +708,8 @@ html{
               height: 20%;
               background-color: #290202;
               color: white;
-              padding: $sectionPadding;
+              padding-left: $sectionPadding; 
+              padding-right: $sectionPadding;
               align-items: center;
               justify-content: center;
 
@@ -598,7 +723,8 @@ html{
               padding: 50px 0;
               background-color: #121212;
               color: white;
-              padding: $sectionPadding;
+              padding-left: $sectionPadding;
+              padding-right: $sectionPadding;
               height: 100%;
               
              
@@ -674,6 +800,7 @@ html{
               .image-container.passive{
                 opacity: 0;
               }
+
             }}
 
           
@@ -683,7 +810,8 @@ html{
               background-image: url("joinUs.jpg");
               background-size:cover;
               background-repeat: no-repeat;
-              padding: $sectionPadding;
+              padding-left: $sectionPadding;
+              padding-right: $sectionPadding;
               // opacity: 0.9;
               filter: brightness(1);
               align-items: flex-start;
@@ -731,6 +859,13 @@ html{
             mix-blend-mode: multiply; /* Blend mode to darken */
           }
 
+          @media (max-width: 500px) {
+            .header .content, .about-section, .gallery-section, .joinus-section{
+              padding-left: $mobPadding;
+              padding-right: $mobPadding;
+            }            
+          }
+
         }
 
         // SHOP
@@ -740,6 +875,11 @@ html{
           height: 100vh;
           display: flex;
           flex-direction: column;
+          position: absolute;
+          top: 70px;
+          left: 0;
+          right: 0;
+          z-index: -1;
        
           
 
@@ -771,6 +911,13 @@ html{
 
          
         }
+
+        @media (max-width: 500px) {
+          .shop .main{
+            padding-left: $mobPadding;
+            padding-right: $mobPadding;
+          }            
+        }
         .shop::before {
           content: "";
           position: absolute;
@@ -801,7 +948,7 @@ html{
         z-index: 2;
         width: 250px;
         height: 100vh;
-        background-color: #333;
+        background-color: teal;
         color: #fff;
         position: fixed;
         top: 0;
@@ -811,6 +958,8 @@ html{
         .nav-header {
             padding: 20px;
             text-align: center;
+            margin-top: 25px;
+            margin-bottom: 30px;
           }
           
           .nav-list {
@@ -820,19 +969,21 @@ html{
           
           .nav-item > a {
             display: block;
-            padding: 10px 20px;
+            padding: 12px 20px;
+            padding-left: 32px;
             color: #fff;
             text-decoration: none;
             transition: background-color 0.3s;
           }
           
           .nav-item > a:hover {
-            background-color: #555;
+            background-color: rgb(37, 161, 161);
+            cursor: pointer;
           }
           
           .dropdown {
             display: none;
-            background-color: #444;
+            background-color: rgb(34, 155, 155);
             list-style-type: none;
             padding: 0;
           }
@@ -843,20 +994,21 @@ html{
           
           .dropdown li > a {
             display: block;
-            padding: 10px 30px;
+            padding: 10px 60px;
             color: #fff;
             text-decoration: none;
             transition: background-color 0.3s;
           }
           
           .dropdown li > a:hover {
-            background-color: #555;
+            background-color: rgb(39, 141, 141);
           }
 
           /* Style for the logout button */
             .logout-button {
-                position: absolute;
-                bottom: 25px;
+                position: relative;
+                margin-top: 200px;
+                bottom: 10px;
                 left: 43%;
                 background-color: transparent;
                 border: none;
@@ -870,6 +1022,14 @@ html{
                 display: flex;
                 align-items: center;
                 justify-content: center;
+            }
+
+            .nav-item {
+              a{
+                display: flex;
+                align-items: center;
+                gap: 6px;
+              }
             }
             
             
@@ -887,7 +1047,7 @@ html{
             }
             .close:hover, .logout-button:hover{
               border-radius: 15px;
-              background-color: #555;
+              background-color: rgb(37, 161, 161);
             }
             animation: slideIn 0.3s ease-out forwards;
     }
@@ -918,7 +1078,7 @@ html{
     /* For the components in the admin page*/
     @keyframes slideOut2 {
       from {
-        margin-left: 250px;
+        margin-left: 245px;
       }
       to {
         margin-left: 0px;
@@ -1000,7 +1160,8 @@ html{
               border-bottom-left-radius: 0;
               border-top-right-radius: 12px;
               border-bottom-right-radius: 12px;
-              background-color: white;
+              background-color: teal;
+              color: white;
               font-size: 15px;
               // transition: width 0.5s ease;
               p{
@@ -1049,7 +1210,20 @@ html{
             }
           }
 
+          .edit-home{
+            position: absolute;
+            left: 0px;
+            top: 70px;
+            right: 0px;
+            bottom: 0px;
+          }
 
+          .navbar{
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+          }
           /*  To make the admin nav slide out when the screen is less than or equal to 690*/
           @media (max-width: 690px) {
             .admin-nav{

@@ -1,9 +1,28 @@
 import { db } from "../index.js"
 import bcrypt from "bcryptjs"
+import jwt from "jsonwebtoken"
 
 
 export const login = (req, res) =>{
-    res.json("login")
+    // CHECK USER
+    const q = "SELECT * FROM users WHERE email = ?"
+    db.query(q, [req.body.email], (err,data)=>{
+        if (err) return res.json(err);
+        // If we don't have any user in the db with this email
+        if (data.length === 0) return res.status(404).json("User not found!")
+
+        // If there is no error and our user exists -->  check password
+        const isPassCorrect = bcrypt.compareSync(req.body.password, data[0].password)
+
+        if (!isPassCorrect) return res.status(400).json("Wrong email or password!")
+
+        // jsonwebtoken
+        const token = jwt.sign({ userId: data[0].userId}, "jwtkey")
+        const {password, ...other} = data[0]
+        res.cookie("access_token", token, {
+            httpOnly:true
+        }).status(200).json(other)
+    })
 }
 
 export const register = (req, res) => {
@@ -30,12 +49,17 @@ export const register = (req, res) => {
         ]
 
         db.query(q, [values], (err,data)=>{
-            if (err) return res.json('ERROR [query]: ' + err);
+            if (err) return res.json('Please enter valid values');
             return res.status(200).json("User has been created!")
+            
         })
     })
 }
 
 export const logout = (req, res) => {
-    res.json("logout")
+	res.clearCookie("access_token", {
+	sameSite:"none", 
+	secure:true
+	}).status(200).json("User has been logged out.")
+    
 }
