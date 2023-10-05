@@ -1,92 +1,71 @@
-# Fitness Information Center
+# Fitness Information System
+## Project Overview
 
+The Fitness Information System, is a comprehensive web and mobile application developed to enhance the membership experience at fitness centers. It aims to streamline operations within fitness centers, improve member visibility, and facilitate efficient communication between members and professionals.
 
+### Technologies Used
 
-## Getting started
+- **Frontend**:
+  - React: A JavaScript library for building the user interface.
+  - Sass: A CSS preprocessor for styling.
+  
+- **Backend**:
+  - Node.js: A JavaScript runtime environment for the server-side development.
+  - Express.js: A web application framework for Node.js.
+  - MySQL: A relational database management system.
+  
+- **Other Tools**:
+  - Git: A version control system for tracking changes in the codebase.
+  - GitHub: A platform for hosting and collaborating on Git repositories.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Functional Requirements
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+1. **User Registration and Authentication:**
+   - User authentication and access control mechanisms ensure data security and privacy.
+   - The system allows guest access to the main page, activities, upcoming events, and the e-shop. Only registered members with fitness packages can log in.
 
-## Add your files
+2. **Activity and Event Management:**
+   - Fitness center administrators can add, modify, and delete various activities, events, and users.
+   - Supports up to six different user roles: member, coach, nutritionist, physiotherapist, manager, and administrator.
+   - Members can view upcoming events and register for them through the system.
+   - The system displays the availability of slots for each event.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+3. **Membership Management:**
+   - Members can view their membership status, including the number of tickets left.
+   - Allows members to extend their membership online with an online payment system.
+   - Provides an option for members to view and update their personal information.
+   - Users can make appointments for activities at least 4 days in advance and cancel them at least 2 days before the scheduled session.
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/f1037/fitness-information-center.git
-git branch -M main
-git push -uf origin main
-```
+4. **Communication and Messaging:**
+   - Facilitates seamless communication between members, coaches, nutritionists, physiotherapists, and administrators.
+   - Members can request contact details of trainers and nutritionists through the system.
+   - Supports messaging features for notifications and reminders about upcoming events or schedule changes.
 
-## Integrate with your tools
+5. **Gym Occupancy Tracking:**
+   - Provides real-time information on the number of people present in the gym at any given time.
+   - Members can check gym occupancy before planning their workout sessions.
 
-- [ ] [Set up project integrations](https://gitlab.com/f1037/fitness-information-center/-/settings/integrations)
+6. **Online Store Integration:**
+   - Integrates an embedded online store for the fitness center's sportswear and protein shop.
+   - Members can browse and purchase products online using the same secure online payment system used for membership extensions.
 
-## Collaborate with your team
+## Getting Started
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+Follow these steps to get the project up and running on your local machine:
 
-## Test and Deploy
+1. Clone the repository to your local machine:
 
-Use the built-in continuous integration in GitLab.
+   ```bash
+   git clone https://github.com/teodora-taleska/fitness-is.git
+   
+2. Install the required dependencies for the project by running:
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+   ```bash
+   npm install
 
-***
+3. Configure the database connection in the project settings, specifying your MySQL database credentials.
 
-# Editing this README
+4. Run the project locally:
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+   ```bash
+   npm start
