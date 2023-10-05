@@ -13,10 +13,7 @@ const Register = () => {
   const [passMatch, setPassMatch] = useState(true);
   const [password, setPassword] = useState('');
   const [pass2, setPass2] = useState('');
-<<<<<<< HEAD
-=======
   const PORT = process.env.PORT || 5067
->>>>>>> b265ed0617dceee4f6f43271a1c1583eb0226558
 
   const[inputs, setInputs] = useState({
     name:"",
@@ -67,34 +64,6 @@ const Register = () => {
     }
   };
 
-<<<<<<< HEAD
-  const handleNext1 = async e => {
-    e.preventDefault()
-
-    if (!passMatch){
-      setShowPassPopup(true);
-
-      return;
-    }
-    
-    try{
-      const res = await axios.post("http://88.200.63.148:5066/api/auth/register", inputs)
-      console.log(res)
-      setShowErrorPopup(true)
-      setError(res.data)
-       if (res.data==="User has been created!" && part < 3) {
-        setPart(part + 1);
-      }
-    } catch(err){
-      setShowErrorPopup(true);
-      setError(err.response.data);
-
-    }
-     
-  }
-
-=======
->>>>>>> b265ed0617dceee4f6f43271a1c1583eb0226558
   const handleBack = () => {
     if (part > 1) {
       setPart(part - 1);
