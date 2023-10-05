@@ -30,7 +30,7 @@ const Events = () => {
 
 
     // Define the event date (year, month [0-based], day, hour, minute, second)
-    const eventDate = new Date(2023, 8, 20, 11, 0, 0); // September 20, 2023, 11:00:00
+    const eventDate = new Date(2023, 11, 20, 11, 0, 0); // November 20, 2023, 11:00:00
 
     // Calculate the time difference in milliseconds between now and the event date
     const now = new Date();
