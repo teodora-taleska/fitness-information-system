@@ -66,9 +66,8 @@ const Login = () => {
                 <form className="form-m">
                 <Link onClick={handleGuest}><i className="link guest"> Enter as a guest</i></Link>
                     <h1>Fitness Information System</h1>
-                    <p className="intro">We help you save your valuable time by consolidating all the information from one fitness center in one place. 
+                    <p className="intro">We help you save your valuable time by consolidating all the information from one fitness center in one place.
                     </p>
-
                     <div className={`input-container  ${err ? 'error' : ''} `}>
                         <FaUser className="icon"/>
                         <input type="email" placeholder="Email" name="email"  onChange={handleChange}/>

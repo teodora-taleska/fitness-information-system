@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios"
-import { FaEnvelope, FaLock, FaLockOpen, FaPhone, FaUser } from 'react-icons/fa6';
+import { FaCalendar, FaCalendarCheck, FaCreditCard, FaDyalog, FaEnvelope, FaGooglePay, FaIdCard, FaInfo, FaLocationPin, FaLock, FaLockOpen, FaPaypal, FaPhone, FaSdCard, FaShield, FaUser } from 'react-icons/fa6';
 
 const Register = () => {
   const [part, setPart] = useState(1);
@@ -130,7 +130,7 @@ const Register = () => {
                 <span className={part === 2 ? 'active' : ''}></span>
                 <span className={part === 3 ? 'active' : ''}></span>
               </div>
-              <h3>Create an account</h3>
+              <h3>Create An Account</h3>
               {/* Form fields */}
              
              <div className='input-container'>
@@ -195,7 +195,7 @@ const Register = () => {
               <span className={part === 3 ? 'active' : ''}></span>
             </div>
 
-            <h3>Choose your best plan</h3>
+            <h3>Choose Your Best Plan</h3>
             {/* Membership options */}
             <div className='mem'>
 
@@ -251,23 +251,40 @@ const Register = () => {
               <span className={part === 3 ? 'active' : ''}></span>
             </div>
 
+            <h3>Enter Your Payment Information</h3>
             {/* Payment form fields */}
-            <label htmlFor="cardNumber">Card Number:</label>
-            <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter your card number" required/>
+            <div className='input-container'>
+              <p>Card Number*</p>
+              <FaCreditCard/>            
+              <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter your card number" required/>
+            </div>
+            
+            <div className='input-container'>
+              <p>Expiration Date*</p>
+              <FaCalendarCheck />      
+              <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YY" required/>
+            </div>
 
-            <label htmlFor="expirationDate">Expiration Date:</label>
-            <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YY" required/>
+            <div className='input-container'>
+              <p>CVV*</p>
+              <FaShield />            
+              <input type="text" id="cvv" name="cvv" placeholder="Enter CVV" required/>
+            </div>
 
-            <label htmlFor="cvv">CVV:</label>
-            <input type="text" id="cvv" name="cvv" placeholder="Enter CVV" required/>
+            <div className='input-container'>
+              <p>Cardolder Name*</p>
+              <FaUser/>            
+              <input type="text" id="cardholderName" name="cardholderName" placeholder="Enter cardholder's name" required/>
+            </div>
+            
+            <div className='input-container'>
+              <p>Billing Address*</p>
+              <FaLocationPin />            
+              <input type="text" id="billingAddress" name="billingAddress" placeholder="Enter billing address" required/>
+            </div>
 
-            <label htmlFor="cardholderName">Cardholder's Name:</label>
-            <input type="text" id="cardholderName" name="cardholderName" placeholder="Enter cardholder's name" required/>
 
-            <label htmlFor="billingAddress">Billing Address:</label>
-            <input type="text" id="billingAddress" name="billingAddress" placeholder="Enter billing address" required/>
-
-            <div className='buttons'>
+            <div className='buttons payment'>
                 <button onClick={handleBack} className='back'>Back</button>
                 <button onClick={handleDone} className="login">Submit</button>
             </div>

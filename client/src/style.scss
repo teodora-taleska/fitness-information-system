@@ -15,6 +15,7 @@ $editBtnColor: rgb(60, 60, 60);
 $mobPadding: 35px;
 $error: rgb(247, 44, 44);
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Nanum+Gothic&display=swap');
+$lightYellow: rgb(253, 253, 113);
 
 html{
     font-size: 15px; /* Set the root font size */
@@ -70,22 +71,18 @@ html{
         
        
       }
-.popup-content .buttons{
-  gap: 10px;
-}
+      .popup-content .buttons{
+        gap: 10px;
+      }
+
+      .popup-content .yes:hover{
+          background-color: rgb(255, 49, 49);
+          color: white;
+      }
 
       .popup-content button:hover{
-        background-color: rgb(240, 232, 232);
+        background-color: $lightYellow;
       }
-      .popup-content .yes:hover{
-        background-color: rgb(255, 49, 49);
-        color: white;
-    }
-
-    .popup-content button:hover{
-      background-color: teal;
-      color: white;
-    }
 
 
       // BUTTONS
@@ -131,10 +128,10 @@ html{
                 color: rgba(255, 255, 255, 0.809);
             }
             h1{
-                text-align: left;
+                text-align: center;
                 font-size: 1.875rem;
                 color: rgb(255, 255, 255);
-                margin-bottom: 0;
+                margin-bottom: 11vh;
             }
 
             .form-m{
@@ -151,6 +148,10 @@ html{
                 
                 width: 30%;
                 gap: 1.25rem;
+
+                .payment{
+                  margin-top: 95px;
+                }
                 
                 .llink{
                   color: white;
@@ -162,7 +163,8 @@ html{
                 }
 
                 .intro{
-                  margin-bottom: 90px;
+                  text-align: left;
+                  margin: 0;
                 }
 
                 .login-b{
@@ -215,7 +217,7 @@ html{
               p{
                 margin: 0;
                 padding: 0;
-                margin-bottom: 7px;
+                margin-bottom: 12px;
               }
             }
 
