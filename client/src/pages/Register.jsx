@@ -169,7 +169,7 @@ const Register = () => {
               
                
                 
-                <p className='bottom'>You alredy have an account?<Link to="/" className='llink'><i>Login</i></Link></p>
+                <p className='bottom'>You already have an account? <Link to="/" className='llink'><i>Login</i></Link></p>
              
           </div>
         );

@@ -3,7 +3,7 @@ $buttonsFontColor: rgb(146, 41, 41);
 $membership:rgb(148, 63, 63);
 $lightPink: rgb(235, 142, 142);
 $borderMenu: 1px solid rgba(128, 128, 128, 0.531);
-$buttonsHover: rgba(146, 41, 41, 0.708);;
+$buttonsHover: rgba(219, 196, 196, 0.466);;
 $buttonPadding: 1.125rem; /* Convert 18px to rem */
 $buttonMargin: 0.3125rem; /* Convert 5px to rem */
 $buttonBorderRadius: 0.3125rem; /* Convert 5px to rem */
@@ -13,6 +13,7 @@ $highlight: rgb(247, 54, 54);
 $sectionPadding: 140px;
 $editBtnColor: rgb(60, 60, 60);
 $mobPadding: 35px;
+$error: rgb(247, 44, 44);
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Nanum+Gothic&display=swap');
 
 html{
@@ -138,7 +139,7 @@ html{
 
             .form-m{
               z-index: 1;
-              height: 90vh;
+              height: 80vh;
                 display: flex;
                 justify-content: flex-start;
                 flex-direction: column;
@@ -149,8 +150,7 @@ html{
                 padding-left: 10%;
                 
                 width: 30%;
-                gap: 1.25rem; 
-                height: 80%;
+                gap: 1.25rem;
                 
                 .llink{
                   color: white;
@@ -161,13 +161,14 @@ html{
                   margin-top: 50px;
                 }
 
-                p{
+                .intro{
                   margin-bottom: 90px;
                 }
 
                 .login-b{
-                  margin-top: 160px;
+                  position: relative;
                 }
+
 
                 .membership-option{
                   height: 120px;  
@@ -196,15 +197,46 @@ html{
                margin-right: 0;
            }
 
+            input{
+              background-color: rgba(255, 255, 255, 0);
+              border: none;
+              color: white;
+              margin-left: 5px;
+              padding-left: 2px;
+              margin-bottom: 3px;
+              font-size: 1rem;
+              width: 90%;
+            }
+
+            input:focus{
+              outline: none;
+            }
             
-            
-            input {
+            .input-container {
               padding: 0.3125rem;
               border: none;
               border-bottom: 0.125rem solid rgba(255, 255, 255, 0.436);
               background-color: rgba(255, 255, 255, 0);
               color: rgba(255, 255, 255, 0.902);
               font-size: 0.8125rem;
+            }
+
+            .last{
+              margin: 0;
+              padding: 0;
+              display: flex;
+              justify-content: center;
+              font-size: 0.8rem;
+              height: 120px;
+              align-items: flex-end;
+              .link{
+                color: rgb(207, 197, 197);
+                text-decoration: none;
+                font-style: italic; 
+              }
+              .link:hover{
+                color: white;
+              }
             }
       
             br {
@@ -342,6 +374,19 @@ html{
                 }
               }
               
+              .error-msg{
+                position: relative;
+                margin: 0;
+                padding: 0;
+                font-size: 0.9rem;
+                font-style: italic;
+                color: $error;
+              }
+
+              .error {
+                border-color: $error;
+                color: $error;
+              }
   
         
         }
