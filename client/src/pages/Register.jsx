@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios"
+import { FaEnvelope, FaLock, FaLockOpen, FaPhone, FaUser } from 'react-icons/fa6';
 
 const Register = () => {
   const [part, setPart] = useState(1);
@@ -132,40 +133,50 @@ const Register = () => {
               <h3>Create an account</h3>
               {/* Form fields */}
              
-                <label htmlFor='nameInput'>First name*</label>
-                <input type="text" id="nameInput" name="name" placeholder="Enter your first name" required
-                    onChange={handleChange}/>
+             <div className='input-container'>
+                <p>First name*</p>
+                <FaUser/> <input type="text" id="nameInput" name="name" placeholder="Enter your first name" required
+                                    onChange={handleChange}/>
+             </div>
                 
-
-                <label htmlFor='surname'>Last name*</label>
+             <div  className='input-container'>
+              <p>Last name*</p>
+              <FaUser />
                 <input type="text" id="surname" name="surname" placeholder="Enter your last name" required
+                                    onChange={handleChange}/>
+             </div>
+                
+            <div className='input-container'>
+              <p>Email*</p>
+              <FaEnvelope />
+               <input type="email" id="email" name="email" placeholder="Enter your e-mail" required
                     onChange={handleChange}/>
-
-                <label htmlFor='email'>E-mail*</label>
-                <input type="email" id="email" name="email" placeholder="Enter your e-mail" required
+            </div>
+                
+            <div className='input-container'>
+              <p>Password*</p>
+              <FaLockOpen />
+              <input type="password" id="password" name="password" placeholder="Enter password" required
                     onChange={handleChange}/>
+            </div>   
 
-                <label htmlFor='pass'>Password*</label>
-                <input type="password" id="password" name="password" placeholder="Enter password" required
-                    onChange={handleChange}/>
-
-              {/* <label htmlFor='role'>Role*</label>
-                <input type="text" id="role" name="role" placeholder="Enter role: ex. Member" required
-                    onChange={handleChange}/> */}
-
-                <label htmlFor='pass2'>Confirm password*</label>
+            <div className={`input-container  ${err ? 'error' : ''} `}>
+                <p>Confirm password*</p>
+                <FaLock />
                 <input type="password" id="pass2" name="pass2" placeholder="Confirm your password" required
-                    onChange={handleChange}/>
+                        onChange={handleChange}/>
+            </div>
 
-                
-                
-
-                <label htmlFor='phone'>Phone number*</label>
-                <input type="text" id="phone" name="phoneNumber" placeholder="Ex. 071292929" required
+             <div className='input-container'>
+              <p>Phone number*</p>
+              <FaPhone />
+               <input type="text" id="phone" name="phoneNumber" placeholder="Ex. 071292929" required
                     onChange={handleChange}/>
+             </div>       
+            
                 
                   
-                   <button onClick={handleNext} className="next">Next</button>
+              <button onClick={handleNext} className="next one">Next</button>
               
                
                 
