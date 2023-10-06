@@ -199,33 +199,33 @@ const Register = () => {
             {/* Membership options */}
             <div className='mem'>
 
-           
-            <div
-              className={`membership-option ${selectedMembership === 'basic' ? 'selected' : ''}`}
-              onClick={() => handleMembershipClick('basic')}
-            >
-              <h3>Basic Membership</h3>
-              <p>Unlimited gym entrances<br/>
-              Cost: 30 €/month</p>
-            </div>
+            
+              <div
+                className={`membership-option ${selectedMembership === 'basic' ? 'selected' : ''}`}
+                onClick={() => handleMembershipClick('basic')}
+              >
+                <h3>Basic Membership</h3>
+                <p>Unlimited gym entrances<br/>
+                Cost: 30 €/month</p>
+              </div>
 
-            <div
-              className={`membership-option ${selectedMembership === 'standard' ? 'selected' : ''}`}
-              onClick={() => handleMembershipClick('standard')}
-            >
-              <h3>Standard Membership</h3>
-              <p>15 tickets plus unlimited gym entrances<br/>
-              Cost: 45 €/month</p>
-            </div>
+              <div
+                className={`membership-option ${selectedMembership === 'standard' ? 'selected' : ''}`}
+                onClick={() => handleMembershipClick('standard')}
+              >
+                <h3>Standard Membership</h3>
+                <p>15 tickets plus unlimited gym entrances<br/>
+                Cost: 45 €/month</p>
+              </div>
 
-            <div
-              className={`membership-option ${selectedMembership === 'premium' ? 'selected' : ''}`}
-              onClick={() => handleMembershipClick('premium')}
-            >
-              <h3>Premium Membership</h3>
-              <p>30 tickets plus unlimited gym entrances<br/>
-              Cost: 60 €/month</p>
-            </div>
+              <div
+                className={`membership-option ${selectedMembership === 'premium' ? 'selected' : ''}`}
+                onClick={() => handleMembershipClick('premium')}
+              >
+                <h3>Premium Membership</h3>
+                <p>30 tickets plus unlimited gym entrances<br/>
+                Cost: 60 €/month</p>
+              </div>
             </div>
 
             <div className='buttons'>
