@@ -14,6 +14,7 @@ const Event = () => {
 
     const [guest, setGuest] = useState(false)
     const [showGuestPopup, setShowGuestPopup] = useState(false)
+    const [showDeletePopup, setShowDeletePopup] = useState(false)
 
     const [showPopup, setShowPopup] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -102,7 +103,7 @@ const Event = () => {
                     {currentUser.userId === event.userId &&
                     (<div>
                         <Link ><FiEdit className="edit-b"/></Link>
-                        <FiTrash className="edit-b" onClick={handleDelete}/>
+                        <FiTrash className="edit-b" onClick={()=> setShowDeletePopup(true)}/>
                     </div>)
                     }
                 </div>
@@ -150,6 +151,19 @@ const Event = () => {
                         </div>
                     )}
                 </div>
+            )}
+
+            {showDeletePopup  && (
+                <div className="popup">
+                <div className="popup-content">
+                    <p>Are you sure you want to delete this event?</p>
+                    <div className="buttons">
+                        <button onClick={() => setShowDeletePopup(false)}>Cancel</button>
+                        <button onClick={handleDelete}>Delete</button>
+                    </div>
+                    
+                </div>
+            </div>
             )}
            
         </div>
