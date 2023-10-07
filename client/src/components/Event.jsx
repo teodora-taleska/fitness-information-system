@@ -104,7 +104,7 @@ const Event = () => {
                     (<div>
                         <Link ><FiEdit className="edit-b"/></Link>
                         <FiTrash className="edit-b" onClick={()=> setShowDeletePopup(true)}/>
-                    </div>)
+                     </div>)
                     }
                 </div>
                 <h1>{event.title}</h1>
@@ -165,6 +165,7 @@ const Event = () => {
                 </div>
             </div>
             )}
+
            
         </div>
     )
