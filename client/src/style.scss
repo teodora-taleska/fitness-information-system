@@ -16,6 +16,7 @@ $mobPadding: 35px;
 $error: rgb(247, 44, 44);
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Nanum+Gothic&display=swap');
 $lightYellow: rgb(253, 253, 113);
+$yellowHover: rgb(236, 236, 121);
 
 html{
     font-size: 15px; /* Set the root font size */
@@ -997,7 +998,7 @@ html{
         z-index: 2;
         width: 250px;
         height: 100vh;
-        background-color: teal;
+        background-color: rgb(0, 0, 0);
         color: #fff;
         position: fixed;
         top: 0;
@@ -1026,13 +1027,14 @@ html{
           }
           
           .nav-item > a:hover {
-            background-color: rgb(37, 161, 161);
+            background-color: $lightYellow;
+            color: black;
             cursor: pointer;
           }
           
           .dropdown {
             display: none;
-            background-color: rgb(34, 155, 155);
+            background-color: rgb(40, 40, 38);
             list-style-type: none;
             padding: 0;
           }
@@ -1050,13 +1052,14 @@ html{
           }
           
           .dropdown li > a:hover {
-            background-color: rgb(39, 141, 141);
+            background-color: $yellowHover;
+            color: black;
           }
 
           /* Style for the logout button */
             .logout-button {
                 position: relative;
-                margin-top: 200px;
+                margin-top: 100px;
                 bottom: 10px;
                 left: 43%;
                 background-color: transparent;
@@ -1096,7 +1099,7 @@ html{
             }
             .close:hover, .logout-button:hover{
               border-radius: 15px;
-              background-color: rgb(37, 161, 161);
+              background-color: rgb(74, 79, 79);
             }
             animation: slideIn 0.3s ease-out forwards;
     }
@@ -1209,8 +1212,8 @@ html{
               border-bottom-left-radius: 0;
               border-top-right-radius: 12px;
               border-bottom-right-radius: 12px;
-              background-color: teal;
-              color: white;
+              background-color: black;
+              color:white;
               font-size: 15px;
               // transition: width 0.5s ease;
               p{
