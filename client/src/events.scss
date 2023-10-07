@@ -15,6 +15,8 @@ $editBtnColor: rgb(60, 60, 60);
 $mobPadding: 35px;
 $eventBackground: linear-gradient(to bottom, rgb(245, 236, 236), rgb(216, 221, 221));
 $coolRed: #290202;
+$lightYellow: rgb(253, 253, 113);
+$yellowHover: rgb(247, 247, 60);
 
 .app{
 
@@ -143,12 +145,12 @@ $coolRed: #290202;
                           padding: 10px 20px 10px 20px;  
                           list-style: none;
                           background-color: rgb(255, 255, 255);
-                          color: teal;
+                          color: black;
                           
                           
                         }
                         li:hover{
-                            background-color: rgb(236, 231, 231);
+                            background-color: rgb(245, 239, 239);
                         }
 
                         .f {
@@ -178,8 +180,8 @@ $coolRed: #290202;
                     flex: 1;
                 }
                 button{
-                    background-color: teal;
-                    color: white;
+                    background-color: $lightYellow;
+                    color: rgb(0, 0, 0);
                     font-size: 1rem;
                     display: flex;
                     padding:10px;
@@ -192,7 +194,7 @@ $coolRed: #290202;
                     }
                 }
                 button:hover{
-                    background-color: rgb(2, 82, 82);
+                    background-color: $yellowHover;
                 }
 
             }
@@ -321,11 +323,11 @@ $coolRed: #290202;
             }
 
             .reserve{
-                background-color: teal;
-                color: white;
+                background-color: $lightYellow;
+                color: black;
             }
             .reserve:hover{
-                background-color: rgb(4, 99, 99);
+                background-color: $yellowHover;
             }
                 
             .content{
@@ -438,7 +440,7 @@ $coolRed: #290202;
                         width: 40px;
                         height: 40px;
                         border: 4px solid #f3f3f3;
-                        border-top: 4px solid teal;
+                        border-top: 4px solid $lightYellow;
                         border-radius: 50%;
                         animation: spin 2s linear infinite;
                     }
