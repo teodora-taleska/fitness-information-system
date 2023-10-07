@@ -48,7 +48,7 @@ const EmployeeIndex = ({adminNavClosed}) => {
 
             <div className="content">
                 <div className="h">
-                    <h1>Employees</h1>
+                    <h1>Employee Index</h1>
                     <button onClick={()=> navigate("/add-employee")}>Add employee <FiPlus/></button>
                 </div>
 

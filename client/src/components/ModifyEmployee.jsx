@@ -72,8 +72,8 @@ const ModifyEmployee = ({adminNavClosed}) => {
             </div>
 
             <div className="content">
-                <div className="h">
-                    <h1>Employees</h1>
+                <div className="h e">
+                    <h1>Modify Account</h1>
                 </div>
 
                 <form>
