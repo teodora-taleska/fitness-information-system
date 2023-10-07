@@ -562,19 +562,20 @@ $yellowHover: rgb(247, 247, 60);
                             cursor: pointer;
                             padding: 3px 5px;
                             background-color: white;
-                            color: teal;
-                            border: 1px solid teal;
+                            color: $lightPink;
+                            border: 1px solid $lightPink;
                         }
                         :first-child:hover{
-                            background-color: rgb(228, 241, 241);
+                            background-color: $lightPink;
+                            color: white;
                         }
                         :last-child:hover{
-                            background-color: rgb(3, 81, 81);
+                            background-color: rgb(208, 119, 133);
                         }
                         :last-child{
                             cursor: pointer;
                             padding: 3px 5px;
-                            background-color: teal;
+                            background-color: $lightPink;
                             color: white;
                         }
                     }
@@ -583,7 +584,7 @@ $yellowHover: rgb(247, 247, 60);
                         display: flex;
                         align-items: center;
                         gap: 2px;
-                        color: teal;
+                        color: rgb(121, 117, 117);
                     }
                 }
                 input{
