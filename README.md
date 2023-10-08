@@ -56,7 +56,7 @@ Follow these steps to get the project up and running on your local machine:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://gitlab.com/f1037/fitness-information-center.git
+   git clone https://github.com/teodora-taleska/fitness-information-center.git
    cd fitness-information-center
    ```
    
