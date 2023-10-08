@@ -58,6 +58,7 @@ Follow these steps to get the project up and running on your local machine:
    ```bash
    git clone https://gitlab.com/f1037/fitness-information-center.git
    cd fitness-information-center
+   ```
    
 2. Install the required dependencies for the project by running:
 
@@ -67,6 +68,7 @@ Follow these steps to get the project up and running on your local machine:
    cd ..
    cd api
    npm install
+   ```
 
 3. Configure the database connection in the project settings, specifying your MySQL database credentials.
 To configure the database connection, you'll need to create a .env file in the project's root directory. Open your favorite text editor and create a file named .env. Inside the .env file, specify your MySQL database credentials as follows, replacing the placeholders with your actual information:
@@ -83,12 +85,14 @@ To configure the database connection, you'll need to create a .env file in the p
    ```bash
    cd client
    npm start
+   ```
    
 5. Run the server:
 
     ```bash
     cd api
     npm start
+    ```
     
 6. Once both frontend and backend servers are running, you can access the application through your web browser.
 
