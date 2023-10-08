@@ -16,7 +16,7 @@ The Fitness Information System, is a comprehensive web and mobile application de
   
 - **Other Tools**:
   - Git: A version control system for tracking changes in the codebase.
-  - GitHub: A platform for hosting and collaborating on Git repositories.
+  - GitLab: A platform for hosting and collaborating on Git repositories.
 
 ## Functional Requirements
 
@@ -56,16 +56,43 @@ Follow these steps to get the project up and running on your local machine:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/teodora-taleska/fitness-is.git
+   git clone https://gitlab.com/f1037/fitness-information-center.git
+   cd fitness-information-center
    
 2. Install the required dependencies for the project by running:
 
    ```bash
+   cd client
+   npm install
+   cd ..
+   cd api
    npm install
 
 3. Configure the database connection in the project settings, specifying your MySQL database credentials.
+To configure the database connection, you'll need to create a .env file in the project's root directory. Open your favorite text editor and create a file named .env. Inside the .env file, specify your MySQL database credentials as follows, replacing the placeholders with your actual information:
+
+    ```env
+    DB_HOST=localhost
+    DB_USER=your-username
+    DB_PASSWORD=your-password
+    DB_NAME=your-database-name
+    ```
 
 4. Run the project locally:
 
    ```bash
+   cd client
    npm start
+   
+5. Run the server:
+
+    ```bash
+    cd api
+    npm start
+    
+6. Once both frontend and backend servers are running, you can access the application through your web browser.
+
+### Demo Video
+You can watch a demo of the current project version [here](https://www.youtube.com/watch?v=FcJlCWMqp9w).
+
+That's it! You've successfully set up and launched the project on your local machine. Enjoy exploring its features and functionalities.
