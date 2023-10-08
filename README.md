@@ -56,8 +56,8 @@ Follow these steps to get the project up and running on your local machine:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/teodora-taleska/fitness-information-center.git
-   cd fitness-information-center
+   git clone https://github.com/teodora-taleska/fitness-information-system.git
+   cd fitness-information-system
    ```
    
 2. Install the required dependencies for the project by running:
