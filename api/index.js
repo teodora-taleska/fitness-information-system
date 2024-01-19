@@ -44,7 +44,6 @@ export const db = mysql.createConnection({
 
 
 db.connect((err) => {
-db.connect((err) => {
   if (err) {
       console.log("ERROR: "+ err)
       return
